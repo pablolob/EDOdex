@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "Si usas este material en tu trabajo, por favor cítalo como se indica a continuación."
+type: dataset
+title: "EDOdex: Banco de ejercicios resueltos de Ecuaciones Diferenciales Ordinarias"
+abstract: >
+  Repositorio de ejercicios resueltos de EDO basado en Zill (9.ª ed.) y otros libros de referencia,
+  diseñado para estudiantes de la Universidad Nebrija, como banco de ejercicios, corpus para
+  pipelines RAG/LLM y como fuente del libro Quarto de Ecuaciones Diferenciales.
+authors:
+  - family-names: "Lobato de la Cruz"
+    given-names: "Pablo"
+    affiliation: "Universidad Nebrija"
+date-released: "2026-06-21"
+license: CC-BY-NC-SA-4.0
+repository-code: "https://github.com/pablolob/EDOdex"
+url: "https://pablobato.quarto.pub/ecuaciones-diferenciales-ordinarias/"
+keywords:
+  - ecuaciones diferenciales ordinarias
+  - EDO
+  - matemáticas
+  - banco de ejercicios
+  - educación universitaria
+  - RAG
+  - LLM
+  - Zill
+references:
+  - type: book
+    title: "Ecuaciones Diferenciales con problemas de valores en la frontera"
+    authors:
+      - family-names: "Zill"
+        given-names: "Dennis G."
+    edition: "9"
+    year: 2018

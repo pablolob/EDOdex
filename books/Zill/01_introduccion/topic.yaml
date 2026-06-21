@@ -1,0 +1,24 @@
+id: zill-9-01
+libro_id: zill-9
+numero: 1
+titulo: "Introducción a las ecuaciones diferenciales"
+subsecciones:
+  - id: "1.1"
+    titulo: "Definiciones y terminología"
+    descripcion: >
+      Concepto de ecuación diferencial ordinaria (EDO), orden, grado.
+      Clasificación: lineal vs. no lineal. Solución general, particular y singular.
+  - id: "1.2"
+    titulo: "Problemas con valores iniciales"
+    descripcion: >
+      Problema de valor inicial (PVI). Existencia y unicidad de soluciones.
+      Teorema de Picard-Lindelöf.
+  - id: "1.3"
+    titulo: "Ecuaciones diferenciales como modelos matemáticos"
+    descripcion: >
+      Construcción de modelos: crecimiento/decaimiento poblacional,
+      mezclas, circuitos eléctricos, caída libre con resistencia.
+  - id: "1.R"
+    titulo: "Repaso del capítulo 1"
+    descripcion: >
+      Ejercicios de repaso que integran los conceptos de las secciones 1.1–1.3.

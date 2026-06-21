@@ -1,0 +1,192 @@
+id: zill-9
+titulo: "Ecuaciones Diferenciales con problemas de valores en la frontera"
+autores:
+  - nombre: "Dennis G. Zill"
+    institucion: "Loyola Marymount University"
+edicion: 9
+version_metrica:
+  preparada_por: "Aly El-Iraki"
+  cargo: "Profesor Emérito, Alexandria University"
+idioma: es
+isbn: ~   # añadir cuando se confirme
+capitulos:
+  - numero: 1
+    titulo: "Introducción a las ecuaciones diferenciales"
+    carpeta: "01_introduccion"
+    pagina: 2
+    secciones:
+      - {id: "1.1", titulo: "Definiciones y terminología"}
+      - {id: "1.2", titulo: "Problemas con valores iniciales"}
+      - {id: "1.3", titulo: "Ecuaciones diferenciales como modelos matemáticos"}
+      - {id: "1.R", titulo: "Repaso del capítulo 1"}
+
+  - numero: 2
+    titulo: "Ecuaciones diferenciales de primer orden"
+    carpeta: "02_primer_orden"
+    pagina: 36
+    secciones:
+      - {id: "2.1", titulo: "Curvas solución sin una solución"}
+      - {id: "2.2", titulo: "Variables separables"}
+      - {id: "2.3", titulo: "Ecuaciones lineales"}
+      - {id: "2.4", titulo: "Ecuaciones exactas"}
+      - {id: "2.5", titulo: "Soluciones por sustitución"}
+      - {id: "2.6", titulo: "Un método numérico"}
+      - {id: "2.R", titulo: "Repaso del capítulo 2"}
+
+  - numero: 3
+    titulo: "Modelado con ecuaciones diferenciales de primer orden"
+    carpeta: "03_modelado_primer_orden"
+    pagina: 84
+    secciones:
+      - {id: "3.1", titulo: "Modelos lineales"}
+      - {id: "3.2", titulo: "Modelos no lineales"}
+      - {id: "3.3", titulo: "Modelado con sistemas de ED de primer orden"}
+      - {id: "3.R", titulo: "Repaso del capítulo 3"}
+
+  - numero: 4
+    titulo: "Ecuaciones diferenciales de orden superior"
+    carpeta: "04_orden_superior"
+    pagina: 118
+    secciones:
+      - {id: "4.1", titulo: "Teoría preliminar: Ecuaciones lineales"}
+      - {id: "4.2", titulo: "Reducción de orden"}
+      - {id: "4.3", titulo: "Ecuaciones lineales homogéneas con coeficientes constantes"}
+      - {id: "4.4", titulo: "Coeficientes indeterminados: Método de superposición"}
+      - {id: "4.5", titulo: "Coeficientes indeterminados: Método del anulador"}
+      - {id: "4.6", titulo: "Variación de parámetros"}
+      - {id: "4.7", titulo: "Ecuación de Cauchy-Euler"}
+      - {id: "4.8", titulo: "Funciones de Green"}
+      - {id: "4.9", titulo: "Solución de sistemas de ED lineales por eliminación"}
+      - {id: "4.10", titulo: "Ecuaciones diferenciales no lineales"}
+      - {id: "4.R", titulo: "Repaso del capítulo 4"}
+
+  - numero: 5
+    titulo: "Modelado con ecuaciones diferenciales de orden superior"
+    carpeta: "05_modelado_orden_superior"
+    pagina: 196
+    secciones:
+      - {id: "5.1", titulo: "Modelos lineales: Problemas con valores iniciales"}
+      - {id: "5.2", titulo: "Modelos lineales: Problemas con valores en la frontera"}
+      - {id: "5.3", titulo: "Modelos no lineales"}
+      - {id: "5.R", titulo: "Repaso del capítulo 5"}
+
+  - numero: 6
+    titulo: "Soluciones en series de ecuaciones lineales"
+    carpeta: "06_series"
+    pagina: 236
+    secciones:
+      - {id: "6.1", titulo: "Repaso de series de potencias"}
+      - {id: "6.2", titulo: "Soluciones respecto a puntos ordinarios"}
+      - {id: "6.3", titulo: "Soluciones en torno a puntos singulares"}
+      - {id: "6.4", titulo: "Funciones especiales"}
+      - {id: "6.R", titulo: "Repaso del capítulo 6"}
+
+  - numero: 7
+    titulo: "La transformada de Laplace"
+    carpeta: "07_laplace"
+    pagina: 278
+    secciones:
+      - {id: "7.1", titulo: "Definición de la transformada de Laplace"}
+      - {id: "7.2", titulo: "Transformadas inversas y transformadas de derivadas"}
+      - {id: "7.3", titulo: "Propiedades operacionales I"}
+      - {id: "7.4", titulo: "Propiedades operacionales II"}
+      - {id: "7.5", titulo: "La función delta de Dirac"}
+      - {id: "7.6", titulo: "Sistemas de ecuaciones diferenciales lineales"}
+      - {id: "7.R", titulo: "Repaso del capítulo 7"}
+
+  - numero: 8
+    titulo: "Sistemas de ecuaciones diferenciales lineales de primer orden"
+    carpeta: "08_sistemas_lineales"
+    pagina: 332
+    secciones:
+      - {id: "8.1", titulo: "Teoría preliminar: Sistemas lineales"}
+      - {id: "8.2", titulo: "Sistemas lineales homogéneos"}
+      - {id: "8.3", titulo: "Sistemas lineales no homogéneos"}
+      - {id: "8.4", titulo: "Matriz exponencial"}
+      - {id: "8.R", titulo: "Repaso del capítulo 8"}
+
+  - numero: 9
+    titulo: "Soluciones numéricas de ecuaciones diferenciales ordinarias"
+    carpeta: "09_numericos_ode"
+    pagina: 368
+    secciones:
+      - {id: "9.1", titulo: "Métodos de Euler y análisis de errores"}
+      - {id: "9.2", titulo: "Métodos de Runge-Kutta"}
+      - {id: "9.3", titulo: "Métodos multipasos"}
+      - {id: "9.4", titulo: "Ecuaciones y sistemas de orden superior"}
+      - {id: "9.5", titulo: "Problemas con valores en la frontera de segundo orden"}
+      - {id: "9.R", titulo: "Repaso del capítulo 9"}
+
+  - numero: 10
+    titulo: "Sistemas de ecuaciones diferenciales ordinarias no lineales"
+    carpeta: "10_no_lineales"
+    pagina: 390
+    secciones:
+      - {id: "10.1", titulo: "Sistemas autónomos"}
+      - {id: "10.2", titulo: "Estabilidad de sistemas lineales"}
+      - {id: "10.3", titulo: "Linealización y estabilidad local"}
+      - {id: "10.4", titulo: "Sistemas autónomos como modelos matemáticos"}
+      - {id: "10.R", titulo: "Repaso del capítulo 10"}
+
+  - numero: 11
+    titulo: "Series de Fourier"
+    carpeta: "11_fourier"
+    pagina: 424
+    secciones:
+      - {id: "11.1", titulo: "Funciones ortogonales"}
+      - {id: "11.2", titulo: "Series de Fourier"}
+      - {id: "11.3", titulo: "Series de Fourier de cosenos y de senos"}
+      - {id: "11.4", titulo: "Problema de Sturm-Liouville"}
+      - {id: "11.5", titulo: "Series de Bessel y Legendre"}
+      - {id: "11.R", titulo: "Repaso del capítulo 11"}
+
+  - numero: 12
+    titulo: "Problemas con valores en la frontera en coordenadas rectangulares"
+    carpeta: "12_pvf_rectangulares"
+    pagina: 460
+    secciones:
+      - {id: "12.1", titulo: "Ecuaciones diferenciales parciales separables"}
+      - {id: "12.2", titulo: "EDP clásicas y problemas con valores en la frontera"}
+      - {id: "12.3", titulo: "Ecuación de calor"}
+      - {id: "12.4", titulo: "Ecuación de onda"}
+      - {id: "12.5", titulo: "Ecuación de Laplace"}
+      - {id: "12.6", titulo: "Problemas no homogéneos con valores en la frontera"}
+      - {id: "12.7", titulo: "Desarrollos en series ortogonales"}
+      - {id: "12.8", titulo: "Problemas dimensionales de orden superior"}
+      - {id: "12.R", titulo: "Repaso del capítulo 12"}
+
+  - numero: 13
+    titulo: "Problemas con valores en la frontera en otros sistemas coordenados"
+    carpeta: "13_pvf_coordenadas"
+    pagina: 502
+    secciones:
+      - {id: "13.1", titulo: "Coordenadas polares"}
+      - {id: "13.2", titulo: "Coordenadas polares y cilíndricas"}
+      - {id: "13.3", titulo: "Coordenadas esféricas"}
+      - {id: "13.R", titulo: "Repaso del capítulo 13"}
+
+  - numero: 14
+    titulo: "Transformadas integrales"
+    carpeta: "14_transformadas_integrales"
+    pagina: 520
+    secciones:
+      - {id: "14.1", titulo: "Función de error"}
+      - {id: "14.2", titulo: "Transformada de Laplace"}
+      - {id: "14.3", titulo: "Integral de Fourier"}
+      - {id: "14.4", titulo: "Transformadas de Fourier"}
+      - {id: "14.R", titulo: "Repaso del capítulo 14"}
+
+  - numero: 15
+    titulo: "Soluciones numéricas de ecuaciones diferenciales parciales"
+    carpeta: "15_numericos_edp"
+    pagina: 544
+    secciones:
+      - {id: "15.1", titulo: "Ecuación de Laplace"}
+      - {id: "15.2", titulo: "Ecuación de calor"}
+      - {id: "15.3", titulo: "Ecuación de onda"}
+      - {id: "15.R", titulo: "Repaso del capítulo 15"}
+
+apendices:
+  - {id: "A", titulo: "Funciones definidas por integrales"}
+  - {id: "B", titulo: "Matrices"}
+  - {id: "C", titulo: "Transformadas de Laplace"}
