@@ -1,0 +1,28 @@
+# Metadatos de capítulo — copiar en books/<Libro>/<NN_capitulo>/topic.yaml
+# y rellenar todos los campos. Eliminar este comentario al hacerlo.
+#
+# Convención de id:  <libro_id>-<NN>
+# Ejemplo:           zill-9-02
+
+id: "<libro_id>-<NN>"            # ej. zill-9-02
+libro_id: "<libro_id>"           # debe coincidir con el id en book.yaml  (ej. zill-9)
+numero: ~                        # número del capítulo (entero)
+titulo: ""                       # título exacto del capítulo según el libro
+
+subsecciones:
+  - id: "<cap>.1"                # ej. "2.1"
+    titulo: ""
+    descripcion: >
+      Breve descripción del contenido (1-2 frases). Usada en navegación Quarto y RAG.
+
+  - id: "<cap>.2"
+    titulo: ""
+    descripcion: >
+
+  # Añadir tantas subsecciones como tenga el capítulo.
+  # Para capítulos con sub-subsecciones (ej. 4.1.1), documentarlas en descripcion.
+
+  - id: "<cap>.R"                # repaso del capítulo (siempre al final)
+    titulo: "Repaso del capítulo <N>"
+    descripcion: >
+      Ejercicios de repaso integrador del capítulo.

@@ -1,5 +1,19 @@
 # Cómo contribuir a EDOdex
 
+## Añadir un capítulo nuevo
+
+Si el capítulo aún no existe en `books/<Libro>/`, créalo antes de añadir ejercicios:
+
+1. Crea la carpeta `books/<Libro>/<NN_capitulo>/exercises/` (vacía).
+2. Copia la plantilla de capítulo:
+   ```
+   cp templates/topic.yaml books/<Libro>/<NN_capitulo>/topic.yaml
+   ```
+3. Rellena `id`, `libro_id`, `numero`, `titulo` y la lista de `subsecciones`.
+4. Incluye el cambio en el mismo PR que el primer ejercicio del capítulo.
+
+---
+
 ## Añadir un ejercicio nuevo
 
 > **Evita duplicados:** antes de empezar, abre o asígnate un *issue* para anunciar

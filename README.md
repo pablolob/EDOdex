@@ -42,7 +42,8 @@ EDOdex/
 │               └── ex_001.md          ✅ primer ejercicio resuelto (ejemplo)
 │
 ├── templates/
-│   └── exercise.md                    ✅ plantilla para nuevos ejercicios
+│   ├── exercise.md                    ✅ plantilla para nuevos ejercicios
+│   └── topic.yaml                     ✅ plantilla para nuevos capítulos
 │
 ├── schemas/                           🔜 esquemas de validación YAML/JSON
 │   ├── book.schema.json
