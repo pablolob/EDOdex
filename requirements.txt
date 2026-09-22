@@ -1,0 +1,2 @@
+# Este proyecto no necesita paquetes externos.
+# Python 3.8 o posterior es suficiente para ejecutar el servidor HTTP.

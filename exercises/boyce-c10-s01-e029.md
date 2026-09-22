@@ -1,0 +1,17 @@
+---
+title: "Boyce 10.1 Ejercicio 29"
+exercise-id: boyce-c10-s01-e029
+author:
+  - name: "William E. Boyce"
+source-key: boyce
+source-locator: "Sección 10.1, ejercicio 29"
+statement-status: accepted
+solution-status: open
+source-images:
+  - c10s01i03-p581.png
+  - c10s01i04-p582.png
+---
+
+## Enunciado
+
+En este problema se indican ciertas semejanzas entre los vectores geométricos tridimensionales y las series de Fourier. \\ a) Sean $\mathbf{v}_1, \mathbf{v}_2$ y $\mathbf{v}_3$ un conjunto de vectores mutuamente ortogonales en tres dimensiones y $\mathbf{u}$ cualquier vector tridimensional. Demuestre que $$\mathbf{u} = a_1\mathbf{v}_1 + a_2\mathbf{v}_2 + a_3\mathbf{v}_3, \quad \text{(i)}$$ en donde $$a_i = \frac{\mathbf{u} \cdot \mathbf{v}_i}{\mathbf{v}_i \cdot \mathbf{v}_i}, \quad i = 1, 2, 3. \quad \text{(ii)}$$ Demuestre que $a_i$ puede interpretarse como la proyección de $\mathbf{u}$ en la dirección de $\mathbf{v}_i$, dividida entre la longitud de $\mathbf{v}_i$. \\ b) Defina el producto interno $(u, v)$ por $$(u, v) = \int_{-l}^{l} u(x)v(x)\,dx. \quad \text{(iii)}$$ Haga también $$\begin{aligned} \phi_n(x) &= \cos(n\pi x/l), & n &= 0, 1, 2, \dots; \\ \psi_n(x) &= \sin(n\pi x/l), & n &= 1, 2, \dots \end{aligned} \quad \text{(iv)}$$ Demuestre que la ecuación (10) puede escribirse en la forma $$(f, \phi_n) = \frac{a_0}{2}(\phi_0, \phi_n) + \sum_{m=1}^{\infty} a_m(\phi_m, \phi_n) + \sum_{m=1}^{\infty} b_m(\psi_m, \phi_n). \quad \text{(v)}$$ \\ c) Use la ecuación (v) y las relaciones de ortogonalidad para demostrar que $$a_n = \frac{(f, \phi_n)}{(\phi_n, \phi_n)}, \quad n = 0, 1, 2, \dots; \quad b_n = \frac{(f, \psi_n)}{(\psi_n, \psi_n)}, \quad n = 1, 2, \dots \quad \text{(vi)}$$ Observe la semejanza entre las ecuaciones (vi) y la (ii). Las funciones $\phi_n$ y $\psi_n$ intervienen en las funciones como los vectores ortogonales $\mathbf{v}_1, \mathbf{v}_2$ y $\mathbf{v}_3$ en el espacio tridimensional. Los coeficientes de $a_n$ y $b_n$ pueden interpretarse como proyecciones de la función $f$ sobre las funciones base $\phi_n$ y $\psi_n$. Observe también que cualquier vector en tres dimensiones puede expresarse como una combinación lineal de tres vectores mutuamente ortogonales. De manera semejante, cualquier función suficientemente suave definida sobre $-l \le x \le l$ puede expresarse como una combinación lineal de las funciones mutuamente ortogonales $\cos(n\pi x/l)$ y $\sin(n\pi x/l)$, es decir como una serie de Fourier. En general, para este fin se requieren una infinidad de cosenos y senos. Quizá esto no sea sorprendente en vista de la gran variedad de funciones definidas sobre $-l \le x \le l$. Lo que sí puede sorprender (y así fue para Lagrange y otros) es que solamente se necesiten senos y cosenos.

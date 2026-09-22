@@ -1,0 +1,16 @@
+---
+title: "Boyce 3.8 Ejercicio 23"
+exercise-id: boyce-c03-s08-e023
+author:
+  - name: "William E. Boyce"
+source-key: boyce
+source-locator: "Sección 3.8, ejercicio 23"
+statement-status: accepted
+solution-status: open
+source-images:
+  - c03s08i02-p209.png
+---
+
+## Enunciado
+
+Para la oscilación amortiguada descrita por la ecuación (26), el tiempo entre máximos sucesivos es $T_d = 2\pi/\mu$. Demuestre que la razón del desplazamiento en dos máximos sucesivos se expresa por $\exp(\gamma T_d/2m)$. Por tanto, los máximos consecutivos forman una progresión geométrica con razón común $\exp(\gamma T_d/2m)$. El logaritmo natural de esta razón se llama **decremento logarítmico** y se denota por $\Delta$. Demuestre que $\Delta = \pi\gamma/m\mu$. Dado que $m$, $\mu$ y $\Delta$ son cantidades que se miden con facilidad en un sistema mecánico, este resultado proporciona un método conveniente y práctico para determinar la constante de amortiguamiento del sistema, que es más difícil de medir directamente. En particular, para el movimiento de una masa vibrante en un fluido viscoso, la constante de amortiguamiento depende de la viscosidad del fluido; para formas geométricas simples, si se conoce la forma de esta dependencia, y la relación precedente permite la determinación experimental de la viscosidad. Esta es una de las maneras más exactas para determinar la viscosidad de un gas a alta presión.

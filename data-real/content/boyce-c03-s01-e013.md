@@ -1,0 +1,6 @@
+
+## Enunciado
+
+En cada uno de los problemas 9 a 14, encuentre la solución del problema con valor inicial dado. Trace la gráfica de la solución y describa su comportamiento al crecer $x$.
+
+13. $y'' + 8y' - 9y = 0, \quad y(1) = 1, \quad y'(1) = 0$

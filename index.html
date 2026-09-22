@@ -1,0 +1,3353 @@
+<!doctype html>
+<html lang="es" data-odedex-module="archive">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="ODEDEX Archive: un índice de ejercicios de EDO navegable únicamente con teclado.">
+  <title>ODEDEX / Archive</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] },
+      options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --bg: #0e120f;
+      --surface: #111712;
+      --surface-raised: #151d16;
+      --line: #29352a;
+      --line-strong: #465a46;
+      --ink: #e0e6d8;
+      --muted: #94a394;
+      --quiet: #7b8b79;
+      --accent: #c7e89a;
+      --accent-ink: #0f180f;
+      --capture: #9eddb4;
+      --warning: #e2b16e;
+      --danger: #e28472;
+      --focus: #ecf6c9;
+      --mono: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-width: 320px; background: var(--bg); }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    button, input { font: inherit; }
+
+    button { color: inherit; }
+
+    button:focus-visible, input:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .app {
+      width: min(1560px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: clamp(16px, 3vw, 42px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .masthead {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 2px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      margin: 0 0 5px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: clamp(21px, 2.1vw, 29px);
+      font-weight: 630;
+      letter-spacing: -.035em;
+    }
+
+    .collection-state {
+      margin: 0 0 3px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .search-form {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 10px;
+      min-height: 57px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .prompt {
+      color: var(--accent);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .search-form input {
+      width: 100%;
+      min-width: 0;
+      padding: 10px 0;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .search-form input::placeholder { color: var(--quiet); }
+
+    .quiet-button, .control-button, .token-remove, .suggestion, .reader-action, .group-toggle, .palette-option, .help-close {
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .quiet-button {
+      padding: 5px 0 5px 12px;
+      color: var(--quiet);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .quiet-button:hover { color: var(--ink); }
+
+    .suggestion-strip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 35px;
+      overflow-x: auto;
+      border-bottom: 1px solid var(--line);
+      color: var(--quiet);
+      scrollbar-width: thin;
+    }
+
+    .suggestion-lead {
+      flex: 0 0 auto;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .suggestion {
+      flex: 0 0 auto;
+      padding: 1px 0;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .suggestion::after {
+      content: "↹";
+      margin-left: 5px;
+      color: var(--quiet);
+      font-size: 10px;
+    }
+
+    .suggestion.is-active, .suggestion:hover { color: var(--accent); }
+
+    .control-strip {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      gap: 9px;
+      min-height: 92px;
+      padding: 10px 0 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tokens {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      width: 100%;
+      min-height: 36px;
+      min-width: 0;
+      overflow-x: auto;
+      padding-bottom: 3px;
+      color: var(--quiet);
+      font-size: 12px;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .token-cluster {
+      display: inline-flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 7px;
+      min-height: 31px;
+    }
+
+    .token-cluster + .token-cluster {
+      padding-left: 10px;
+      border-left: 1px solid var(--line);
+    }
+
+    .token-label {
+      color: var(--quiet);
+      font-size: 10px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .token-empty {
+      color: var(--quiet);
+      font-size: 11px;
+    }
+
+    .token {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 5px 3px 7px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .token.config-token { cursor: grab; }
+    .token.config-token:active { cursor: grabbing; }
+    .token.config-token.is-drop-target { border-color: var(--accent); background: #1b271b; }
+    .token-cluster.is-drop-target { color: var(--accent); }
+    .token-grip { color: var(--quiet); font-size: 11px; letter-spacing: -3px; }
+    .token-direction {
+      padding: 0 1px;
+      border: 0;
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      line-height: 1;
+    }
+    .token-direction:hover { color: var(--ink); }
+
+    .token.query-token { color: var(--accent); border-color: #3e523d; }
+
+    .token-remove {
+      padding: 0 1px;
+      color: var(--quiet);
+      line-height: 1;
+    }
+
+    .token-remove:hover { color: var(--ink); }
+
+    .controls {
+      display: flex;
+      width: 100%;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      min-height: 29px;
+    }
+
+    .control-button {
+      padding: 6px 7px;
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .control-button strong { color: var(--accent); font-weight: 700; }
+    .control-button span {
+      display: inline-block;
+      max-width: 240px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      vertical-align: bottom;
+    }
+    .control-button:hover { color: var(--ink); }
+    .control-button:disabled { color: var(--quiet); cursor: not-allowed; opacity: .54; }
+    .control-button:disabled strong { color: inherit; }
+
+    .data-backdrop {
+      position: fixed;
+      z-index: 10;
+      inset: 0;
+      background: rgba(5, 8, 6, .48);
+    }
+
+    .data-panel {
+      position: fixed;
+      z-index: 11;
+      top: 50%;
+      left: 50%;
+      width: min(560px, calc(100vw - 32px));
+      transform: translate(-50%, -50%);
+      border: 1px solid var(--line-strong);
+      background: #121a13;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .38);
+    }
+
+    .data-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 17px 18px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .data-title { margin: 0; color: var(--ink); font-size: 13px; font-weight: 700; }
+    .data-close { padding: 5px 0 5px 10px; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 11px; }
+    .data-body { padding: 17px 18px 21px; color: var(--muted); font-family: var(--sans); font-size: 14px; line-height: 1.62; }
+    .data-body p { margin: 0 0 15px; }
+    .data-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .data-action { padding: 8px 0; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
+    .data-action.primary { color: var(--capture); }
+    .data-action:hover, .data-close:hover { color: var(--ink); }
+    .data-status { min-height: 18px; margin-top: 17px !important; color: var(--quiet); font-family: var(--mono); font-size: 11px; }
+
+    .personal-notes {
+      margin-top: 24px;
+      padding-top: 17px;
+      border-top: 1px solid var(--line);
+    }
+
+    .personal-notes-head, .tag-editor-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .personal-notes-title { margin: 0; color: var(--ink); font-family: var(--mono); font-size: 12px; }
+    .personal-notes-scope, .notes-save-state { color: var(--quiet); font-family: var(--mono); font-size: 10px; }
+    .personal-note {
+      display: block;
+      width: 100%;
+      min-height: 112px;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      outline: 0;
+      resize: vertical;
+      background: var(--surface);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .personal-note:focus { border-color: var(--line-strong); }
+    .tag-editor { margin-top: 16px; }
+    .tag-editor-head { margin-bottom: 8px; }
+    .tag-editor-label { color: var(--muted); font-family: var(--mono); font-size: 11px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; min-height: 25px; }
+    .tag-chip { display: inline-flex; align-items: center; gap: 6px; padding: 3px 6px 3px 8px; border: 1px solid #3e523d; color: var(--accent); font-family: var(--mono); font-size: 11px; }
+    .tag-chip button { padding: 0 1px; border: 0; background: transparent; color: var(--quiet); cursor: pointer; line-height: 1; }
+    .tag-chip button:hover { color: var(--ink); }
+    .tag-empty { color: var(--quiet); font-family: var(--mono); font-size: 11px; }
+    .tag-entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; margin-top: 9px; }
+    .tag-input { width: 100%; min-width: 0; padding: 7px 8px; border: 1px solid var(--line); outline: 0; background: var(--surface); color: var(--ink); font-family: var(--mono); font-size: 11px; }
+    .tag-input:focus { border-color: var(--line-strong); }
+    .tag-add { padding: 7px 0; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
+    .tag-add:hover { color: var(--ink); }
+    .personal-notes-actions { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+    .personal-save { padding: 7px 0; border: 0; background: transparent; color: var(--capture); cursor: pointer; font-family: var(--mono); font-size: 11px; text-transform: uppercase; }
+    .personal-save:hover { color: var(--ink); }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(0, 1.22fr) minmax(420px, 1fr);
+      flex: 1;
+      min-height: 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .index-pane { min-width: 0; }
+
+    .list-heading {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr) 82px 58px 28px 28px;
+      gap: 10px;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      color: var(--quiet);
+      border-bottom: 1px solid var(--line);
+      font-size: 10px;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .list-heading span:last-child { text-align: right; }
+
+    .record-list {
+      min-height: 480px;
+      max-height: calc(100vh - 264px);
+      overflow: auto;
+      outline: none;
+      scrollbar-color: var(--line-strong) transparent;
+      scrollbar-width: thin;
+    }
+
+    .group-block + .group-block { border-top: 1px solid var(--line); }
+
+    .group-heading {
+      display: flex;
+      align-items: center;
+      min-height: 37px;
+      padding: 0 14px 0 calc(14px + var(--depth, 0) * 16px);
+      color: var(--muted);
+      background: color-mix(in srgb, var(--surface) 70%, transparent);
+      font-size: 11px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .group-heading .group-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 0;
+      color: inherit;
+      text-align: left;
+    }
+
+    .group-heading .group-toggle::before {
+      content: "⌄";
+      color: var(--accent);
+      font-size: 14px;
+      transition: transform .15s ease;
+    }
+
+    .group-heading .group-toggle[aria-expanded="false"]::before { transform: rotate(-90deg); }
+
+    .group-count { margin-left: 8px; color: var(--quiet); }
+
+    .record-row {
+      display: grid;
+      grid-template-columns: 84px minmax(0, 1fr) 82px 58px 28px 28px;
+      gap: 10px;
+      align-items: center;
+      width: 100%;
+      min-height: 43px;
+      padding: 0 14px 0 calc(14px + var(--row-depth, 0) * 16px);
+      border: 0;
+      border-bottom: 1px solid color-mix(in srgb, var(--line) 64%, transparent);
+      background: transparent;
+      color: var(--muted);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .record-row:hover { background: #141b15; color: var(--ink); }
+
+    .record-row.is-selected {
+      position: relative;
+      background: #182218;
+      color: var(--ink);
+    }
+
+    .record-row.is-selected::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 2px;
+      background: var(--accent);
+    }
+
+    .record-row:focus { outline: 1px solid var(--accent); outline-offset: -1px; }
+
+    .record-id { color: var(--accent); font-size: 12px; white-space: nowrap; }
+    .record-title { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .record-meta { color: var(--quiet); font-size: 11px; white-space: nowrap; }
+    .record-state { color: var(--muted); font-size: 10px; text-transform: uppercase; }
+    .record-state.status-open { color: var(--warning); }
+    .record-capture { color: var(--quiet); font-size: 15px; text-align: right; }
+    .record-capture.is-captured { color: var(--capture); }
+    .record-star { color: var(--quiet); font-size: 15px; text-align: right; }
+    .record-star.is-starred { color: var(--accent); }
+
+    .empty-list, .load-note {
+      padding: 44px 14px;
+      color: var(--quiet);
+      text-align: center;
+    }
+
+    .reader {
+      min-width: 0;
+      border-left: 1px solid var(--line);
+      background: color-mix(in srgb, var(--surface) 54%, transparent);
+      outline: none;
+    }
+
+    .app.reader-focus .index-pane { display: none; }
+    .app.reader-focus .reader {
+      grid-column: 1 / -1;
+      border-left: 0;
+    }
+
+    .app.reader-focus .reader {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+      align-items: stretch;
+    }
+
+    .app.reader-focus #readerContent {
+      min-width: 0;
+      max-height: calc(100vh - 170px);
+      overflow: auto;
+      border-right: 1px solid var(--line);
+    }
+
+    .explorer-panel {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      background: color-mix(in srgb, var(--surface) 76%, transparent);
+    }
+
+    .app:not(.reader-focus) .explorer-panel { display: none; }
+    .explorer-head { display: flex; justify-content: space-between; gap: 14px; padding: 20px 18px 14px; border-bottom: 1px solid var(--line); }
+    .explorer-kicker, .explorer-scope, .explorer-footer { margin: 0; color: var(--quiet); font: 10px/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .explorer-title { margin: 5px 0 4px; color: var(--ink); font: 610 19px/1.1 var(--sans); }
+    .explorer-close { flex: 0 0 auto; align-self: start; padding: 6px 0; border: 0; background: transparent; color: var(--muted); cursor: pointer; font: 10px var(--mono); text-transform: uppercase; }
+    .explorer-close:hover { color: var(--ink); }
+    .explorer-modes { display: flex; gap: 3px; overflow-x: auto; padding: 9px 18px; border-bottom: 1px solid var(--line); }
+    .explorer-mode { padding: 6px 8px; border: 1px solid transparent; background: transparent; color: var(--quiet); cursor: pointer; font: 10px var(--mono); text-transform: uppercase; white-space: nowrap; }
+    .explorer-mode:hover, .explorer-mode.is-active { border-color: var(--line-strong); color: var(--accent); }
+    .explorer-body { min-height: 0; overflow: auto; padding: 14px 18px 20px; }
+    .explorer-note, .explorer-empty { margin: 0 0 16px; color: var(--muted); font-size: 12px; line-height: 1.55; }
+    .explorer-note strong { color: var(--ink); font-weight: 600; }
+    .explorer-group { margin-top: 18px; }
+    .explorer-group-title { display: flex; justify-content: space-between; margin: 0 0 7px; color: var(--quiet); font: 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .explorer-record { display: grid; grid-template-columns: 42px minmax(0, 1fr) auto; gap: 9px; width: 100%; padding: 9px 0; border: 0; border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent); background: transparent; color: var(--muted); cursor: pointer; text-align: left; }
+    .explorer-record:hover, .explorer-record:focus { color: var(--ink); outline: none; }
+    .explorer-record-id, .explorer-record-meta { color: var(--accent); font: 10px var(--mono); white-space: nowrap; }
+    .explorer-record-meta { color: var(--quiet); }
+    .explorer-record-title, .explorer-record-reason { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .explorer-record-title { color: inherit; font-size: 12px; }
+    .explorer-record-reason { margin-top: 3px; color: var(--quiet); font-size: 10px; }
+    .explorer-record.is-selected { color: var(--accent); }
+    .explorer-footer { margin-top: auto; padding: 10px 18px; border-top: 1px solid var(--line); }
+    .explorer-dashboard { display: grid; gap: 14px; }
+    .explorer-hero { padding: 14px; border: 1px solid var(--line); background: linear-gradient(135deg, rgba(117, 161, 105, .12), rgba(20, 27, 21, .12)); }
+    .explorer-hero-label { margin: 0 0 5px; color: var(--accent); font: 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .explorer-hero-title { margin: 0; color: var(--ink); font: 600 17px/1.2 var(--sans); }
+    .explorer-hero-copy { margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .explorer-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+    .explorer-stat { padding: 10px; border-top: 2px solid var(--line-strong); background: color-mix(in srgb, var(--surface) 68%, transparent); }
+    .explorer-stat strong { display: block; color: var(--ink); font: 600 19px var(--mono); }
+    .explorer-stat span { display: block; margin-top: 4px; color: var(--quiet); font: 9px var(--mono); text-transform: uppercase; }
+    .explorer-card { padding: 12px; border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 52%, transparent); }
+    .explorer-card-title { display: flex; justify-content: space-between; gap: 8px; margin: 0 0 10px; color: var(--muted); font: 10px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+    .explorer-card-title span:last-child { color: var(--quiet); }
+    .explorer-bars { display: grid; gap: 7px; }
+    .explorer-bar { display: grid; grid-template-columns: 78px minmax(0, 1fr) 28px; gap: 7px; align-items: center; color: var(--quiet); font: 9px var(--mono); }
+    .explorer-bar-track { height: 7px; background: var(--line); }
+    .explorer-bar-fill { display: block; height: 100%; background: var(--accent); }
+    .explorer-chip-row { display: flex; flex-wrap: wrap; gap: 5px; }
+    .explorer-chip { padding: 5px 7px; border: 1px solid var(--line); color: var(--muted); font: 9px var(--mono); }
+    .explorer-chip strong { color: var(--accent); font-weight: 500; }
+    .explorer-viz { width: 100%; min-height: 210px; border: 1px solid var(--line); background: radial-gradient(circle at 50% 44%, rgba(117, 161, 105, .08), transparent 54%); }
+    .explorer-viz svg { display: block; width: 100%; height: 100%; min-height: 210px; }
+    .explorer-viz text { fill: var(--quiet); font: 9px var(--mono); }
+    .explorer-viz .axis { stroke: var(--line-strong); stroke-width: 1; }
+    .explorer-viz .grid-line { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 5; }
+    .explorer-viz .viz-edge { stroke: color-mix(in srgb, var(--accent) 55%, var(--line)); stroke-width: 1.4; opacity: .72; }
+    .explorer-viz .viz-node { cursor: pointer; outline: none; }
+    .explorer-viz .viz-node circle { fill: var(--surface); stroke: var(--muted); stroke-width: 1.5; transition: r .15s ease, fill .15s ease; }
+    .explorer-viz .viz-node:hover circle, .explorer-viz .viz-node:focus circle { fill: var(--accent); stroke: var(--ink); }
+    .explorer-viz .viz-node.is-current circle { fill: var(--accent); stroke: var(--ink); stroke-width: 2; }
+    .explorer-viz .viz-node text { pointer-events: none; text-anchor: middle; fill: var(--ink); font-size: 9px; }
+    .explorer-viz .viz-node .viz-meta { fill: var(--quiet); font-size: 8px; }
+    .explorer-legend { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 8px; color: var(--quiet); font: 9px var(--mono); }
+    .explorer-legend span::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 4px; border: 1px solid var(--muted); border-radius: 50%; background: var(--surface); }
+    .explorer-legend .current::before { border-color: var(--ink); background: var(--accent); }
+    .explorer-route { display: grid; gap: 0; }
+    .explorer-route-step { position: relative; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 9px; padding: 0 0 15px; }
+    .explorer-route-step::before { content: ''; position: absolute; top: 22px; bottom: 0; left: 12px; border-left: 1px dashed var(--line-strong); }
+    .explorer-route-step:last-child::before { display: none; }
+    .explorer-route-marker { position: relative; z-index: 1; display: grid; width: 25px; height: 25px; place-items: center; border: 1px solid var(--muted); border-radius: 50%; background: var(--surface); color: var(--accent); font: 10px var(--mono); }
+    .explorer-route-step.is-current .explorer-route-marker { border-color: var(--accent); background: var(--accent); color: var(--surface); }
+    .explorer-route-card { min-width: 0; padding: 7px 9px; border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 56%, transparent); }
+    .explorer-route-card button { width: 100%; padding: 0; border: 0; background: transparent; color: var(--muted); cursor: pointer; text-align: left; }
+    .explorer-route-card button:hover { color: var(--ink); }
+    .explorer-route-label { color: var(--accent); font: 9px var(--mono); text-transform: uppercase; }
+    .explorer-route-title { display: block; margin-top: 3px; overflow: hidden; color: inherit; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+    .explorer-route-meta { display: block; margin-top: 3px; color: var(--quiet); font: 9px var(--mono); }
+    .explorer-activity-grid { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; }
+    .explorer-activity-cell { aspect-ratio: 1; min-width: 0; border: 1px solid var(--line); background: rgba(117, 161, 105, .06); cursor: pointer; }
+    .explorer-activity-cell:hover, .explorer-activity-cell.is-current { border-color: var(--accent); }
+    .explorer-activity-cell.is-captured { background: rgba(117, 161, 105, .72); }
+    .explorer-activity-cell.is-starred { box-shadow: inset 0 0 0 2px var(--warning); }
+    .explorer-compare { display: grid; gap: 9px; }
+    .explorer-compare-row { display: grid; grid-template-columns: 70px minmax(0, 1fr) 32px; gap: 7px; align-items: center; color: var(--quiet); font: 9px var(--mono); }
+    .explorer-compare-bars { display: grid; gap: 3px; }
+    .explorer-compare-bars i { display: block; height: 6px; background: var(--accent); }
+    .explorer-compare-bars i:last-child { background: var(--warning); }
+    .explorer-compare-key { display: flex; gap: 10px; margin-top: 9px; color: var(--quiet); font: 9px var(--mono); }
+    .explorer-compare-key span::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 4px; background: var(--accent); }
+    .explorer-compare-key span:last-child::before { background: var(--warning); }
+
+    .lab-space { display: grid; gap: 13px; }
+    .lab-intro { padding: 2px 0 3px; }
+    .lab-kicker, .lab-toolbar-label, .lab-control span, .lab-discover-card p, .lab-target-card span, .lab-compare-head span { margin: 0; color: var(--accent); font: 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .lab-intro h3 { margin: 5px 0 5px; color: var(--ink); font: 600 17px/1.15 var(--sans); }
+    .lab-intro > p:last-child { max-width: 58ch; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .lab-toolbar, .lab-controls-card, .lab-plot-card, .lab-chart-card, .lab-discover-card, .lab-target-card { border: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 72%, transparent); }
+    .lab-toolbar { display: grid; gap: 9px; padding: 10px; }
+    .lab-toolbar-line { display: flex; min-width: 0; align-items: baseline; gap: 7px; }
+    .lab-toolbar-line strong { overflow: hidden; color: var(--ink); font: 11px var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+    .lab-toolbar-controls, .lab-segmented, .lab-adjustments, .lab-chip-row { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+    .lab-toolbar-controls { justify-content: flex-start; }
+    .lab-display-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; padding-top: 2px; border-top: 1px solid color-mix(in srgb, var(--line) 72%, transparent); }
+    .lab-focus-readout { color: var(--quiet); font: 9px var(--mono); }
+    .lab-density-compact { gap: 8px; }
+    .lab-density-compact .lab-record { padding-top: 5px; padding-bottom: 5px; }
+    .lab-density-compact .lab-chart-card, .lab-density-compact .lab-plot-card { padding: 6px; }
+    .lab-control { display: inline-flex; align-items: center; gap: 6px; }
+    .lab-control select { max-width: 150px; padding: 4px 18px 4px 6px; border: 1px solid var(--line-strong); background: var(--surface); color: var(--ink); font: 10px var(--mono); }
+    .lab-button, .lab-chip, .lab-segment, .lab-family, .lab-branch, .lab-matrix-cell, .lab-matrix-label, .lab-node-row, .lab-section-row, .lab-chapter-title, .lab-family-card, .lab-history-row { border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; font: 10px var(--mono); text-align: left; }
+    .lab-button { padding: 6px 8px; }
+    .lab-button:hover, .lab-button-small:hover, .lab-chip:hover, .lab-segment:hover, .lab-family:hover, .lab-branch:hover, .lab-matrix-cell:hover, .lab-matrix-label:hover, .lab-node-row:hover, .lab-section-row:hover, .lab-chapter-title:hover, .lab-family-card:hover, .lab-history-row:hover, .lab-ladder-column button:hover, .lab-path-step button:hover, .lab-reference-card button:hover { border-color: var(--line-strong); color: var(--ink); }
+    .lab-button-small { padding: 4px 6px; font-size: 9px; }
+    .lab-segmented { border: 1px solid var(--line); padding: 3px; }
+    .lab-segment { padding: 5px 7px; border-color: transparent; text-transform: lowercase; }
+    .lab-segment.is-selected, .lab-chip.is-selected, .lab-family.is-selected, .lab-branch.is-selected, .lab-family-card.is-selected { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 9%, transparent); color: var(--accent); }
+    .lab-adjustments { color: var(--quiet); font-size: 9px; }
+    .lab-adjustments > span { margin-right: 2px; }
+    .lab-chip { padding: 5px 7px; }
+    .lab-choice-block { display: grid; gap: 7px; margin-top: 11px; }
+    .lab-section { min-width: 0; }
+    .lab-section-title { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 0 0 6px; }
+    .lab-section-title h3 { margin: 0; color: var(--muted); font: 10px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .lab-section-title span { color: var(--quiet); font-size: 9px; }
+    .lab-record { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px 8px; padding: 8px 0; border-top: 1px solid color-mix(in srgb, var(--line) 72%, transparent); }
+    .lab-record.is-current { padding-left: 7px; border-left: 2px solid var(--accent); }
+    .lab-record-main { display: grid; min-width: 0; gap: 2px; padding: 0; border: 0; background: transparent; color: var(--muted); cursor: pointer; text-align: left; }
+    .lab-record-main:hover { color: var(--ink); }
+    .lab-record-id { color: var(--accent); font-size: 9px; }
+    .lab-record-title { overflow: hidden; color: inherit; font: 11px var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+    .lab-record-why { overflow: hidden; color: var(--quiet); font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+    .lab-record-meta { align-self: start; color: var(--quiet); font-size: 9px; white-space: nowrap; }
+    .lab-card-actions { display: flex; grid-column: 1 / -1; gap: 5px; }
+    .lab-empty, .lab-note { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
+    .lab-note { padding: 9px; border-left: 2px solid var(--warning); background: color-mix(in srgb, var(--warning) 7%, transparent); }
+    .lab-plot-card { padding: 9px; }
+    .lab-plot { display: block; width: 100%; min-height: 220px; overflow: visible; }
+    .lab-grid-line { stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 5; }
+    .lab-axis { stroke: var(--line-strong); stroke-width: 1; }
+    .lab-axis-label, .lab-axis-name { fill: var(--quiet); font: 9px var(--mono); }
+    .lab-axis-name { fill: var(--muted); }
+    .lab-plot-node { cursor: pointer; }
+    .lab-plot-node circle { fill: var(--surface); stroke: var(--muted); stroke-width: 1.3; }
+    .lab-plot-node:hover circle, .lab-plot-node:focus circle { fill: var(--accent); stroke: var(--ink); }
+    .lab-plot-node.is-current circle { fill: var(--accent); stroke: var(--ink); stroke-width: 2; }
+    .lab-plot-node text { fill: var(--quiet); font: 8px var(--mono); }
+    .lab-chart-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .lab-chart-card { min-width: 0; padding: 9px; }
+    .lab-bar-chart, .lab-network, .lab-timeline { display: block; width: 100%; min-height: 170px; overflow: visible; }
+    .lab-bar-node rect { fill: var(--accent); cursor: pointer; opacity: .82; }
+    .lab-bar-node:hover rect, .lab-bar-node:focus rect { fill: var(--ink); opacity: 1; }
+    .lab-bar-value, .lab-bar-label { fill: var(--quiet); font: 8px var(--mono); text-anchor: middle; }
+    .lab-bar-value { fill: var(--muted); }
+    .lab-network-edge { stroke: color-mix(in srgb, var(--accent) 58%, var(--line)); stroke-width: 1.2; opacity: .72; }
+    .lab-network-node { cursor: pointer; }
+    .lab-network-node circle { fill: var(--surface); stroke: var(--muted); stroke-width: 1.4; }
+    .lab-network-node:hover circle, .lab-network-node:focus circle { fill: var(--accent); stroke: var(--ink); }
+    .lab-network-node text, .lab-network-center text { fill: var(--ink); font: 8px var(--mono); text-anchor: middle; }
+    .lab-network-center circle { fill: var(--accent); stroke: var(--ink); stroke-width: 2; }
+    .lab-donut-card { min-height: 190px; }
+    .lab-donut-layout { display: grid; grid-template-columns: 124px minmax(0, 1fr); gap: 8px; align-items: center; }
+    .lab-donut { width: 124px; height: 124px; }
+    .lab-donut-base, .lab-donut-ring { fill: none; stroke-width: 13; transform: rotate(-90deg); transform-origin: 62px 62px; }
+    .lab-donut-base { stroke: var(--line); }
+    .lab-donut-ring { stroke-linecap: butt; }
+    .lab-donut text { fill: var(--muted); font: 11px var(--mono); text-anchor: middle; }
+    .lab-donut text:last-child { fill: var(--quiet); font-size: 8px; }
+    .lab-donut-legend { display: grid; gap: 5px; color: var(--quiet); font: 9px var(--mono); }
+    .lab-donut-legend span, .lab-donut-legend button { display: flex; align-items: center; gap: 5px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; }
+    .lab-donut-legend button { cursor: pointer; }
+    .lab-donut-legend button:hover { color: var(--ink); }
+    .lab-donut-legend i, .lab-activity-key i { display: inline-block; width: 8px; height: 8px; flex: 0 0 auto; }
+    .lab-timeline-axis { stroke: var(--line-strong); stroke-width: 1.5; }
+    .lab-timeline-stem { stroke: var(--line); stroke-width: 1; }
+    .lab-timeline-node { cursor: pointer; }
+    .lab-timeline-node circle { fill: var(--surface); stroke: var(--muted); stroke-width: 1.5; }
+    .lab-timeline-node:hover circle, .lab-timeline-node.is-current circle { fill: var(--accent); stroke: var(--ink); }
+    .lab-timeline-node text { fill: var(--muted); font: 9px var(--mono); text-anchor: middle; }
+    .lab-timeline-node .lab-timeline-count { fill: var(--accent); font-size: 10px; }
+    .lab-activity-grid { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; }
+    .lab-activity-cell { display: grid; min-width: 0; aspect-ratio: 1; place-items: center; padding: 0; border: 1px solid var(--line); background: color-mix(in srgb, var(--line) 38%, transparent); color: var(--quiet); cursor: pointer; font: 7px var(--mono); }
+    .lab-activity-cell:hover { border-color: var(--ink); color: var(--ink); }
+    .lab-activity-cell.level-1 { border-color: var(--warning); background: color-mix(in srgb, var(--warning) 24%, transparent); }
+    .lab-activity-cell.level-2 { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 68%, transparent); color: var(--surface); }
+    .lab-activity-key { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 7px; color: var(--quiet); font: 9px var(--mono); }
+    .lab-activity-key span { display: inline-flex; align-items: center; gap: 4px; }
+    .lab-activity-key .level-0 { background: var(--line); }
+    .lab-activity-key .level-1 { background: var(--warning); }
+    .lab-activity-key .level-2 { background: var(--accent); }
+    .lab-donut-legend strong { color: var(--muted); font-weight: 500; }
+    .lab-family-row, .lab-branch-list, .lab-chapter-list, .lab-family-grid, .lab-reference-list, .lab-contrast-list { display: grid; gap: 6px; }
+    .lab-family-row { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
+    .lab-family { display: grid; gap: 3px; min-height: 50px; padding: 8px; }
+    .lab-family strong { color: inherit; font: 11px var(--sans); }
+    .lab-family span, .lab-branch strong { color: var(--quiet); font-size: 9px; }
+    .lab-branch { display: flex; justify-content: space-between; gap: 8px; width: 100%; padding: 7px 8px; }
+    .lab-matrix { overflow: auto; }
+    .lab-matrix-row { display: grid; grid-template-columns: minmax(125px, 1.5fr) repeat(4, minmax(33px, .5fr)); gap: 3px; align-items: stretch; min-width: 310px; margin-top: 3px; }
+    .lab-matrix-head { color: var(--quiet); font-size: 9px; text-align: center; }
+    .lab-matrix-head span { padding: 4px; }
+    .lab-matrix-label { overflow: hidden; padding: 6px; text-overflow: ellipsis; white-space: nowrap; }
+    .lab-matrix-cell { min-height: 29px; padding: 4px; color: var(--quiet); text-align: center; }
+    .lab-matrix-cell.has-data { border-color: color-mix(in srgb, var(--accent) 50%, var(--line)); color: var(--accent); }
+    .lab-node-row, .lab-section-row, .lab-history-row { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 10px; width: 100%; padding: 8px; }
+    .lab-node-row span, .lab-section-row span, .lab-history-row span { color: var(--accent); font-size: 9px; }
+    .lab-node-row strong, .lab-section-row strong, .lab-history-row strong { color: var(--muted); font: 10px var(--sans); }
+    .lab-section-row small, .lab-history-row small { grid-column: 2; overflow: hidden; color: var(--quiet); font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+    .lab-chapter { border-top: 1px solid var(--line); }
+    .lab-chapter-title { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 7px; align-items: baseline; width: 100%; padding: 9px 0; border: 0; border-bottom: 1px solid var(--line); }
+    .lab-chapter-title span, .lab-chapter-title em { color: var(--accent); font-size: 9px; font-style: normal; }
+    .lab-chapter-title strong { overflow: hidden; color: var(--ink); font: 11px var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+    .lab-family-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+    .lab-family-card { display: grid; gap: 4px; min-height: 72px; padding: 8px; }
+    .lab-family-card-title { overflow: hidden; color: var(--muted); font: 10px var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+    .lab-family-card strong { color: var(--accent); font-size: 18px; }
+    .lab-family-card small { color: var(--quiet); font-size: 9px; }
+    .lab-target-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 8px; padding: 10px; }
+    .lab-target-card span, .lab-target-card strong { grid-column: 1 / -1; }
+    .lab-target-card strong { overflow: hidden; color: var(--ink); font: 12px var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+    .lab-path { display: grid; justify-items: stretch; }
+    .lab-path-step { display: grid; grid-template-columns: 25px minmax(0, 1fr); gap: 8px; align-items: start; }
+    .lab-path-step > span { display: grid; width: 25px; height: 25px; place-items: center; border: 1px solid var(--accent); border-radius: 50%; color: var(--accent); font-size: 10px; }
+    .lab-path-step button { display: grid; gap: 3px; padding: 7px 9px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; text-align: left; }
+    .lab-path-step strong { color: var(--accent); font-size: 10px; }
+    .lab-path-step em { overflow: hidden; font: 11px var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+    .lab-path-step small { color: var(--quiet); font-size: 9px; }
+    .lab-path-arrow { margin: 2px 0 2px 12px; color: var(--line-strong); }
+    .lab-ladder { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; overflow-x: auto; }
+    .lab-ladder-column { min-width: 86px; border: 1px solid var(--line); }
+    .lab-ladder-column header { display: flex; justify-content: space-between; padding: 7px; border-bottom: 1px solid var(--line); color: var(--accent); font-size: 10px; }
+    .lab-ladder-column button { display: grid; gap: 3px; width: calc(100% - 10px); margin: 5px; padding: 6px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; text-align: left; }
+    .lab-ladder-column button b { color: var(--accent); font-size: 9px; }
+    .lab-ladder-column button small, .lab-more { overflow: hidden; color: var(--quiet); font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+    .lab-more { display: block; padding: 4px 6px 7px; }
+    .lab-compare-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; gap: 8px; align-items: end; }
+    .lab-compare-head div { display: grid; gap: 4px; min-width: 0; }
+    .lab-compare-head strong { overflow: hidden; color: var(--ink); font: 11px var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+    .lab-compare-table { border: 1px solid var(--line); }
+    .lab-compare-row { display: grid; grid-template-columns: 76px minmax(0, 1fr) minmax(0, 1fr); gap: 7px; padding: 7px; border-top: 1px solid var(--line); font-size: 9px; }
+    .lab-compare-row:first-child { border-top: 0; }
+    .lab-compare-row span { color: var(--quiet); }
+    .lab-compare-row strong { overflow: hidden; color: var(--muted); font: 10px var(--sans); text-overflow: ellipsis; }
+    .lab-compare-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .lab-compare-columns section { padding: 9px; border-left: 2px solid var(--line-strong); background: color-mix(in srgb, var(--surface) 68%, transparent); }
+    .lab-compare-columns h3 { margin: 0 0 5px; color: var(--quiet); font: 9px var(--mono); text-transform: uppercase; }
+    .lab-compare-columns p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+    .lab-contrast { border-top: 1px solid var(--line); padding: 9px 0; }
+    .lab-contrast header { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 7px; }
+    .lab-contrast header strong { overflow: hidden; color: var(--muted); font: 10px var(--sans); text-overflow: ellipsis; white-space: nowrap; }
+    .lab-contrast header span { color: var(--accent); font-size: 9px; white-space: nowrap; }
+    .lab-contrast > div { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 5px; align-items: center; }
+    .lab-contrast button, .lab-reference-card button { min-width: 0; padding: 7px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; text-align: left; }
+    .lab-contrast button { display: grid; gap: 3px; }
+    .lab-contrast b { color: var(--accent); font-size: 9px; }
+    .lab-contrast small { overflow: hidden; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+    .lab-contrast i { color: var(--quiet); font-size: 9px; }
+    .lab-discover-card { padding: 14px; }
+    .lab-discover-card h3 { margin: 5px 0; color: var(--ink); font: 600 16px var(--sans); }
+    .lab-discover-card > span { color: var(--muted); font-size: 10px; }
+    .lab-discover-card .lab-card-actions { margin-top: 12px; }
+    .lab-reference-list { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+    .lab-reference-card { min-width: 0; padding: 10px; border: 1px solid var(--line); }
+    .lab-reference-card header { display: flex; justify-content: space-between; gap: 7px; }
+    .lab-reference-card header strong { overflow: hidden; color: var(--accent); font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+    .lab-reference-card header span { color: var(--quiet); font-size: 9px; white-space: nowrap; }
+    .lab-reference-card p { margin: 8px 0; color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .lab-reference-card > div { display: grid; gap: 4px; }
+    .lab-reference-card button { overflow: hidden; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+    .lab-personal-stats { display: grid; grid-template-columns: repeat(4, auto); gap: 4px 9px; align-items: baseline; padding: 9px; border: 1px solid var(--line); }
+    .lab-personal-stats strong { color: var(--accent); font: 600 20px var(--mono); }
+    .lab-personal-stats span { color: var(--quiet); font-size: 8px; text-transform: uppercase; }
+    .lab-personal-bar { display: grid; grid-template-columns: 26px minmax(0, 1fr) 42px; gap: 7px; align-items: center; margin-top: 7px; color: var(--quiet); font-size: 9px; }
+    .lab-personal-bar i { display: block; height: 7px; background: var(--line); }
+    .lab-personal-bar i b { display: block; height: 100%; background: var(--capture); }
+    .lab-personal-bar strong { color: var(--muted); font-weight: 400; text-align: right; }
+    .lab-gap-labels, .lab-gap-grid { display: grid; grid-template-columns: repeat(5, minmax(30px, 1fr)); gap: 4px; margin-top: 10px; }
+    .lab-gap-labels { color: var(--quiet); font-size: 9px; text-align: center; }
+    .lab-gap-cell { aspect-ratio: 1; padding: 3px; border: 1px solid var(--line); background: transparent; color: var(--quiet); cursor: pointer; font: 10px var(--mono); }
+    .lab-gap-cell.has-data { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); color: var(--accent); }
+    .lab-gap-cell:hover { border-color: var(--accent); color: var(--ink); }
+    .lab-history-row { grid-template-columns: 62px minmax(0, 1fr) auto; align-items: baseline; }
+    .lab-history-row small { grid-column: auto; }
+    .explorer-reference-view { min-height: 250px; }
+
+    @media (max-width: 640px) {
+      .lab-chart-grid { grid-template-columns: 1fr; }
+      .lab-donut-layout { grid-template-columns: 108px minmax(0, 1fr); }
+      .lab-donut { width: 108px; height: 108px; }
+      .lab-compare-head { grid-template-columns: 1fr 1fr; }
+      .lab-compare-head button { grid-column: 1 / -1; }
+      .lab-compare-columns { grid-template-columns: 1fr; }
+      .lab-ladder { grid-template-columns: repeat(4, 105px); }
+      .lab-personal-stats { grid-template-columns: repeat(2, auto); }
+    }
+
+    .reader-empty {
+      display: grid;
+      min-height: 100%;
+      place-items: center;
+      padding: 34px;
+      color: var(--quiet);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .reader-entry { padding: 23px clamp(18px, 2.2vw, 32px) 35px; }
+
+    .reader-kicker {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+
+    .reader-title {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 22px;
+      font-weight: 610;
+      letter-spacing: -.025em;
+      line-height: 1.15;
+    }
+
+    .reader-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 4px 12px;
+      margin: 21px 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .reader-meta dt { color: var(--quiet); }
+    .reader-meta dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+
+    .reader-alert {
+      margin: 0 0 18px;
+      padding: 9px 10px;
+      border-left: 2px solid var(--warning);
+      color: var(--warning);
+      font-size: 12px;
+    }
+
+    .reader-section {
+      border-top: 1px solid var(--line);
+    }
+
+    .reader-section:last-of-type { border-bottom: 1px solid var(--line); }
+
+    .reader-section summary {
+      display: flex;
+      align-items: center;
+      min-height: 47px;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 12px;
+      list-style: none;
+    }
+
+    .reader-section summary::-webkit-details-marker { display: none; }
+    .reader-section summary::before { content: "+"; width: 18px; color: var(--accent); font-size: 15px; }
+    .reader-section[open] summary { color: var(--ink); }
+    .reader-section[open] summary::before { content: "−"; }
+
+    .markdown {
+      padding: 0 0 22px;
+      color: #c9d4c4;
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.68;
+    }
+
+    .markdown > :first-child { margin-top: 0; }
+    .markdown p { margin: 0 0 14px; }
+    .markdown h3, .markdown h4 { margin: 22px 0 9px; color: var(--ink); font-size: 14px; }
+    .markdown ul, .markdown ol { margin: 0 0 14px; padding-left: 21px; }
+    .markdown li + li { margin-top: 4px; }
+    .markdown strong { color: var(--ink); }
+    .markdown code { padding: 1px 4px; background: #1b241c; color: var(--accent); font-family: var(--mono); font-size: .92em; }
+    .math-display { overflow-x: auto; margin: 16px 0; padding: 12px; border-left: 2px solid var(--line-strong); color: var(--ink); text-align: center; }
+    .math-inline { color: #e4edd8; white-space: nowrap; }
+    .markdown .missing-section { color: var(--quiet); font-family: var(--mono); font-size: 12px; }
+    .markdown .content-error { color: var(--warning); font-family: var(--mono); font-size: 12px; }
+
+    .reference-anchor { position: relative; display: inline-block; }
+    .reference-anchor::after {
+      content: "";
+      position: absolute;
+      z-index: 3;
+      left: 0;
+      bottom: 100%;
+      width: 100%;
+      height: 9px;
+    }
+    .reference-link {
+      padding: 1px 3px;
+      border: 1px solid color-mix(in srgb, var(--accent) 45%, transparent);
+      border-radius: 3px;
+      background: color-mix(in srgb, var(--accent) 10%, transparent);
+      color: var(--accent);
+      cursor: pointer;
+      font: inherit;
+      line-height: inherit;
+    }
+    .reference-link:hover, .reference-link:focus-visible {
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
+      color: var(--ink);
+    }
+    .reference-preview {
+      position: absolute;
+      z-index: 4;
+      left: 0;
+      bottom: calc(100% + 9px);
+      display: none;
+      width: min(390px, calc(100vw - 44px));
+      padding: 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 6px;
+      background: var(--surface-raised);
+      box-shadow: 0 16px 35px color-mix(in srgb, var(--bg) 24%, transparent);
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 12px;
+      line-height: 1.45;
+      max-height: min(70vh, 420px);
+      overflow: auto;
+      pointer-events: none;
+    }
+    .reference-anchor:hover .reference-preview,
+    .reference-anchor:focus-within .reference-preview { display: block; }
+    .reference-preview-title, .reference-view-kicker { margin: 0 0 7px; color: var(--accent); font-family: var(--mono); font-size: 10px; letter-spacing: .07em; text-transform: uppercase; }
+    .reference-preview-body { margin: 0 0 9px; color: var(--ink); }
+    .reference-preview-meta, .reference-view-meta { margin: 0; color: var(--quiet); font-size: 11px; }
+    .reference-preview-formula, .reference-formula {
+      margin: 8px 0;
+      padding: 10px 11px;
+      border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
+      border-radius: 4px;
+      background: color-mix(in srgb, var(--surface) 72%, var(--surface-raised));
+      color: var(--ink);
+      overflow-x: auto;
+      font-family: var(--mono);
+      line-height: 1.55;
+    }
+    .reference-preview-formula { display: block; }
+    .reference-variant-label { display: block; margin-bottom: 3px; color: var(--quiet); font-family: var(--mono); font-size: 10px; text-transform: uppercase; }
+    .reference-view { padding: 23px clamp(18px, 2.2vw, 32px) 35px; }
+    .reference-view-title { margin: 0; color: var(--ink); font-family: var(--sans); font-size: 22px; line-height: 1.15; }
+    .reference-view-body { margin-top: 24px; color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.68; }
+    .reference-transcription { margin: 18px 0; padding: 15px; border-left: 2px solid var(--accent); background: color-mix(in srgb, var(--surface-raised) 84%, transparent); color: var(--ink); }
+    .reference-unavailable { margin: 18px 0; padding: 12px; border-left: 2px solid var(--warning); color: var(--warning); }
+    .reference-image { display: block; max-width: 100%; margin: 18px 0; border: 1px solid var(--line); }
+    .reference-image-caption { margin: -10px 0 18px; color: var(--quiet); font-size: 11px; }
+
+    html[data-theme="radar"] .reference-preview,
+    html[data-theme="radar"] .reference-formula,
+    html[data-theme="radar"] .reference-preview-formula { box-shadow: 0 16px 35px rgba(32, 57, 35, .18); }
+
+    html[data-theme="radar"] .data-panel { background: #eef7ca; box-shadow: 0 24px 70px rgba(32, 57, 35, .24); }
+    html[data-theme="radar"] .data-backdrop { background: rgba(32, 57, 35, .28); }
+    html[data-theme="radar"] .personal-note,
+    html[data-theme="radar"] .tag-input { background: var(--surface-raised); }
+
+    .reader-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 18px;
+    }
+
+    .reader-action {
+      padding: 7px 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .reader-action.primary { color: var(--capture); }
+    .reader-action:hover { color: var(--ink); }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 2px 0;
+      color: var(--quiet);
+      font-size: 11px;
+    }
+
+    .footer kbd {
+      color: var(--muted);
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .palette-backdrop, .help-backdrop {
+      position: fixed;
+      z-index: 10;
+      inset: 0;
+      background: rgba(5, 8, 6, .48);
+    }
+
+    .palette, .help-panel {
+      position: fixed;
+      z-index: 11;
+      top: 50%;
+      left: 50%;
+      width: min(560px, calc(100vw - 32px));
+      max-height: min(650px, calc(100vh - 32px));
+      overflow: auto;
+      transform: translate(-50%, -50%);
+      border: 1px solid var(--line-strong);
+      background: #121a13;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .38);
+    }
+
+    .palette-header, .help-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 17px 18px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .palette-title, .help-title { margin: 0; color: var(--ink); font-size: 13px; font-weight: 700; }
+    .palette-path { margin: 3px 0 0; color: var(--quiet); font-size: 11px; }
+    .help-close { padding: 5px 0 5px 10px; color: var(--muted); font-size: 11px; }
+
+    .palette-input {
+      width: calc(100% - 36px);
+      margin: 14px 18px 9px;
+      padding: 9px 0;
+      border: 0;
+      border-bottom: 1px solid var(--line-strong);
+      outline: 0;
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .palette-input::placeholder { color: var(--quiet); }
+
+    .palette-options { padding: 0 8px 10px; }
+
+    .palette-option {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      width: 100%;
+      min-height: 42px;
+      padding: 8px 10px;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    .palette-option.is-selected, .palette-option:hover { background: #1b271b; color: var(--ink); }
+    .palette-option .option-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .palette-option .option-meta { color: var(--quiet); font-size: 11px; white-space: nowrap; }
+    .palette-empty { padding: 24px 10px; color: var(--quiet); text-align: center; }
+    .palette-footer { padding: 10px 18px 15px; color: var(--quiet); border-top: 1px solid var(--line); font-size: 10px; }
+
+    .help-body { padding: 17px 18px 21px; color: var(--muted); font-family: var(--sans); font-size: 14px; line-height: 1.62; }
+    .help-body p { margin: 0 0 13px; }
+    .help-body h3 { margin: 20px 0 7px; color: var(--ink); font-family: var(--mono); font-size: 12px; }
+    .help-body code { color: var(--accent); font-family: var(--mono); font-size: .9em; }
+    .help-body ul { margin: 0; padding-left: 20px; }
+    .help-body li + li { margin-top: 5px; }
+
+    .shortcut-grid {
+      display: grid;
+      grid-template-columns: max-content minmax(0, 1fr);
+      gap: 7px 13px;
+      margin: 0;
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .shortcut-grid dt { color: var(--accent); }
+    .shortcut-grid dd { margin: 0; color: var(--muted); }
+
+    .toast {
+      position: fixed;
+      z-index: 12;
+      right: 22px;
+      bottom: 22px;
+      max-width: min(420px, calc(100vw - 44px));
+      padding: 10px 13px;
+      border: 1px solid var(--line-strong);
+      background: #182118;
+      color: var(--ink);
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity .17s ease, transform .17s ease;
+    }
+
+    .toast.is-visible { opacity: 1; transform: translateY(0); }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 900px) {
+      .workspace { grid-template-columns: minmax(0, 1fr); }
+      .reader { display: none; border-left: 0; }
+      .app.reader-open .index-pane { display: none; }
+      .app.reader-open .reader { display: block; min-height: 65vh; }
+      .app.reader-focus .reader { display: grid; grid-template-columns: minmax(0, 1fr); }
+      .app.reader-focus #readerContent { max-height: none; border-right: 0; }
+      .app.reader-focus .explorer-panel { border-top: 1px solid var(--line); }
+      .reader-entry { padding: 21px 18px 30px; }
+      .record-list { max-height: calc(100vh - 260px); }
+    }
+
+    @media (max-width: 640px) {
+      .app { padding: 14px; }
+      .masthead { align-items: start; padding-bottom: 14px; }
+      .collection-state { padding-top: 5px; font-size: 10px; }
+      .control-strip { align-items: flex-start; flex-direction: column; gap: 4px; padding: 7px 0; }
+      .controls { width: 100%; flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; }
+      .control-button { padding: 5px 2px; }
+      .control-button span { max-width: 160px; }
+      .list-heading, .record-row { grid-template-columns: 70px minmax(0, 1fr) 42px 24px 24px; gap: 7px; }
+      .list-heading { padding: 0 9px; }
+      .record-row { padding: 0 9px 0 calc(9px + var(--row-depth, 0) * 13px); }
+      .list-heading span:nth-child(3), .record-row .record-meta { display: none; }
+      .list-heading span:nth-child(4) { text-align: left; }
+      .record-state { font-size: 9px; }
+      .group-heading { padding: 0 9px 0 calc(9px + var(--depth, 0) * 13px); }
+      .footer { flex-direction: column; gap: 5px; padding-top: 11px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+  <link rel="stylesheet" href="shared/odedex-theme.css">
+  <script src="shared/odedex-theme.js"></script>
+<link rel="stylesheet" href="shared/odedex-shell.css">
+  <script src="shared/odedex-library.js"></script>
+  <script src="shared/odedex-bootstrap.js"></script>
+  <script src="shared/odedex-core.js"></script>
+  </head>
+<body>
+  <div class="app" id="app">
+    <header class="masthead">
+      <div>
+        <p class="eyebrow">ODEDEX / biblioteca</p>
+        <h1>Archivo terminal</h1>
+      </div>
+      <p class="collection-state" id="collectionState">cargando índice Markdown…</p>
+    </header>
+
+    <form class="search-form" id="searchForm" role="search">
+      <label class="visually-hidden" for="queryInput">Buscar y filtrar la biblioteca</label>
+      <span class="prompt" aria-hidden="true">/</span>
+      <input id="queryInput" type="text" autocomplete="off" spellcheck="false" placeholder="buscar título, fuente o escribir status:draft" aria-describedby="queryHelp">
+      <button class="quiet-button" type="button" id="clearSearch">limpiar</button>
+    </form>
+    <p class="visually-hidden" id="queryHelp">Tab completa filtros sugeridos. Pulsa interrogación para consultar la sintaxis.</p>
+
+    <div class="suggestion-strip" id="suggestionStrip" aria-label="Sugerencias de búsqueda"></div>
+
+    <section class="control-strip" aria-label="Controles de la biblioteca">
+      <div class="tokens" id="activeTokens"></div>
+      <div class="controls">
+        <button class="control-button" type="button" id="openStarred"><strong>S</strong> <span id="starredLabel">favoritos</span></button>
+        <button class="control-button" type="button" id="openFilter"><strong>F</strong> filtros</button>
+        <button class="control-button" type="button" id="openGroup"><strong>G</strong> <span id="groupLabel">grupos: ninguno</span></button>
+        <button class="control-button" type="button" id="openSort"><strong>O</strong> <span id="sortLabel">orden: ID</span></button>
+        <button class="control-button" type="button" id="reverseSort"><strong>R</strong> última ↑↓</button>
+        <button class="control-button" type="button" id="collapseAll"><strong>P</strong> <span id="collapseAllLabel">plegar todo</span></button>
+        <button class="control-button" type="button" id="resetView"><strong>X</strong> reiniciar</button>
+        <button class="control-button" type="button" id="openData"><strong>D</strong> datos</button>
+        <button class="control-button" type="button" id="openHelp"><strong>?</strong> atajos</button>
+      </div>
+    </section>
+
+    <main class="workspace">
+      <section class="index-pane" aria-label="Índice de ejercicios">
+        <div class="list-heading" aria-hidden="true"><span>ficha</span><span>título</span><span>carga</span><span>estado</span><span>mía</span><span>STAR</span></div>
+        <div class="record-list" id="recordList" tabindex="0" role="listbox" aria-label="Resultados de la biblioteca"></div>
+      </section>
+      <aside class="reader" id="readerPane" tabindex="-1" aria-label="Lector de ejercicio">
+        <div id="readerContent" class="reader-empty">Selecciona una ficha y pulsa <strong>Enter</strong> para leerla.</div>
+        <section class="explorer-panel" id="explorerPanel" aria-label="Explorador contextual">
+          <header class="explorer-head">
+            <div>
+              <p class="explorer-kicker">segunda dimensión</p>
+              <h2 class="explorer-title" id="explorerTitle">Relaciones</h2>
+              <p class="explorer-scope" id="explorerScope">índice parcial · sección actual</p>
+            </div>
+            <button class="explorer-close" type="button" id="closeExplorer">Esc lector</button>
+          </header>
+          <nav class="explorer-modes" id="explorerModes" aria-label="Modos de exploración" role="tablist">
+            <button class="explorer-mode is-active" type="button" data-explorer-mode="similarity" role="tab" aria-selected="true">parecidos</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="difficulty" role="tab" aria-selected="false">dificultad</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="competencies" role="tab" aria-selected="false">competencias</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="coverage" role="tab" aria-selected="false">cobertura</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="dependencies" role="tab" aria-selected="false">dependencias</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="chapters" role="tab" aria-selected="false">capítulos</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="families" role="tab" aria-selected="false">familias</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="path" role="tab" aria-selected="false">camino</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="ladder" role="tab" aria-selected="false">escalera</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="compare" role="tab" aria-selected="false">comparar</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="contrast" role="tab" aria-selected="false">contrastes</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="content" role="tab" aria-selected="false">contenido</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="references" role="tab" aria-selected="false">referencias</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="personal" role="tab" aria-selected="false">mi mapa</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="session" role="tab" aria-selected="false">sesión</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="discover" role="tab" aria-selected="false">descubrir</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="gaps" role="tab" aria-selected="false">huecos</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="history" role="tab" aria-selected="false">historial</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="panorama" role="tab" aria-selected="false">panorama</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="constellation" role="tab" aria-selected="false">constelación</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="timeline" role="tab" aria-selected="false">línea temporal</button>
+            <button class="explorer-mode" type="button" data-explorer-mode="activity" role="tab" aria-selected="false">actividad</button>
+          </nav>
+          <div class="explorer-body" id="explorerBody"></div>
+          <footer class="explorer-footer">E lector · Tab cambiar modo · Enter abrir ficha</footer>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="footer">
+      <span id="resultState">0 resultados</span>
+      <span><kbd>↑↓</kbd> mover · <kbd>Enter</kbd> leer · <kbd>S</kbd> favorito · <kbd>C</kbd> capturar · <kbd>X</kbd> reiniciar · <kbd>?</kbd> atajos</span>
+    </footer>
+  </div>
+
+  <div class="palette-backdrop" id="paletteBackdrop" hidden></div>
+  <section class="palette" id="palette" hidden role="dialog" aria-modal="true" aria-labelledby="paletteTitle">
+    <header class="palette-header">
+      <div>
+        <h2 class="palette-title" id="paletteTitle">Filtros</h2>
+        <p class="palette-path" id="palettePath"></p>
+      </div>
+      <button class="help-close" type="button" id="closePalette">Esc cerrar</button>
+    </header>
+    <label class="visually-hidden" for="paletteInput">Buscar una opción</label>
+    <input class="palette-input" id="paletteInput" autocomplete="off" spellcheck="false">
+    <div class="palette-options" id="paletteOptions" role="listbox"></div>
+    <footer class="palette-footer" id="paletteFooter">↑↓ seleccionar · Enter confirmar · Esc volver</footer>
+  </section>
+
+  <div class="help-backdrop" id="helpBackdrop" hidden></div>
+  <section class="help-panel" id="helpPanel" hidden role="dialog" aria-modal="true" aria-labelledby="helpTitle">
+    <header class="help-header">
+      <h2 class="help-title" id="helpTitle">Cheatsheet de teclado</h2>
+      <button class="help-close" type="button" id="closeHelp">Esc cerrar</button>
+    </header>
+    <div class="help-body">
+      <p>El texto libre busca en título, ID, autor, fuente, contenido Markdown y datos personales. Los filtros se combinan con <code>AND</code>; separa valores con coma para usar <code>OR</code>.</p>
+      <h3>Campos</h3>
+      <p><code>id:</code>, <code>title:</code>, <code>author:</code>, <code>source:</code>, <code>chapter:</code>, <code>section:</code>, <code>exercise:</code>, <code>topic:</code>, <code>competency:</code>, <code>notes:</code>, <code>tag:</code>, <code>status:</code>, <code>c:</code>, <code>t:</code>, <code>blocked:</code>, <code>captured:</code> y <code>starred:</code>.</p>
+      <h3>Ejemplos</h3>
+      <ul>
+        <li><code>status:draft c:2..3</code></li>
+        <li><code>competency:verificar.sustitucion-directa -blocked:yes</code></li>
+        <li><code>author:"Dennis G. Zill" captured:no</code></li>
+      </ul>
+      <h3>Atajos</h3>
+      <dl class="shortcut-grid">
+        <dt>↑ ↓ / J K</dt><dd>Mover la selección; sobre un grupo, mover el foco entre niveles.</dd>
+        <dt>Enter / Espacio</dt><dd>Abrir la ficha o abrir/cerrar la sección enfocada del lector.</dd>
+        <dt>, . (lector)</dt><dd>Mover el foco entre Enunciado, Solución, Resolución y Observaciones.</dd>
+        <dt>E</dt><dd>Ampliar o devolver el lector del ejercicio.</dd>
+        <dt>Esc</dt><dd>Volver a la lista o cerrar una paleta.</dd>
+        <dt>C</dt><dd>Capturar o retirar la ficha seleccionada.</dd>
+        <dt>S</dt><dd>Añadir o retirar la ficha seleccionada de favoritos.</dd>
+        <dt>/</dt><dd>Enfocar la búsqueda; <code>Tab</code> acepta una sugerencia.</dd>
+        <dt>F</dt><dd>Abrir filtros.</dd>
+        <dt>G</dt><dd>Componer una ruta de grupos; <code>Enter</code> añade niveles y <code>Retroceso</code> quita el último.</dd>
+        <dt>O</dt><dd>Componer un orden lexicográfico; cada criterio elige su dirección.</dd>
+        <dt>R</dt><dd>Invertir la dirección del último criterio de orden.</dd>
+        <dt>, . (lista) / Espacio</dt><dd>Saltar al grupo anterior o siguiente, o contraer el grupo activo.</dd>
+        <dt>A</dt><dd>Desde una ficha, ir a su grupo; desde un grupo, seleccionar su primer ejercicio.</dd>
+        <dt>← → (grupo)</dt><dd>Plegar/subir al padre o desplegar/entrar en el primer subgrupo.</dd>
+        <dt>Home / End (grupo)</dt><dd>Ir al primer o último grupo visible.</dd>
+        <dt>P</dt><dd>Plegar o desplegar todos los grupos visibles y enfocar el primero.</dd>
+        <dt>X</dt><dd>Reiniciar búsqueda, filtros, ruta de grupos, orden y lector. Las capturas se conservan.</dd>
+        <dt>D</dt><dd>Abrir el archivo local de datos personales.</dd>
+        <dt>?</dt><dd>Abrir o cerrar esta cheatsheet.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <input id="dataFileInput" type="file" accept="application/json,.json" hidden>
+  <div class="data-backdrop" id="dataBackdrop" hidden></div>
+  <section class="data-panel" id="dataPanel" hidden role="dialog" aria-modal="true" aria-labelledby="dataTitle">
+    <header class="data-header">
+      <h2 class="data-title" id="dataTitle">Datos personales</h2>
+      <button class="data-close" type="button" id="closeData">Esc cerrar</button>
+    </header>
+    <div class="data-body">
+      <p>Favoritos, capturas, notas y etiquetas se guardan en este dispositivo. El archivo auxiliar permite llevarlos a otra instalación.</p>
+      <div class="data-actions">
+        <button class="data-action primary" type="button" id="exportData">exportar archivo</button>
+        <button class="data-action" type="button" id="importData">importar y combinar</button>
+      </div>
+      <p class="data-status" id="dataStatus" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var DATA_ROOT = 'data-real/';
+      var DATA_URL = DATA_ROOT + 'library.json';
+      var REFERENCES_URL = DATA_ROOT + 'references.json';
+      var PROGRESS_KEY = 'odedex:v2:progress';
+      var STARRED_KEY = 'odedex:v2:starred';
+      var USER_DATA_KEY = 'odedex:v3:user-data';
+      var USER_DATA_FORMAT = 'odedex-user-data';
+      var USER_DATA_VERSION = 1;
+      var UI_KEY = 'odedex:terminal-index:ui';
+      var STATUS_LABELS = { verified: 'verificado', draft: 'borrador', open: 'abierto' };
+      var STATUS_ORDER = { verified: 0, draft: 1, open: 2 };
+      var COMPETENCY_LABELS = {
+        'clasificar.orden': 'clasificar · orden',
+        'clasificar.linealidad': 'clasificar · linealidad',
+        'verificar.sustitucion-directa': 'verificar · sustitución',
+        'verificar.dominio-intervalo': 'verificar · dominio',
+        'analizar-cualitativamente.puntos-equilibrio': 'analizar · equilibrios',
+        'analizar-cualitativamente.estabilidad': 'analizar · estabilidad',
+        'seleccionar-metodo.justificar-eleccion': 'seleccionar · método'
+      };
+
+      var FIELD_DEFS = [
+        { key: 'id', label: 'id', aliases: ['id', 'ficha'], description: 'identificador del ejercicio' },
+        { key: 'title', label: 'title', aliases: ['title', 'titulo', 'título'], description: 'título de la ficha' },
+        { key: 'author', label: 'author', aliases: ['author', 'autor'], description: 'autor de la fuente' },
+        { key: 'source', label: 'source', aliases: ['source', 'fuente', 'source-key'], description: 'clave de la fuente' },
+        { key: 'chapter', label: 'chapter', aliases: ['chapter', 'capitulo', 'capítulo'], description: 'capítulo editorial' },
+        { key: 'section', label: 'section', aliases: ['section', 'seccion', 'sección'], description: 'sección editorial' },
+        { key: 'exercise', label: 'exercise', aliases: ['exercise', 'ejercicio', 'e'], description: 'número de ejercicio' },
+        { key: 'locator', label: 'locator', aliases: ['locator', 'localizador'], description: 'localizador editorial' },
+        { key: 'topic', label: 'topic', aliases: ['topic', 'tema'], description: 'tema' },
+        { key: 'competency', label: 'competency', aliases: ['competency', 'competencia'], description: 'competencia' },
+        { key: 'notes', label: 'notes', aliases: ['notes', 'note', 'nota', 'notas'], description: 'notas personales' },
+        { key: 'tag', label: 'tag', aliases: ['tag', 'tags', 'etiqueta', 'etiquetas'], description: 'etiquetas personales' },
+        { key: 'status', label: 'status', aliases: ['status', 'estado', 'solution-status'], description: 'estado editorial' },
+        { key: 'conceptual', label: 'c', aliases: ['c', 'conceptual'], description: 'dificultad conceptual' },
+        { key: 'technical', label: 't', aliases: ['t', 'technical', 'tecnica', 'técnica'], description: 'dificultad técnica' },
+        { key: 'blocked', label: 'blocked', aliases: ['blocked', 'bloqueado'], description: 'bloqueo editorial' },
+        { key: 'captured', label: 'captured', aliases: ['captured', 'capturada', 'capturado', 'mia', 'mía'], description: 'captura personal' },
+        { key: 'starred', label: 'starred', aliases: ['starred', 'favorito', 'favoritos', 'estrella'], description: 'ejercicio favorito' }
+      ];
+
+      var GROUPS = [
+        { key: 'none', label: 'sin agrupar' },
+        { key: 'status', label: 'estado' },
+        { key: 'source', label: 'fuente' },
+        { key: 'author', label: 'autor' },
+        { key: 'chapter', label: 'capítulo' },
+        { key: 'section', label: 'sección' },
+        { key: 'topic', label: 'tema' },
+        { key: 'competency', label: 'competencia' },
+        { key: 'tag', label: 'etiqueta personal' },
+        { key: 'conceptual', label: 'dificultad conceptual' },
+        { key: 'technical', label: 'dificultad técnica' },
+        { key: 'blocked', label: 'bloqueo' },
+        { key: 'captured', label: 'captura' },
+        { key: 'starred', label: 'favoritos' }
+      ];
+
+      var SORTS = [
+        { key: 'id', label: 'ID' },
+        { key: 'title', label: 'título' },
+        { key: 'author', label: 'autor' },
+        { key: 'source', label: 'fuente' },
+        { key: 'status', label: 'estado' },
+        { key: 'conceptual', label: 'conceptual' },
+        { key: 'technical', label: 'técnica' },
+        { key: 'load', label: 'carga total' },
+        { key: 'captured', label: 'captura' }
+      ];
+
+      var dom = {
+        app: document.getElementById('app'),
+        collectionState: document.getElementById('collectionState'),
+        queryForm: document.getElementById('searchForm'),
+        queryInput: document.getElementById('queryInput'),
+        clearSearch: document.getElementById('clearSearch'),
+        suggestionStrip: document.getElementById('suggestionStrip'),
+        activeTokens: document.getElementById('activeTokens'),
+        openStarred: document.getElementById('openStarred'),
+        starredLabel: document.getElementById('starredLabel'),
+        openFilter: document.getElementById('openFilter'),
+        openGroup: document.getElementById('openGroup'),
+        openSort: document.getElementById('openSort'),
+        reverseSort: document.getElementById('reverseSort'),
+        collapseAll: document.getElementById('collapseAll'),
+        resetView: document.getElementById('resetView'),
+        openData: document.getElementById('openData'),
+        openHelp: document.getElementById('openHelp'),
+        groupLabel: document.getElementById('groupLabel'),
+        sortLabel: document.getElementById('sortLabel'),
+        collapseAllLabel: document.getElementById('collapseAllLabel'),
+        recordList: document.getElementById('recordList'),
+        readerPane: document.getElementById('readerPane'),
+        readerContent: document.getElementById('readerContent'),
+        resultState: document.getElementById('resultState'),
+        paletteBackdrop: document.getElementById('paletteBackdrop'),
+        palette: document.getElementById('palette'),
+        paletteTitle: document.getElementById('paletteTitle'),
+        palettePath: document.getElementById('palettePath'),
+        paletteInput: document.getElementById('paletteInput'),
+        paletteOptions: document.getElementById('paletteOptions'),
+        paletteFooter: document.getElementById('paletteFooter'),
+        closePalette: document.getElementById('closePalette'),
+        helpBackdrop: document.getElementById('helpBackdrop'),
+        helpPanel: document.getElementById('helpPanel'),
+        closeHelp: document.getElementById('closeHelp'),
+        dataFileInput: document.getElementById('dataFileInput'),
+        dataBackdrop: document.getElementById('dataBackdrop'),
+        dataPanel: document.getElementById('dataPanel'),
+        closeData: document.getElementById('closeData'),
+        exportData: document.getElementById('exportData'),
+        importData: document.getElementById('importData'),
+        dataStatus: document.getElementById('dataStatus'),
+        toast: document.getElementById('toast')
+      };
+
+      var state = {
+        library: [],
+        references: {},
+        contentIndex: {},
+        dataState: 'loading',
+        userData: loadUserData(),
+        showStarred: false,
+        query: '',
+        filters: [],
+        groupings: [],
+        sorts: [],
+        collapsed: {},
+        selectedKey: '',
+        readerId: '',
+        referenceId: '',
+        referenceReturn: null,
+        readerFocus: false,
+        content: {},
+        querySuggestionIndex: 0,
+        palette: null,
+        draggedConfig: null,
+        toastTimer: null,
+        noteTimer: null
+      };
+
+      function safeJson(value, fallback) {
+        try { return JSON.parse(value); } catch (error) { return fallback; }
+      }
+
+      function emptyUserData() {
+        return { format: USER_DATA_FORMAT, schemaVersion: USER_DATA_VERSION, updatedAt: '', records: {}, events: [] };
+      }
+
+      function normalizeTags(value) {
+        var values = Array.isArray(value) ? value : String(value || '').split(',');
+        return values.map(function (item) { return String(item).trim(); }).filter(Boolean).filter(function (item, index, items) { return items.indexOf(item) === index; }).slice(0, 40);
+      }
+
+      function normalizeUserData(value) {
+        var data = emptyUserData();
+        if (!value || typeof value !== 'object') return data;
+        data.updatedAt = typeof value.updatedAt === 'string' ? value.updatedAt : '';
+        data.events = Array.isArray(value.events) ? value.events.filter(function (event) { return event && event.id && event.type && event.at; }).slice(0, 100) : [];
+        var records = value.records && typeof value.records === 'object' ? value.records : {};
+        Object.keys(records).forEach(function (id) {
+          var item = records[id];
+          if (!item || typeof item !== 'object') return;
+          data.records[String(id)] = {
+            starred: Boolean(item.starred),
+            capturedAt: typeof item.capturedAt === 'string' ? item.capturedAt : '',
+            notes: typeof item.notes === 'string' ? item.notes : '',
+            tags: normalizeTags(item.tags),
+            updatedAt: typeof item.updatedAt === 'string' ? item.updatedAt : ''
+          };
+        });
+        return data;
+      }
+
+      function loadLegacyProgress() {
+        var saved = safeJson(localStorage.getItem(PROGRESS_KEY), null);
+        if (saved && typeof saved === 'object') {
+          return { captures: saved.captures || {}, events: Array.isArray(saved.events) ? saved.events : [] };
+        }
+        return { captures: {}, events: [] };
+      }
+
+      function loadLegacyStarred() {
+        var saved = safeJson(localStorage.getItem(STARRED_KEY), null);
+        return saved && typeof saved === 'object' ? saved : {};
+      }
+
+      function loadUserData() {
+        var data = normalizeUserData(safeJson(localStorage.getItem(USER_DATA_KEY), null));
+        var legacyProgress = loadLegacyProgress();
+        var legacyStarred = loadLegacyStarred();
+        Object.keys(legacyProgress.captures).forEach(function (id) {
+          if (!data.records[id]) data.records[id] = { starred: false, capturedAt: String(legacyProgress.captures[id] || ''), notes: '', tags: [], updatedAt: '' };
+          if (!data.records[id].capturedAt) data.records[id].capturedAt = String(legacyProgress.captures[id] || '');
+        });
+        Object.keys(legacyStarred).forEach(function (id) {
+          if (!data.records[id]) data.records[id] = { starred: false, capturedAt: '', notes: '', tags: [], updatedAt: '' };
+          data.records[id].starred = true;
+        });
+        data.events = data.events.concat(legacyProgress.events).filter(function (event, index, events) {
+          return event && event.id && event.type && event.at && events.findIndex(function (other) { return other.id === event.id && other.type === event.type && other.at === event.at; }) === index;
+        }).slice(0, 100);
+        return data;
+      }
+
+      function loadUi() {
+        var saved = safeJson(localStorage.getItem(UI_KEY), null);
+        if (!saved || typeof saved !== 'object') return;
+        state.query = typeof saved.query === 'string' ? saved.query : '';
+        state.filters = Array.isArray(saved.filters) ? saved.filters.filter(isKnownFilter) : [];
+        state.groupings = Array.isArray(saved.groupings) ? saved.groupings.filter(function (key, index, items) {
+          return key !== 'none' && GROUPS.some(function (item) { return item.key === key; }) && items.indexOf(key) === index;
+        }) : [saved.group, saved.subgroup].filter(function (key, index, items) {
+          return key && key !== 'none' && GROUPS.some(function (item) { return item.key === key; }) && items.indexOf(key) === index;
+        });
+        state.sorts = Array.isArray(saved.sorts) ? saved.sorts.filter(function (criterion, index, items) {
+          return criterion && SORTS.some(function (item) { return item.key === criterion.key; }) && (criterion.direction === 'asc' || criterion.direction === 'desc') && items.findIndex(function (item) { return item.key === criterion.key; }) === index;
+        }) : (saved.sort && saved.sort !== 'id' && SORTS.some(function (item) { return item.key === saved.sort; }) ? [{ key: saved.sort, direction: saved.descending ? 'desc' : 'asc' }] : []);
+        state.collapsed = saved.collapsed && typeof saved.collapsed === 'object' ? saved.collapsed : {};
+      }
+
+      function saveUi() {
+        try {
+          localStorage.setItem(UI_KEY, JSON.stringify({
+            query: state.query,
+            filters: state.filters,
+            groupings: state.groupings,
+            sorts: state.sorts,
+            collapsed: state.collapsed
+          }));
+        } catch (error) {
+          console.warn('No se pudo guardar la preferencia de índice.', error);
+        }
+      }
+
+      function personalDataFor(id) {
+        return state.userData.records[id] || { starred: false, capturedAt: '', notes: '', tags: [], updatedAt: '' };
+      }
+
+      function ensureUserRecord(id) {
+        if (!state.userData.records[id]) state.userData.records[id] = { starred: false, capturedAt: '', notes: '', tags: [], updatedAt: '' };
+        return state.userData.records[id];
+      }
+
+      function persistUserData() {
+        state.userData.updatedAt = new Date().toISOString();
+        try {
+          localStorage.setItem(USER_DATA_KEY, JSON.stringify(state.userData));
+          var progress = { captures: {}, events: state.userData.events.slice(0, 100) };
+          var starred = {};
+          Object.keys(state.userData.records).forEach(function (id) {
+            var item = state.userData.records[id];
+            if (item.capturedAt) progress.captures[id] = item.capturedAt;
+            if (item.starred) starred[id] = item.updatedAt || state.userData.updatedAt;
+          });
+          localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
+          localStorage.setItem(STARRED_KEY, JSON.stringify(starred));
+        } catch (error) { console.warn('No se pudieron guardar los datos personales.', error); }
+      }
+
+      function pad(number) { return String(number).padStart(3, '0'); }
+
+      function statusFor(number) {
+        if (number <= 16) return 'verified';
+        if (number === 49 || number === 50 || number === 52) return 'open';
+        return 'draft';
+      }
+
+      function competencyFor(number) {
+        var directAndDomain = [11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 28, 29, 47, 49, 62];
+        var directOnly = [4, 14, 23, 24, 25, 26, 27, 31, 32, 33, 34, 35, 36, 37, 39, 40, 41, 42, 43, 44, 45, 46, 48, 51, 52, 54, 57, 58, 59, 63, 64];
+        if ((number >= 1 && number <= 3) || (number >= 5 && number <= 8) || number === 56) return ['clasificar.orden', 'clasificar.linealidad'];
+        if (number === 9 || number === 10) return ['clasificar.linealidad'];
+        if (directAndDomain.indexOf(number) !== -1) return ['verificar.sustitucion-directa', 'verificar.dominio-intervalo'];
+        if (directOnly.indexOf(number) !== -1) return ['verificar.sustitucion-directa'];
+        if (number === 30 || number === 50 || number === 53) return ['verificar.dominio-intervalo'];
+        if (number === 38) return ['analizar-cualitativamente.puntos-equilibrio'];
+        if (number === 55) return ['seleccionar-metodo.justificar-eleccion'];
+        if (number === 60) return ['analizar-cualitativamente.puntos-equilibrio', 'analizar-cualitativamente.estabilidad'];
+        if (number === 61) return ['verificar.sustitucion-directa', 'analizar-cualitativamente.puntos-equilibrio'];
+        return ['verificar.sustitucion-directa'];
+      }
+
+      function makeFallback() {
+        var difficultyPairs = '11,11,11,11,11,11,11,11,21,21,11,12,22,13,22,22,22,22,32,22,22,12,12,23,22,22,22,22,21,21,11,11,21,22,21,22,11,21,21,11,22,22,31,31,21,21,32,33,31,31,23,32,21,32,21,32,31,32,32,21,32,32,14,14'.split(',');
+        return Array.from({ length: 64 }, function (_, index) {
+          var number = index + 1;
+          var pair = difficultyPairs[index];
+          return normalizeRecord({
+            id: 'zill-c01-s01-e' + pad(number),
+            title: 'Zill 1.1 Ejercicio ' + number,
+            authors: ['Dennis G. Zill'],
+            sourceKey: 'zill',
+            sourceLocator: 'Sección 1.1, ejercicio ' + number,
+            chapter: 1,
+            section: 1,
+            exerciseNumber: number,
+            topics: ['fundamentos'],
+            competencies: competencyFor(number),
+            difficulty: { conceptual: Number(pair.charAt(0)), technical: Number(pair.charAt(1)) },
+            solutionStatus: statusFor(number),
+            blocked: number === 49 || number === 50 || number === 52 ? 'enunciado' : '',
+            content: 'content/zill-c01-s01-e' + pad(number) + '.md'
+          }, index);
+        });
+      }
+
+      function asArray(value) {
+        if (Array.isArray(value)) return value.map(String);
+        if (value === null || typeof value === 'undefined') return [];
+        return [String(value)];
+      }
+
+      function normalizeAuthors(value) {
+        if (Array.isArray(value)) return value.map(function (item) { return typeof item === 'string' ? item : (item && item.name ? String(item.name) : ''); }).filter(Boolean);
+        if (typeof value === 'string') return [value];
+        return [];
+      }
+
+      function normalizeRecord(record, index) {
+        var id = record.id || record['exercise-id'] || ('ficha-' + pad(index + 1));
+        var match = /-c(\d+)-s(\d+)-e(\d+)$/.exec(id);
+        var difficulty = record.difficulty || {};
+        return {
+          id: String(id),
+          title: String(record.title || id),
+          authors: normalizeAuthors(record.authors || record.author),
+          sourceKey: String(record.sourceKey || record.source || record['source-key'] || 'fuente'),
+          sourceLocator: String(record.sourceLocator || record.locator || record['source-locator'] || ''),
+          references: asArray(record.references),
+          chapter: Number(record.chapter || (match && match[1]) || 0),
+          chapterTitle: String(record.chapterTitle || ''),
+          section: Number(record.section || (match && match[2]) || 0),
+          exerciseNumber: Number(record.exerciseNumber || (match && match[3]) || index + 1),
+          topics: asArray(record.topics),
+          competencies: asArray(record.competencies),
+          difficulty: { conceptual: Number(difficulty.conceptual || 1), technical: Number(difficulty.technical || 1) },
+          status: String(record.solutionStatus || record.status || record['solution-status'] || 'open'),
+          blocked: String(record.blocked || ''),
+          blockedDetail: String(record.blockedDetail || record['blocked-detail'] || ''),
+          requiresTooling: asArray(record.requiresTooling || record['requires-tooling']),
+          content: String(record.content || record.markdownPath || ('content/' + id + '.md'))
+        };
+      }
+
+      function normalizeText(value) {
+        return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('es');
+      }
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>'"]/g, function (character) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character];
+        });
+      }
+
+      function labelForCompetency(value) { return COMPETENCY_LABELS[value] || value.replace(/\./g, ' · '); }
+      function labelForStatus(value) { return STATUS_LABELS[value] || value; }
+      function labelForGroupCriterion(key) {
+        var group = GROUPS.find(function (item) { return item.key === key; });
+        return group ? group.label : key;
+      }
+      function labelForSortCriterion(key) {
+        var sort = SORTS.find(function (item) { return item.key === key; });
+        return sort ? sort.label : key;
+      }
+      function groupingPath() { return state.groupings.length ? state.groupings.map(labelForGroupCriterion).join(' › ') : 'ninguno'; }
+      function sortPath() {
+        return state.sorts.length ? state.sorts.map(function (criterion) {
+          return labelForSortCriterion(criterion.key) + (criterion.direction === 'desc' ? ' ↓' : ' ↑');
+        }).join(' › ') : 'ID ↑';
+      }
+      function isCaptured(id) { return Boolean(personalDataFor(id).capturedAt); }
+      function isStarred(id) { return Boolean(personalDataFor(id).starred); }
+      function loadOf(record) { return record.difficulty.conceptual + record.difficulty.technical; }
+      function knownField(key) { return FIELD_DEFS.find(function (field) { return field.key === key; }); }
+      function isKnownFilter(filter) { return filter && knownField(filter.field) && typeof filter.value === 'string'; }
+
+      function tokenizeQuery(query) {
+        var tokens = [];
+        var current = '';
+        var quote = '';
+        for (var index = 0; index < query.length; index += 1) {
+          var character = query[index];
+          if (quote) {
+            current += character;
+            if (character === quote) quote = '';
+          } else if (character === '"' || character === "'") {
+            quote = character;
+            current += character;
+          } else if (/\s/.test(character)) {
+            if (current) { tokens.push(current); current = ''; }
+          } else {
+            current += character;
+          }
+        }
+        if (current) tokens.push(current);
+        return tokens;
+      }
+
+      function fieldFromAlias(alias) {
+        var normal = normalizeText(alias);
+        return FIELD_DEFS.find(function (field) { return field.aliases.some(function (item) { return normalizeText(item) === normal; }); });
+      }
+
+      function parsedQuery() {
+        var parsed = { terms: [], filters: [] };
+        tokenizeQuery(state.query).forEach(function (token) {
+          var match = /^(-?)([^:]+):(.*)$/.exec(token);
+          if (!match) { parsed.terms.push(token.replace(/^['"]|['"]$/g, '')); return; }
+          var field = fieldFromAlias(match[2]);
+          var value = match[3].replace(/^['"]|['"]$/g, '');
+          if (!field || !value) { parsed.terms.push(token.replace(/^['"]|['"]$/g, '')); return; }
+          parsed.filters.push({ field: field.key, value: value, negated: match[1] === '-' });
+        });
+        return parsed;
+      }
+
+      function valuesForField(record, field) {
+        switch (field) {
+          case 'id': return [record.id];
+          case 'title': return [record.title];
+          case 'author': return record.authors;
+          case 'source': return [record.sourceKey];
+          case 'chapter': return [String(record.chapter), record.chapterTitle];
+          case 'section': return [String(record.section)];
+          case 'exercise': return [String(record.exerciseNumber), 'e' + pad(record.exerciseNumber)];
+          case 'locator': return [record.sourceLocator];
+          case 'topic': return record.topics;
+          case 'competency': return record.competencies.concat(record.competencies.map(labelForCompetency));
+          case 'notes': return [personalDataFor(record.id).notes];
+          case 'tag': return personalDataFor(record.id).tags;
+          case 'status': return [record.status];
+          case 'conceptual': return [String(record.difficulty.conceptual)];
+          case 'technical': return [String(record.difficulty.technical)];
+          case 'blocked': return [record.blocked || 'no', record.blocked ? 'yes' : 'no'];
+          case 'captured': return [isCaptured(record.id) ? 'yes' : 'no'];
+          case 'starred': return [isStarred(record.id) ? 'yes' : 'no'];
+          default: return [];
+        }
+      }
+
+      function valueMatches(actual, expected, field) {
+        var query = normalizeText(expected);
+        if (!query) return true;
+        if ((field === 'chapter' || field === 'section' || field === 'exercise' || field === 'conceptual' || field === 'technical') && /^\d+\.\.\d+$/.test(query)) {
+          var range = query.split('..').map(Number);
+          return Number(actual) >= range[0] && Number(actual) <= range[1];
+        }
+        return normalizeText(actual).indexOf(query) !== -1;
+      }
+
+      function recordMatchesFilter(record, filter) {
+        var alternatives = filter.value.split(',').map(function (value) { return value.trim(); }).filter(Boolean);
+        var matched = alternatives.some(function (alternative) {
+          return valuesForField(record, filter.field).some(function (value) { return valueMatches(value, alternative, filter.field); });
+        });
+        return filter.negated ? !matched : matched;
+      }
+
+      function searchText(record) {
+        var personal = personalDataFor(record.id);
+        return [record.id, record.title, record.authors.join(' '), record.sourceKey, record.sourceLocator, record.chapterTitle, record.topics.join(' '), record.competencies.join(' '), personal.notes, personal.tags.join(' '), state.contentIndex[record.id] || ''].join(' ');
+      }
+
+      function filteredRecords() {
+        var parsed = parsedQuery();
+        var filters = state.filters.concat(parsed.filters);
+        var result = state.library.filter(function (record) {
+          var text = normalizeText(searchText(record));
+          var termsPass = parsed.terms.every(function (term) { return text.indexOf(normalizeText(term)) !== -1; });
+          return termsPass && filters.every(function (filter) { return recordMatchesFilter(record, filter); });
+        });
+        if (state.showStarred) result = result.filter(function (record) { return isStarred(record.id); });
+        result.sort(function (left, right) { return compareRecords(left, right); });
+        return result;
+      }
+
+      function compareRecords(left, right) {
+        for (var index = 0; index < state.sorts.length; index += 1) {
+          var criterion = state.sorts[index];
+          var comparison = compareByCriterion(left, right, criterion.key);
+          if (comparison !== 0) return criterion.direction === 'desc' ? -comparison : comparison;
+        }
+        return left.id.localeCompare(right.id, 'es', { numeric: true });
+      }
+
+      function compareByCriterion(left, right, key) {
+        switch (key) {
+          case 'title': return left.title.localeCompare(right.title, 'es');
+          case 'author': return (left.authors[0] || '').localeCompare(right.authors[0] || '', 'es');
+          case 'source': return left.sourceKey.localeCompare(right.sourceKey, 'es');
+          case 'status':
+            return (Object.prototype.hasOwnProperty.call(STATUS_ORDER, left.status) ? STATUS_ORDER[left.status] : 9) -
+              (Object.prototype.hasOwnProperty.call(STATUS_ORDER, right.status) ? STATUS_ORDER[right.status] : 9);
+          case 'conceptual': return left.difficulty.conceptual - right.difficulty.conceptual;
+          case 'technical': return left.difficulty.technical - right.difficulty.technical;
+          case 'load': return loadOf(left) - loadOf(right);
+          case 'captured': return Number(isCaptured(left.id)) - Number(isCaptured(right.id));
+          default: return left.id.localeCompare(right.id, 'es', { numeric: true });
+        }
+      }
+
+      function groupingValues(record, grouping) {
+        switch (grouping) {
+          case 'status': return [labelForStatus(record.status)];
+          case 'source': return [record.sourceKey];
+          case 'author': return record.authors.length ? record.authors : ['sin autor'];
+          case 'chapter': return ['capítulo ' + record.chapter];
+          case 'section': return ['sección ' + record.section];
+          case 'topic': return record.topics.length ? record.topics : ['sin tema'];
+          case 'competency': return record.competencies.length ? record.competencies.map(labelForCompetency) : ['sin competencia'];
+          case 'tag': return personalDataFor(record.id).tags.length ? personalDataFor(record.id).tags : ['sin etiqueta personal'];
+          case 'conceptual': return ['conceptual ' + record.difficulty.conceptual];
+          case 'technical': return ['técnica ' + record.difficulty.technical];
+          case 'blocked': return [record.blocked ? 'bloqueada: ' + record.blocked : 'sin bloqueo'];
+          case 'captured': return [isCaptured(record.id) ? 'capturadas' : 'pendientes'];
+          case 'starred': return [isStarred(record.id) ? 'favoritos' : 'sin marcar'];
+          default: return [''];
+        }
+      }
+
+      function createGroupNode(key, label, criterion, depth) {
+        return { key: key, label: label, criterion: criterion, depth: depth, records: [], recordIds: {}, children: {}, childList: [] };
+      }
+
+      function addRecordToNode(node, record) {
+        if (!node.recordIds[record.id]) {
+          node.recordIds[record.id] = true;
+          node.records.push(record);
+        }
+      }
+
+      function groupTree(records) {
+        var root = createGroupNode('root', '', '', -1);
+        function place(node, record, depth) {
+          addRecordToNode(node, record);
+          if (depth >= state.groupings.length) return;
+          var criterion = state.groupings[depth];
+          var labels = groupingValues(record, criterion).filter(function (label, index, items) { return items.indexOf(label) === index; });
+          labels.forEach(function (label) {
+            var key = node.key + '/' + criterion + ':' + encodeURIComponent(label);
+            if (!node.children[key]) {
+              node.children[key] = createGroupNode(key, label, criterion, depth);
+              node.childList.push(node.children[key]);
+            }
+            place(node.children[key], record, depth + 1);
+          });
+        }
+        records.forEach(function (record) { place(root, record, 0); });
+        function sortNode(node) {
+          node.records.sort(compareRecords);
+          node.childList.sort(function (left, right) { return left.label.localeCompare(right.label, 'es', { numeric: true }); });
+          node.childList.forEach(sortNode);
+        }
+        sortNode(root);
+        return root;
+      }
+
+      function rowKey(node, record, occurrence) { return node.key + '::' + record.id + '::' + occurrence; }
+
+      function visibleRows(tree) {
+        var rows = [];
+        function walk(node, ancestors) {
+          if (node.depth >= 0 && state.collapsed[node.key]) return;
+          if (node.childList.length) {
+            node.childList.forEach(function (child) { walk(child, ancestors.concat(node.depth >= 0 ? [node] : [])); });
+            return;
+          }
+          node.records.forEach(function (record, index) {
+            rows.push({ key: rowKey(node, record, index), group: node, ancestors: ancestors, record: record });
+          });
+        }
+        walk(tree, []);
+        return rows;
+      }
+
+      function leafGroups(tree) {
+        var groups = [];
+        function walk(node) {
+          if (node.depth >= 0 && state.collapsed[node.key]) return;
+          if (!node.childList.length) {
+            if (node.depth >= 0 && node.records.length) groups.push(node);
+            return;
+          }
+          node.childList.forEach(walk);
+        }
+        walk(tree);
+        return groups;
+      }
+
+      function collapsibleKeys(tree) {
+        var keys = [];
+        function walk(node) {
+          if (node.depth >= 0) keys.push(node.key);
+          node.childList.forEach(walk);
+        }
+        walk(tree);
+        return keys;
+      }
+
+      function ensureSelection(rows) {
+        if (!rows.length) { state.selectedKey = ''; return; }
+        if (!rows.some(function (row) { return row.key === state.selectedKey; })) state.selectedKey = rows[0].key;
+      }
+
+      function selectedRow() {
+        var tree = groupTree(filteredRecords());
+        var rows = visibleRows(tree);
+        ensureSelection(rows);
+        return rows.find(function (row) { return row.key === state.selectedKey; }) || null;
+      }
+
+      function selectedRecord() {
+        var row = selectedRow();
+        return row ? row.record : null;
+      }
+
+      function facetValues(field) {
+        if (field === 'notes') return [];
+        var counts = {};
+        state.library.forEach(function (record) {
+          var distinct = {};
+          valuesForField(record, field).forEach(function (value) {
+            var key = String(value);
+            if (!key || distinct[key]) return;
+            distinct[key] = true;
+            counts[key] = (counts[key] || 0) + 1;
+          });
+        });
+        return Object.keys(counts).sort(function (left, right) { return left.localeCompare(right, 'es', { numeric: true }); }).map(function (value) {
+          return { value: value, label: field === 'competency' && value.indexOf('.') !== -1 ? labelForCompetency(value) : value, count: counts[value] };
+        });
+      }
+
+      function currentQueryFragment(query) {
+        var quote = '';
+        var start = query.length;
+        for (var index = query.length - 1; index >= 0; index -= 1) {
+          var character = query[index];
+          if (quote) {
+            if (character === quote) quote = '';
+            continue;
+          }
+          if (character === '"' || character === "'") {
+            quote = character;
+            continue;
+          }
+          if (/\s/.test(character)) { start = index + 1; break; }
+          start = index;
+        }
+        return { prefix: query.slice(0, start), fragment: query.slice(start) };
+      }
+
+      function directQuerySuggestions() {
+        var query = state.query;
+        var cursor = currentQueryFragment(query);
+        var fragment = cursor.fragment;
+        var prefix = cursor.prefix;
+        var negative = fragment.charAt(0) === '-' ? '-' : '';
+        var subject = negative ? fragment.slice(1) : fragment;
+        var colon = subject.indexOf(':');
+        var suggestions;
+        if (colon === -1) {
+          var fieldNeedle = normalizeText(subject);
+          suggestions = FIELD_DEFS.filter(function (field) { return !fieldNeedle || normalizeText(field.label + ' ' + field.aliases.join(' ') + ' ' + field.description).indexOf(fieldNeedle) !== -1; }).map(function (field) {
+            return { label: field.label + ':', meta: field.description, completion: negative + field.label + ':' };
+          });
+        } else {
+          var field = fieldFromAlias(subject.slice(0, colon));
+          var valueNeedle = subject.slice(colon + 1).replace(/^['"]|['"]$/g, '');
+          if (!field) return [];
+          suggestions = facetValues(field.key).filter(function (item) { return normalizeText(item.value + ' ' + item.label).indexOf(normalizeText(valueNeedle)) !== -1; }).map(function (item) {
+            var escapedValue = /\s/.test(item.value) ? '"' + item.value + '"' : item.value;
+            return { label: field.label + ':' + escapedValue, meta: item.count + ' fichas', completion: negative + field.label + ':' + escapedValue };
+          });
+        }
+        return suggestions.slice(0, 8).map(function (suggestion) {
+          suggestion.prefix = prefix;
+          return suggestion;
+        });
+      }
+
+      function filterLabel(filter) {
+        var field = knownField(filter.field);
+        var value = filter.value;
+        if (filter.field === 'competency') value = value.split(',').map(labelForCompetency).join(', ');
+        return (filter.negated ? '−' : '') + (field ? field.label : filter.field) + ':' + value;
+      }
+
+      function renderSuggestions() {
+        var suggestions = directQuerySuggestions();
+        if (state.querySuggestionIndex >= suggestions.length) state.querySuggestionIndex = 0;
+        var lead = suggestions.length ? (state.query ? 'sugerencias' : 'campos') : 'sin sugerencias';
+        dom.suggestionStrip.innerHTML = '<span class="suggestion-lead">' + escapeHtml(lead) + '</span>' + suggestions.map(function (item, index) {
+          return '<button type="button" class="suggestion ' + (index === state.querySuggestionIndex ? 'is-active' : '') + '" data-suggestion="' + index + '" title="Tab completa esta sugerencia">' + escapeHtml(item.label) + (item.meta ? ' <span class="visually-hidden">' + escapeHtml(item.meta) + '</span>' : '') + '</button>';
+        }).join('');
+      }
+
+      function renderTokens() {
+        var parsed = parsedQuery();
+        var filterHtml = [];
+        state.filters.forEach(function (filter, index) {
+          filterHtml.push('<span class="token">' + escapeHtml(filterLabel(filter)) + '<button type="button" class="token-remove" data-remove-filter="' + index + '" aria-label="Eliminar filtro ' + escapeHtml(filterLabel(filter)) + '">×</button></span>');
+        });
+        parsed.filters.forEach(function (filter) { filterHtml.push('<span class="token query-token">' + escapeHtml(filterLabel(filter)) + '</span>'); });
+        if (!filterHtml.length) filterHtml.push('<span class="token-empty">ninguno</span>');
+
+        var html = ['<span class="token-cluster"><span class="token-label">filtros</span>' + filterHtml.join('') + '</span>'];
+        html.push('<span class="token-cluster" data-config-zone="group"><span class="token-label">grupos</span>' + (state.groupings.length ? state.groupings.map(function (grouping, index) {
+            var label = labelForGroupCriterion(grouping);
+            return '<span class="token config-token" draggable="true" data-config-kind="group" data-config-index="' + index + '" title="Arrastrar para reordenar grupo"><span class="token-grip" aria-hidden="true">::</span><span>' + escapeHtml(label) + '</span><button type="button" class="token-remove" data-remove-config="group:' + index + '" aria-label="Eliminar grupo ' + escapeHtml(label) + '">×</button></span>';
+          }).join('') : '<span class="token-empty">ninguno</span>') + '</span>');
+        html.push('<span class="token-cluster" data-config-zone="sort"><span class="token-label">orden</span>' + (state.sorts.length ? state.sorts.map(function (criterion, index) {
+            var label = labelForSortCriterion(criterion.key);
+            var direction = criterion.direction === 'desc' ? '↓' : '↑';
+            var nextDirection = criterion.direction === 'desc' ? 'ascendente' : 'descendente';
+            return '<span class="token config-token" draggable="true" data-config-kind="sort" data-config-index="' + index + '" title="Arrastrar para reordenar criterio"><span class="token-grip" aria-hidden="true">::</span><span>' + escapeHtml(label) + '</span><button type="button" class="token-direction" data-invert-sort="' + index + '" aria-label="Invertir ' + escapeHtml(label) + ' a orden ' + nextDirection + '" title="Invertir orden">' + direction + '</button><button type="button" class="token-remove" data-remove-config="sort:' + index + '" aria-label="Eliminar criterio ' + escapeHtml(label) + '">×</button></span>';
+          }).join('') : '<span class="token-empty">ninguno</span>') + '</span>');
+        dom.activeTokens.innerHTML = html.join('');
+      }
+
+      function configList(kind) { return kind === 'group' ? state.groupings : state.sorts; }
+
+      function configCanAccept(kind, key) {
+        var options = kind === 'group' ? GROUPS : SORTS;
+        return options.some(function (item) { return item.key === key && item.key !== 'none'; });
+      }
+
+      function moveConfig(sourceKind, sourceIndex, targetKind, targetIndex) {
+        var sourceList = configList(sourceKind);
+        var targetList = configList(targetKind);
+        if (!sourceList || !targetList || sourceIndex < 0 || sourceIndex >= sourceList.length) return;
+        var sourceValue = sourceList[sourceIndex];
+        var key = sourceKind === 'group' ? sourceValue : sourceValue.key;
+        if (!configCanAccept(targetKind, key)) return;
+        if (sourceKind === targetKind) {
+          if (sourceIndex === targetIndex || targetIndex < 0 || targetIndex > sourceList.length) return;
+          var moved = sourceList.splice(sourceIndex, 1)[0];
+          if (sourceIndex < targetIndex) targetIndex -= 1;
+          sourceList.splice(targetIndex, 0, moved);
+        } else {
+          if (targetList.some(function (item) { return (targetKind === 'group' ? item : item.key) === key; })) return;
+          sourceList.splice(sourceIndex, 1);
+          targetList.splice(Math.min(targetIndex, targetList.length), 0, targetKind === 'group' ? key : { key: key, direction: 'asc' });
+        }
+        if (sourceKind === 'group' || targetKind === 'group') state.collapsed = {};
+        saveUi();
+        renderAll();
+      }
+
+      function renderCollectionState(records) {
+        var captures = state.library.filter(function (record) { return isCaptured(record.id); }).length;
+        var prefix = state.dataState === 'ready' ? '' : (state.dataState === 'fallback' ? 'índice local · ' : '');
+        dom.collectionState.textContent = prefix + state.library.length + ' registros · ' + captures + ' capturas';
+        dom.resultState.textContent = records.length + ' resultado' + (records.length === 1 ? '' : 's') + ' · ' + captures + '/' + state.library.length + ' capturadas';
+      }
+
+      function recordRowHtml(row) {
+        var record = row.record;
+        var captured = isCaptured(record.id);
+        var depth = Math.max(0, row.group.depth + 1);
+        return '<div class="record-row ' + (row.key === state.selectedKey ? 'is-selected' : '') + '" style="--row-depth:' + depth + '" id="option-' + escapeHtml(row.key.replace(/[^a-zA-Z0-9_-]/g, '-')) + '" role="option" tabindex="-1" aria-selected="' + (row.key === state.selectedKey ? 'true' : 'false') + '" data-row-key="' + escapeHtml(row.key) + '" data-id="' + escapeHtml(record.id) + '">' +
+          '<span class="record-id">' + escapeHtml('e' + pad(record.exerciseNumber)) + '</span>' +
+          '<span class="record-title">' + escapeHtml(record.title) + '</span>' +
+          '<span class="record-meta">C' + record.difficulty.conceptual + ' / T' + record.difficulty.technical + '</span>' +
+          '<span class="record-state status-' + escapeHtml(record.status) + '">' + escapeHtml(labelForStatus(record.status)) + '</span>' +
+          '<span class="record-capture ' + (captured ? 'is-captured' : '') + '" aria-label="' + (captured ? 'capturada' : 'pendiente') + '">' + (captured ? '●' : '○') + '</span><span class="record-star ' + (isStarred(record.id) ? 'is-starred' : '') + '" aria-label="' + (isStarred(record.id) ? 'favorito' : 'no favorito') + '">' + (isStarred(record.id) ? '★' : '☆') + '</span>' +
+        '</div>';
+      }
+
+      function renderList() {
+        var records = filteredRecords();
+        var tree = groupTree(records);
+        var rows = visibleRows(tree);
+        ensureSelection(rows);
+        if (!records.length) {
+          dom.recordList.removeAttribute('aria-activedescendant');
+          dom.recordList.innerHTML = '<div class="empty-list">No hay fichas que cumplan esta consulta.</div>';
+          dom.collapseAll.disabled = true;
+          dom.collapseAllLabel.textContent = 'plegar todo';
+          renderCollectionState(records);
+          return;
+        }
+        function renderNode(node) {
+          if (node.depth < 0) {
+            return node.childList.length ? node.childList.map(renderNode).join('') : node.records.map(function (record, index) {
+              return recordRowHtml({ key: rowKey(node, record, index), group: node, record: record });
+            }).join('');
+          }
+          var collapsed = Boolean(state.collapsed[node.key]);
+            var heading = '<div class="group-heading" style="--depth:' + node.depth + '"><button type="button" class="group-toggle" data-toggle-group="' + escapeHtml(node.key) + '" data-group-depth="' + node.depth + '" aria-expanded="' + (!collapsed) + '">' + escapeHtml(node.label) + '<span class="group-count">' + node.records.length + '</span></button></div>';
+          var children = collapsed ? '' : (node.childList.length ? node.childList.map(renderNode).join('') : node.records.map(function (record, index) {
+            return recordRowHtml({ key: rowKey(node, record, index), group: node, record: record });
+          }).join(''));
+          return '<section class="group-block">' + heading + children + '</section>';
+        }
+        var html = renderNode(tree);
+        dom.recordList.innerHTML = html;
+        var selectedElement = dom.recordList.querySelector('.record-row.is-selected');
+        if (selectedElement) {
+          dom.recordList.setAttribute('aria-activedescendant', selectedElement.id);
+          if (document.activeElement === dom.recordList) scrollListItemIntoView(selectedElement);
+        } else dom.recordList.removeAttribute('aria-activedescendant');
+        var keys = collapsibleKeys(tree);
+        var allCollapsed = keys.length > 0 && keys.every(function (key) { return state.collapsed[key]; });
+        dom.collapseAll.disabled = !keys.length;
+        dom.collapseAllLabel.textContent = allCollapsed ? 'desplegar todo' : 'plegar todo';
+        renderCollectionState(records);
+      }
+
+      function contentStatus(record) {
+        return state.content[record.id] || { status: 'idle', sections: {} };
+      }
+
+      function markdownSectionHtml(content, key) {
+        if (content.status === 'loading' || content.status === 'idle') return '<p class="missing-section">Cargando contenido Markdown…</p>';
+        if (content.status === 'error') return '<p class="content-error">' + escapeHtml(content.message || 'No se pudo leer el archivo Markdown.') + '</p>';
+        if (!content.sections[key]) return '<p class="missing-section">No hay contenido público para esta sección.</p>';
+        var record = state.library.find(function (item) { return item.id === state.readerId; });
+        return renderMarkdown(content.sections[key], key === 'Enunciado' && record ? record.references : []);
+      }
+
+      function readerSection(label, key, content, open) {
+        return '<details class="reader-section" data-reader-section="' + escapeHtml(key) + '"' + (open ? ' open' : '') + '><summary>' + escapeHtml(label) + '</summary><div class="markdown">' + markdownSectionHtml(content, key) + '</div></details>';
+      }
+
+      function renderPersonalNotes(record) {
+        var personal = personalDataFor(record.id);
+        var tags = personal.tags.length ? personal.tags.map(function (tag) {
+          return '<span class="tag-chip">' + escapeHtml(tag) + '<button type="button" data-remove-tag="' + escapeHtml(tag) + '" aria-label="Eliminar etiqueta ' + escapeHtml(tag) + '">×</button></span>';
+        }).join('') : '<span class="tag-empty">sin etiquetas personales</span>';
+        return '<section class="personal-notes" aria-labelledby="personalNotesTitle">' +
+          '<div class="personal-notes-head"><h3 class="personal-notes-title" id="personalNotesTitle">Notas personales</h3><span class="personal-notes-scope">solo tú</span></div>' +
+          '<label class="visually-hidden" for="personalNoteInput">Nota personal</label>' +
+          '<textarea class="personal-note" id="personalNoteInput" data-personal-note placeholder="Escribe una observación, una duda o el siguiente paso…">' + escapeHtml(personal.notes) + '</textarea>' +
+          '<div class="tag-editor"><div class="tag-editor-head"><span class="tag-editor-label">Etiquetas personales</span><span class="personal-notes-scope">separadas por coma</span></div>' +
+          '<div class="tag-list">' + tags + '</div>' +
+          '<div class="tag-entry"><label class="visually-hidden" for="personalTagInput">Nueva etiqueta</label><input class="tag-input" id="personalTagInput" data-personal-tag type="text" autocomplete="off" placeholder="añadir etiqueta"><button class="tag-add" type="button" data-reader-action="add-tag">añadir</button></div></div>' +
+          '<div class="personal-notes-actions"><button class="personal-save" type="button" data-reader-action="save-notes">guardar cambios</button><span class="notes-save-state" data-notes-status>guardado</span></div>' +
+        '</section>';
+      }
+
+      function referenceForId(referenceId) { return state.references[referenceId] || null; }
+
+      function referenceLabel(reference) {
+        var label = String(reference.locator || reference.id).split(',').pop().trim();
+        return label.replace(/^ecuacion/i, 'ecuación').replace(/^figura/i, 'Figura');
+      }
+
+      function referenceMatchLabels(reference) {
+        var label = referenceLabel(reference);
+        var labels = [label];
+        var number = /\((\d+)\)/.exec(label);
+        if (number) labels.push('(' + number[1] + ')');
+        return labels;
+      }
+
+      function referenceEntries(reference) {
+        var transcription = reference.transcription;
+        if (transcription && typeof transcription === 'object') {
+          return Object.keys(transcription).map(function (key) { return { label: key, value: String(transcription[key]) }; });
+        }
+        return transcription ? [{ label: '', value: String(transcription) }] : [];
+      }
+
+      function referenceFormulaHtml(reference, className) {
+        var entries = referenceEntries(reference);
+        if (!entries.length) return '<p class="reference-preview-body">' + escapeHtml(reference.caption || 'Referencia visual disponible en el contexto editorial.') + '</p>';
+        var tag = className === 'reference-preview-formula' ? 'span' : 'div';
+        return entries.map(function (entry) {
+          return '<' + tag + ' class="' + className + '">' + (entry.label ? '<span class="reference-variant-label">' + escapeHtml(entry.label) + '</span>' : '') + '<span class="reference-math">\\(' + escapeHtml(entry.value) + '\\)</span></' + tag + '>';
+        }).join('');
+      }
+
+      function referencePreviewHtml(reference) {
+        var image = reference.type === 'figure' && reference.file && reference.publicDisplay ? '<img class="reference-image" src="' + escapeHtml('data-real/assets/' + reference.file) + '" alt="' + escapeHtml(reference.alt || '') + '">' : '';
+        var unavailable = reference.file && !reference.publicDisplay ? '<p class="reference-preview-meta">Imagen no publicada; se muestra solo la cita.</p>' : '';
+        return '<span class="reference-preview" role="tooltip"><span class="reference-preview-title">' + escapeHtml(reference.type === 'figure' ? 'figura' : 'referencia matemática') + '</span>' + (reference.type === 'figure' ? (image || '<span class="reference-preview-body">' + escapeHtml(reference.caption || 'Figura citada en la fuente.') + '</span>') : referenceFormulaHtml(reference, 'reference-preview-formula')) + '<span class="reference-preview-meta">' + escapeHtml(reference.locator || '') + '</span>' + unavailable + '</span>';
+      }
+
+      function decorateReferences(html, referenceIds) {
+        var references = referenceIds.map(referenceForId).filter(Boolean).filter(function (reference) { return reference.status === 'verified'; });
+        references.sort(function (left, right) { return referenceLabel(right).length - referenceLabel(left).length; });
+        references.forEach(function (reference) {
+          var matched = false;
+          referenceMatchLabels(reference).forEach(function (label) {
+            if (matched) return;
+            var pattern = new RegExp(escapeRegExp(label).replace('ecuación', 'ecuaci[oó]n'), 'gi');
+            var nextHtml = html.replace(pattern, function (match) {
+              matched = true;
+              return '<span class="reference-anchor"><button class="reference-link" type="button" data-reference-id="' + escapeHtml(reference.id) + '" aria-describedby="reference-preview-' + escapeHtml(reference.id) + '">' + escapeHtml(match) + '</button>' + referencePreviewHtml(reference).replace('role="tooltip"', 'id="reference-preview-' + escapeHtml(reference.id) + '" role="tooltip"') + '</span>';
+            });
+            html = nextHtml;
+          });
+        });
+        return html;
+      }
+
+      function escapeRegExp(value) { return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+      function renderReader() {
+        var record = state.library.find(function (item) { return item.id === state.readerId; });
+        dom.readerContent.dataset.readerId = record ? record.id : '';
+        dom.app.classList.toggle('reader-open', Boolean(record));
+        dom.app.classList.toggle('reader-focus', Boolean(record && state.readerFocus));
+        if (!record) {
+          dom.readerContent.className = 'reader-empty';
+          dom.readerContent.innerHTML = 'Selecciona una ficha y pulsa <strong>Enter</strong> para leerla.';
+          return;
+        }
+        var content = contentStatus(record);
+        var alert = record.blocked ? '<p class="reader-alert">Ficha bloqueada' + (record.blockedDetail ? ': ' + escapeHtml(record.blockedDetail) : '. El enunciado requiere material adicional.') + '</p>' : '';
+        dom.readerContent.className = 'reader-entry';
+        dom.readerContent.innerHTML =
+          '<p class="reader-kicker">' + escapeHtml(record.sourceKey + ' · c' + record.chapter + ' · s' + record.section + ' · e' + pad(record.exerciseNumber)) + '</p>' +
+          '<h2 class="reader-title">' + escapeHtml(record.title) + '</h2>' +
+          '<dl class="reader-meta">' +
+            '<dt>Autor</dt><dd>' + escapeHtml(record.authors.join(', ') || 'sin especificar') + '</dd>' +
+            '<dt>Capítulo</dt><dd>' + escapeHtml(record.chapter + (record.chapterTitle ? ' · ' + record.chapterTitle : '')) + '</dd>' +
+            '<dt>Localizador</dt><dd>' + escapeHtml(record.sourceLocator || 'sin localizador') + '</dd>' +
+            '<dt>Etiquetas</dt><dd>' + escapeHtml(record.topics.concat(record.competencies.map(labelForCompetency)).join(' · ') || 'sin etiquetas') + '</dd>' +
+            '<dt>Estado</dt><dd>' + escapeHtml(labelForStatus(record.status)) + ' · C' + record.difficulty.conceptual + ' / T' + record.difficulty.technical + '</dd>' +
+          '</dl>' + alert +
+          '<div class="reader-actions"><button class="reader-action" type="button" data-reader-action="close">cerrar lector · Esc</button></div>' +
+          readerSection('Enunciado', 'Enunciado', content, true) +
+          readerSection('Solución', 'Solución', content) +
+          readerSection('Resolución', 'Resolución', content) +
+          readerSection('Observaciones', 'Observaciones', content) +
+          renderPersonalNotes(record) +
+          '<div class="reader-actions"><button class="reader-action primary" type="button" data-reader-action="star">' + (isStarred(record.id) ? 'retirar de favoritos' : 'añadir a favoritos') + '</button><button class="reader-action" type="button" data-reader-action="capture">' + (isCaptured(record.id) ? 'retirar captura' : 'capturar ficha') + '</button><button class="reader-action" type="button" data-reader-action="close">cerrar lector</button></div>';
+        if (content.status === 'ready' && window.MathJax && typeof window.MathJax.typesetPromise === 'function') {
+          window.MathJax.typesetPromise([dom.readerContent]).catch(function () { /* La lectura Markdown sigue disponible sin tipografía matemática. */ });
+        }
+      }
+
+      function renderReference(reference) {
+        var visual = reference.type === 'figure' && reference.file && reference.publicDisplay
+          ? '<img class="reference-image" src="' + escapeHtml('data-real/assets/' + reference.file) + '" alt="' + escapeHtml(reference.alt || '') + '"><p class="reference-image-caption">' + escapeHtml(reference.caption || '') + '</p>'
+          : (reference.file ? '<p class="reference-unavailable">La imagen original pertenece al material de la fuente y no está publicada en ODEDex. Se conserva el localizador para consulta.</p>' : '');
+        var body = reference.type === 'figure' ? '' : referenceFormulaHtml(reference, 'reference-formula');
+        return '<p class="reference-view-kicker">referencia citada · ' + escapeHtml(reference.type === 'figure' ? 'figura' : 'fórmula') + '</p>' +
+          '<h2 class="reference-view-title">' + escapeHtml(referenceLabel(reference)) + '</h2>' +
+          '<p class="reference-view-meta">' + escapeHtml(reference.locator || 'sin localizador') + '</p>' +
+          '<div class="reference-view-body"><div class="reference-transcription">' + body + visual +
+          '<p class="reference-view-meta">Fuente: ' + escapeHtml(reference.sourceKey || 'sin especificar') + '</p></div>' +
+          '<div class="reader-actions"><button class="reader-action primary" type="button" data-reader-action="reference-back">← volver al ejercicio</button><button class="reader-action" type="button" data-reader-action="reference-focus">ampliar referencia</button></div></div>';
+      }
+
+      function renderAll() {
+        dom.queryInput.value = state.query;
+        var starredCount = state.library.filter(function (record) { return isStarred(record.id); }).length;
+        dom.starredLabel.textContent = state.showStarred ? 'todos' : 'favoritos (' + starredCount + ')';
+        dom.groupLabel.textContent = 'grupos: ' + groupingPath();
+        dom.sortLabel.textContent = 'orden: ' + sortPath();
+        renderSuggestions();
+        renderTokens();
+        renderList();
+        renderReader();
+      }
+
+      function parseMarkdownSections(markdown) {
+        var sections = { Enunciado: '', Solución: '', Resolución: '', Observaciones: '' };
+        var expression = /^##\s+(Enunciado|Solución|Resolución|Observaciones)\s*$/gmi;
+        var matches = [];
+        var match;
+        while ((match = expression.exec(markdown))) matches.push({ label: match[1], start: match.index, contentStart: expression.lastIndex });
+        matches.forEach(function (item, index) {
+          var end = index + 1 < matches.length ? matches[index + 1].start : markdown.length;
+          sections[item.label] = markdown.slice(item.contentStart, end).trim();
+        });
+        return sections;
+      }
+
+      function renderInline(markdown, referenceIds) {
+        var html = escapeHtml(markdown);
+        html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+        html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        html = html.replace(/(^|[^*])\*([^*]+)\*/g, '$1<em>$2</em>');
+        html = html.replace(/\$([^$\n]+)\$/g, '<span class="math-inline">\\($1\\)</span>');
+        return decorateReferences(html, referenceIds || []);
+      }
+
+      function renderMarkdown(markdown, referenceIds) {
+        var lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
+        var html = [];
+        var paragraph = [];
+        var list = null;
+        var math = [];
+        var inMath = false;
+        function flushParagraph() {
+          if (paragraph.length) { html.push('<p>' + renderInline(paragraph.join(' '), referenceIds) + '</p>'); paragraph = []; }
+        }
+        function closeList() {
+          if (list) { html.push('</' + list + '>'); list = null; }
+        }
+        lines.forEach(function (line) {
+          var embeddedMath = /^(.*?)\$\$([\s\S]+)\$\$(.*?)$/.exec(line);
+          if (embeddedMath) {
+            closeList();
+            if (embeddedMath[1].trim()) paragraph.push(embeddedMath[1].trim());
+            flushParagraph();
+            html.push('<div class="math-display">\\[' + escapeHtml(embeddedMath[2].trim()) + '\\]</div>');
+            if (embeddedMath[3].trim()) paragraph.push(embeddedMath[3].trim());
+            return;
+          }
+          if (line.trim() === '$$') {
+            flushParagraph(); closeList();
+            if (inMath) { html.push('<div class="math-display">\\[' + escapeHtml(math.join('\n')) + '\\]</div>'); math = []; }
+            inMath = !inMath;
+            return;
+          }
+          if (inMath) { math.push(line); return; }
+          var heading = /^(#{3,4})\s+(.+)$/.exec(line);
+          var unordered = /^\s*[-*+]\s+(.+)$/.exec(line);
+          var ordered = /^\s*\d+\.\s+(.+)$/.exec(line);
+          if (heading) { flushParagraph(); closeList(); html.push('<h' + heading[1].length + '>' + renderInline(heading[2], referenceIds) + '</h' + heading[1].length + '>'); }
+          else if (unordered || ordered) {
+            flushParagraph();
+            var nextList = unordered ? 'ul' : 'ol';
+            if (list !== nextList) { closeList(); list = nextList; html.push('<' + list + '>'); }
+            html.push('<li>' + renderInline((unordered || ordered)[1], referenceIds) + '</li>');
+          } else if (!line.trim()) { flushParagraph(); closeList(); }
+          else { closeList(); paragraph.push(line.trim()); }
+        });
+        if (inMath) html.push('<div class="math-display">\\[' + escapeHtml(math.join('\n')) + '\\]</div>');
+        flushParagraph(); closeList();
+        return html.join('');
+      }
+
+      function loadContent(record) {
+        var current = contentStatus(record);
+        if (current.status === 'loading' || current.status === 'ready') return;
+        state.content[record.id] = { status: 'loading', sections: {} };
+        renderReader();
+        fetch(DATA_ROOT + record.content, { cache: 'force-cache' }).then(function (response) {
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.text();
+        }).then(function (markdown) {
+          state.content[record.id] = { status: 'ready', sections: parseMarkdownSections(markdown) };
+          if (state.readerId === record.id) renderReader();
+        }).catch(function () {
+          state.content[record.id] = {
+            status: 'error',
+            sections: {},
+            message: 'No se pudo cargar el Markdown. Sirve esta carpeta mediante HTTP o publica odedex-terminal-data junto a la vista.'
+          };
+          if (state.readerId === record.id) renderReader();
+        });
+      }
+
+      function openReader(record, focusSection) {
+        if (!record) return;
+        state.readerId = record.id;
+        state.referenceId = '';
+        renderReader();
+        loadContent(record);
+        if (focusSection) {
+          window.requestAnimationFrame(function () {
+            var summary = dom.readerContent.querySelector('summary');
+            if (summary) summary.focus(); else dom.readerPane.focus();
+          });
+        }
+      }
+
+      function captureReaderState() {
+        return {
+          scrollTop: window.scrollY,
+          readerFocus: state.readerFocus,
+          sections: Array.prototype.slice.call(dom.readerContent.querySelectorAll('[data-reader-section]')).reduce(function (result, section) {
+            result[section.dataset.readerSection] = section.open;
+            return result;
+          }, {})
+        };
+      }
+
+      function restoreReaderState(saved) {
+        if (!saved) return;
+        Object.keys(saved.sections || {}).forEach(function (key) {
+          var section = dom.readerContent.querySelector('[data-reader-section="' + CSS.escape(key) + '"]');
+          if (section) section.open = saved.sections[key];
+        });
+        window.requestAnimationFrame(function () { window.scrollTo(0, saved.scrollTop || 0); });
+      }
+
+      function openReference(referenceId) {
+        var reference = referenceForId(referenceId);
+        if (!reference) return;
+        state.referenceReturn = captureReaderState();
+        state.referenceId = referenceId;
+        state.readerFocus = true;
+        renderReader();
+        window.dispatchEvent(new CustomEvent('odedex:reference-open', { detail: { id: reference.id, reference: reference, readerId: state.readerId } }));
+        window.requestAnimationFrame(function () {
+          var back = document.querySelector('[data-explorer-reference-back]');
+          if (back) back.focus();
+        });
+      }
+
+      function closeReference() {
+        var saved = state.referenceReturn;
+        state.referenceId = '';
+        state.referenceReturn = null;
+        renderReader();
+        restoreReaderState(saved);
+      }
+
+      function closeReader() {
+        state.readerId = '';
+        state.readerFocus = false;
+        renderReader();
+        dom.recordList.focus();
+      }
+
+      function openExplorerRecord(recordId) {
+        var record = state.library.find(function (item) { return item.id === recordId; });
+        if (!record) return;
+        var row = dom.recordList.querySelector('[data-id="' + CSS.escape(record.id) + '"]');
+        if (row) state.selectedKey = row.dataset.rowKey;
+        state.readerFocus = true;
+        openReader(record, true);
+        renderList();
+      }
+
+      function toggleReaderFocus() {
+        if (!state.readerId) {
+          state.readerFocus = true;
+          openReader(selectedRecord() || state.library[0], true);
+        } else {
+          state.readerFocus = !state.readerFocus;
+          renderReader();
+          window.requestAnimationFrame(function () {
+            var summary = dom.readerContent.querySelector('summary');
+            if (summary) summary.focus(); else dom.readerPane.focus();
+          });
+        }
+      }
+
+      function toggleCapture(record) {
+        if (!record) return;
+        var captured = isCaptured(record.id);
+        var personal = ensureUserRecord(record.id);
+        var now = new Date().toISOString();
+        personal.capturedAt = captured ? '' : now;
+        personal.updatedAt = now;
+        state.userData.events = [{ id: record.id, type: captured ? 'uncapture' : 'capture', at: now }].concat(state.userData.events || []).slice(0, 100);
+        persistUserData();
+        renderAll();
+        showToast(captured ? 'Captura retirada: ' + record.id : 'Capturada: ' + record.id);
+      }
+
+      function toggleStarred(record) {
+        if (!record) return;
+        var starred = isStarred(record.id);
+        var personal = ensureUserRecord(record.id);
+        personal.starred = !starred;
+        personal.updatedAt = new Date().toISOString();
+        persistUserData();
+        renderAll();
+        showToast(starred ? 'Favorito retirado: ' + record.id : 'Favorito añadido: ' + record.id);
+      }
+
+      function savePersonalNotes(record, silent) {
+        if (!record) return;
+        var input = dom.readerContent.querySelector('[data-personal-note]');
+        if (!input) return;
+        var personal = ensureUserRecord(record.id);
+        personal.notes = input.value;
+        personal.updatedAt = new Date().toISOString();
+        persistUserData();
+        var status = dom.readerContent.querySelector('[data-notes-status]');
+        if (status) status.textContent = 'guardado';
+        if (!silent) showToast('Notas guardadas: ' + record.id);
+      }
+
+      function addPersonalTags(record) {
+        if (!record) return;
+        savePersonalNotes(record, true);
+        var input = dom.readerContent.querySelector('[data-personal-tag]');
+        if (!input) return;
+        var personal = ensureUserRecord(record.id);
+        var additions = normalizeTags(input.value);
+        personal.tags = normalizeTags(personal.tags.concat(additions));
+        personal.updatedAt = new Date().toISOString();
+        persistUserData();
+        renderReader();
+        var nextInput = dom.readerContent.querySelector('[data-personal-tag]');
+        if (nextInput) nextInput.focus();
+      }
+
+      function removePersonalTag(record, tag) {
+        if (!record) return;
+        savePersonalNotes(record, true);
+        var personal = ensureUserRecord(record.id);
+        personal.tags = personal.tags.filter(function (item) { return item !== tag; });
+        personal.updatedAt = new Date().toISOString();
+        persistUserData();
+        renderReader();
+      }
+
+      function showToast(message) {
+        dom.toast.textContent = message;
+        dom.toast.classList.add('is-visible');
+        window.clearTimeout(state.toastTimer);
+        state.toastTimer = window.setTimeout(function () { dom.toast.classList.remove('is-visible'); }, 2200);
+      }
+
+      function scrollListItemIntoView(element) {
+        if (!element) return;
+        var listRect = dom.recordList.getBoundingClientRect();
+        var itemRect = element.getBoundingClientRect();
+        if (itemRect.top < listRect.top) dom.recordList.scrollTop -= listRect.top - itemRect.top;
+        else if (itemRect.bottom > listRect.bottom) dom.recordList.scrollTop += itemRect.bottom - listRect.bottom;
+      }
+
+      function focusList() {
+        var selected = dom.recordList.querySelector('.record-row.is-selected');
+        if (selected) {
+          selected.focus({ preventScroll: true });
+          scrollListItemIntoView(selected);
+          return;
+        }
+        dom.recordList.focus({ preventScroll: true });
+      }
+
+      function groupButtons() {
+        return Array.prototype.slice.call(dom.recordList.querySelectorAll('.group-toggle'));
+      }
+
+      function focusGroupButton(button) {
+        if (!button) return;
+        button.focus({ preventScroll: true });
+        scrollListItemIntoView(button);
+      }
+
+      function focusGroupByKey(key) {
+        focusGroupButton(dom.recordList.querySelector('.group-toggle[data-toggle-group="' + CSS.escape(key) + '"]'));
+      }
+
+      function firstRowUnderGroup(key) {
+        var tree = groupTree(filteredRecords());
+        var target = null;
+        function findNode(node) {
+          if (node.key === key) { target = node; return; }
+          for (var index = 0; index < node.childList.length && !target; index += 1) findNode(node.childList[index]);
+        }
+        findNode(tree);
+        if (!target) return null;
+        function openFirstPath(node) {
+          if (node.depth >= 0) state.collapsed[node.key] = false;
+          if (node.childList.length) openFirstPath(node.childList[0]);
+        }
+        openFirstPath(target);
+        var rows = visibleRows(tree);
+        return rows.find(function (row) {
+          return row.group.key === key || row.ancestors.some(function (ancestor) { return ancestor.key === key; });
+        }) || null;
+      }
+
+      function toggleIndexGroupFocus() {
+        var currentGroup = document.activeElement.closest && document.activeElement.closest('.group-toggle');
+        if (currentGroup) {
+          var firstRow = firstRowUnderGroup(currentGroup.dataset.toggleGroup);
+          if (firstRow) {
+            state.selectedKey = firstRow.key;
+            saveUi();
+            renderList();
+          }
+          focusList();
+          return;
+        }
+        var selected = selectedRow();
+        if (selected && selected.group.depth >= 0) {
+          var selectedGroup = dom.recordList.querySelector('.group-toggle[data-toggle-group="' + CSS.escape(selected.group.key) + '"]');
+          if (selectedGroup) {
+            focusGroupButton(selectedGroup);
+            return;
+          }
+        }
+        focusList();
+      }
+
+      function moveGroupFocus(delta) {
+        var buttons = groupButtons();
+        if (!buttons.length) return;
+        var current = document.activeElement.closest && document.activeElement.closest('.group-toggle');
+        var index = current ? buttons.indexOf(current) : (delta < 0 ? buttons.length : -1);
+        var next = Math.max(0, Math.min(buttons.length - 1, index + delta));
+        focusGroupButton(buttons[next]);
+      }
+
+      function moveGroupToEdge(last) {
+        var buttons = groupButtons();
+        focusGroupButton(buttons[last ? buttons.length - 1 : 0]);
+      }
+
+      function toggleGroupByKey(key) {
+        if (!key) return;
+        state.collapsed[key] = !state.collapsed[key];
+        saveUi();
+        renderList();
+        focusGroupByKey(key);
+      }
+
+      function moveWithinGroupTree(direction) {
+        var current = document.activeElement.closest && document.activeElement.closest('.group-toggle');
+        if (!current) return;
+        var key = current.dataset.toggleGroup;
+        var buttons = groupButtons();
+        var index = buttons.indexOf(current);
+        var depth = Number(current.dataset.groupDepth);
+        if (direction === 'left') {
+          if (!state.collapsed[key]) {
+            toggleGroupByKey(key);
+            return;
+          }
+          for (var parentIndex = index - 1; parentIndex >= 0; parentIndex -= 1) {
+            if (Number(buttons[parentIndex].dataset.groupDepth) < depth) {
+              focusGroupButton(buttons[parentIndex]);
+              return;
+            }
+          }
+          return;
+        }
+        if (state.collapsed[key]) {
+          toggleGroupByKey(key);
+          return;
+        }
+        for (var childIndex = index + 1; childIndex < buttons.length; childIndex += 1) {
+          if (Number(buttons[childIndex].dataset.groupDepth) <= depth) break;
+          if (Number(buttons[childIndex].dataset.groupDepth) === depth + 1) {
+            focusGroupButton(buttons[childIndex]);
+            return;
+          }
+        }
+      }
+
+      function moveSelection(delta) {
+        var tree = groupTree(filteredRecords());
+        var rows = visibleRows(tree);
+        ensureSelection(rows);
+        var index = rows.findIndex(function (row) { return row.key === state.selectedKey; });
+        var next = Math.max(0, Math.min(rows.length - 1, index + delta));
+        if (rows[next]) state.selectedKey = rows[next].key;
+        renderList();
+        var selected = dom.recordList.querySelector('.record-row.is-selected');
+        focusList();
+        if (selected) scrollListItemIntoView(selected);
+      }
+
+      function moveToEdge(last) {
+        var rows = visibleRows(groupTree(filteredRecords()));
+        if (rows.length) state.selectedKey = rows[last ? rows.length - 1 : 0].key;
+        renderList();
+      }
+
+      function jumpGroup(delta) {
+        var targets = leafGroups(groupTree(filteredRecords()));
+        if (targets.length < 2) return;
+        var current = selectedRow();
+        var index = targets.findIndex(function (target) { return current && target.key === current.group.key; });
+        if (index < 0) index = 0;
+        var next = (index + delta + targets.length) % targets.length;
+        var recordIndex = delta < 0 ? targets[next].records.length - 1 : 0;
+        state.selectedKey = rowKey(targets[next], targets[next].records[recordIndex], recordIndex);
+        renderList();
+        focusList();
+        var selected = dom.recordList.querySelector('.record-row.is-selected');
+        if (selected) scrollListItemIntoView(selected);
+      }
+
+      function toggleSelectedGroup() {
+        if (!state.groupings.length) return;
+        var row = selectedRow();
+        if (!row) return;
+        state.collapsed[row.group.key] = !state.collapsed[row.group.key];
+        var rows = visibleRows(groupTree(filteredRecords()));
+        ensureSelection(rows);
+        saveUi();
+        renderList();
+      }
+
+      function toggleCollapseAll(focusFirstGroup) {
+        var tree = groupTree(filteredRecords());
+        var keys = collapsibleKeys(tree);
+        if (!keys.length) return;
+        var shouldCollapse = keys.some(function (key) { return !state.collapsed[key]; });
+        keys.forEach(function (key) { state.collapsed[key] = shouldCollapse; });
+        ensureSelection(visibleRows(tree));
+        saveUi();
+        renderList();
+        if (shouldCollapse && focusFirstGroup) {
+          var firstGroup = dom.recordList.querySelector('.group-toggle');
+          if (firstGroup) firstGroup.focus();
+        }
+        showToast(shouldCollapse ? 'Todos los grupos visibles están plegados.' : 'Todos los grupos visibles están desplegados.');
+      }
+
+      function toggleLastSortDirection() {
+        if (!state.sorts.length) {
+          showToast('No hay criterios explícitos. Pulsa O para añadir uno.');
+          return;
+        }
+        var last = state.sorts[state.sorts.length - 1];
+        last.direction = last.direction === 'desc' ? 'asc' : 'desc';
+        saveUi();
+        renderAll();
+        showToast('Último criterio: ' + labelForSortCriterion(last.key) + ' ' + (last.direction === 'desc' ? '↓' : '↑') + '.');
+      }
+
+      function applySuggestion(index) {
+        var suggestions = directQuerySuggestions();
+        var suggestion = suggestions[index];
+        if (!suggestion) return;
+        state.query = suggestion.prefix + suggestion.completion + ' ';
+        state.querySuggestionIndex = 0;
+        saveUi();
+        renderAll();
+        dom.queryInput.focus();
+        dom.queryInput.setSelectionRange(state.query.length, state.query.length);
+      }
+
+      function openPalette(kind) {
+        state.palette = { kind: kind, step: 'field', field: '', query: '', index: 0 };
+        dom.paletteBackdrop.hidden = false;
+        dom.palette.hidden = false;
+        renderPalette();
+        window.requestAnimationFrame(function () { dom.paletteInput.focus(); });
+      }
+
+      function closePalette(focusTarget) {
+        state.palette = null;
+        dom.paletteBackdrop.hidden = true;
+        dom.palette.hidden = true;
+        if (focusTarget !== false) (focusTarget || dom.recordList).focus();
+      }
+
+      function paletteItems() {
+        if (!state.palette) return [];
+        var palette = state.palette;
+        if (palette.kind === 'filter' && palette.step === 'field') {
+          return FIELD_DEFS.map(function (field) { return { value: field.key, label: field.label + ':', meta: field.description }; });
+        }
+        if (palette.kind === 'filter' && palette.step === 'value') {
+          return facetValues(palette.field).map(function (item) { return { value: item.value, label: item.label, meta: item.count + ' fichas' }; });
+        }
+        if (palette.kind === 'group') {
+          var groupItems = GROUPS.filter(function (item) { return item.key !== 'none' && state.groupings.indexOf(item.key) === -1; }).map(function (item) {
+            return { value: item.key, label: item.label, meta: 'añadir nivel' };
+          });
+          if (state.groupings.length) groupItems.push({ value: '__clear', label: 'limpiar ruta', meta: groupingPath() });
+          return groupItems;
+        }
+        if (palette.kind === 'sort' && palette.step === 'direction') {
+          return [
+            { value: 'asc', label: 'ascendente ↑', meta: labelForSortCriterion(palette.field) },
+            { value: 'desc', label: 'descendente ↓', meta: labelForSortCriterion(palette.field) }
+          ];
+        }
+        if (palette.kind === 'sort') {
+          var sortItems = SORTS.filter(function (item) { return !state.sorts.some(function (criterion) { return criterion.key === item.key; }); }).map(function (item) {
+            return { value: item.key, label: item.label, meta: 'añadir criterio' };
+          });
+          if (state.sorts.length) sortItems.push({ value: '__clear', label: 'limpiar orden', meta: sortPath() });
+          return sortItems;
+        }
+        return [];
+      }
+
+      function filteredPaletteItems() {
+        var needle = normalizeText(state.palette ? state.palette.query : '');
+        return paletteItems().filter(function (item) { return !needle || normalizeText(item.label + ' ' + item.meta).indexOf(needle) !== -1; });
+      }
+
+      function renderPalette() {
+        if (!state.palette) return;
+        var palette = state.palette;
+        var title = 'Filtros';
+        var path = palette.step === 'value' ? 'filtro / ' + (knownField(palette.field) || {}).label + ' / valor' : 'filtro / campo';
+        var placeholder = palette.step === 'value' ? 'filtrar valores…' : 'escribe para acotar…';
+        var footer = palette.step === 'value' ? '↑↓ seleccionar · Enter añadir filtro · Retroceso volver a campos · Esc cerrar' : '↑↓ seleccionar · Enter confirmar · Esc cerrar';
+        if (palette.kind === 'group') {
+          title = 'Ruta de agrupación';
+          path = 'niveles: ' + groupingPath();
+          placeholder = 'añadir nivel de agrupación…';
+          footer = '↑↓ seleccionar · Enter añadir nivel · Retroceso quitar último · Esc terminar';
+        }
+        if (palette.kind === 'sort') {
+          title = 'Orden lexicográfico';
+          path = palette.step === 'direction' ? 'criterio: ' + labelForSortCriterion(palette.field) + ' / dirección' : 'criterios: ' + sortPath();
+          placeholder = palette.step === 'direction' ? 'elige dirección…' : 'añadir criterio de orden…';
+          footer = palette.step === 'direction' ? '↑↓ seleccionar · Enter añadir criterio · Retroceso volver · Esc terminar' : '↑↓ seleccionar · Enter elegir criterio · Retroceso quitar último · Esc terminar';
+        }
+        var items = filteredPaletteItems();
+        if (palette.index >= items.length) palette.index = Math.max(0, items.length - 1);
+        dom.paletteTitle.textContent = title;
+        dom.palettePath.textContent = path;
+        dom.paletteInput.placeholder = placeholder;
+        dom.paletteInput.value = palette.query;
+        dom.paletteOptions.innerHTML = items.length ? items.map(function (item, index) {
+          return '<button type="button" class="palette-option ' + (index === palette.index ? 'is-selected' : '') + '" role="option" aria-selected="' + (index === palette.index) + '" data-palette-index="' + index + '"><span class="option-name">' + escapeHtml(item.label) + '</span><span class="option-meta">' + escapeHtml(item.meta || '') + '</span></button>';
+        }).join('') : '<div class="palette-empty">Sin coincidencias.</div>';
+        dom.paletteFooter.textContent = footer;
+      }
+
+      function choosePaletteItem(index) {
+        var items = filteredPaletteItems();
+        var item = items[index];
+        if (!item || !state.palette) return;
+        var palette = state.palette;
+        if (palette.kind === 'filter' && palette.step === 'field') {
+          palette.field = item.value;
+          palette.step = 'value';
+          palette.query = '';
+          palette.index = 0;
+          renderPalette();
+          dom.paletteInput.focus();
+          return;
+        }
+        if (palette.kind === 'filter' && palette.step === 'value') {
+          state.filters = state.filters.filter(function (filter) { return filter.field !== palette.field; });
+          state.filters.push({ field: palette.field, value: item.value, negated: false });
+          saveUi();
+          closePalette(dom.recordList);
+          renderAll();
+          return;
+        }
+        if (palette.kind === 'group') {
+          if (item.value === '__clear') state.groupings = [];
+          else state.groupings.push(item.value);
+          state.collapsed = {};
+          palette.query = '';
+          palette.index = 0;
+          saveUi();
+          renderAll();
+          renderPalette();
+          dom.paletteInput.focus();
+          return;
+        }
+        if (palette.kind === 'sort' && palette.step === 'field') {
+          if (item.value === '__clear') {
+            state.sorts = [];
+            palette.query = '';
+            palette.index = 0;
+            saveUi();
+            renderAll();
+            renderPalette();
+            dom.paletteInput.focus();
+            return;
+          }
+          palette.field = item.value;
+          palette.step = 'direction';
+          palette.query = '';
+          palette.index = 0;
+          renderPalette();
+          dom.paletteInput.focus();
+          return;
+        }
+        if (palette.kind === 'sort' && palette.step === 'direction') {
+          state.sorts.push({ key: palette.field, direction: item.value });
+          palette.field = '';
+          palette.step = 'field';
+          palette.query = '';
+          palette.index = 0;
+          saveUi();
+          renderAll();
+          renderPalette();
+          dom.paletteInput.focus();
+          return;
+        }
+      }
+
+      function openHelp() {
+        dom.helpBackdrop.hidden = false;
+        dom.helpPanel.hidden = false;
+        window.requestAnimationFrame(function () { dom.closeHelp.focus(); });
+      }
+
+      function closeHelp(focusTarget) {
+        dom.helpBackdrop.hidden = true;
+        dom.helpPanel.hidden = true;
+        (focusTarget || dom.recordList).focus();
+      }
+
+      function openDataPanel() {
+        dom.dataBackdrop.hidden = false;
+        dom.dataPanel.hidden = false;
+        dom.dataStatus.textContent = state.userData.updatedAt ? 'Última actualización: ' + state.userData.updatedAt : 'Sin cambios personales todavía.';
+        window.requestAnimationFrame(function () { dom.exportData.focus(); });
+      }
+
+      function closeDataPanel(focusTarget) {
+        dom.dataBackdrop.hidden = true;
+        dom.dataPanel.hidden = true;
+        (focusTarget || dom.recordList).focus();
+      }
+
+      function exportUserData() {
+        var payload = {
+          format: USER_DATA_FORMAT,
+          schemaVersion: USER_DATA_VERSION,
+          exportedAt: new Date().toISOString(),
+          updatedAt: state.userData.updatedAt,
+          records: state.userData.records,
+          events: state.userData.events
+        };
+        var blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = 'odedex-user-data-' + new Date().toISOString().slice(0, 10) + '.json';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(function () { URL.revokeObjectURL(url); }, 0);
+        dom.dataStatus.textContent = 'Archivo exportado.';
+      }
+
+      function validUserDataImport(value) {
+        return value && typeof value === 'object' && value.format === USER_DATA_FORMAT && Number(value.schemaVersion) <= USER_DATA_VERSION && value.records && typeof value.records === 'object';
+      }
+
+      function mergeUserData(incoming) {
+        var imported = normalizeUserData(incoming);
+        Object.keys(imported.records).forEach(function (id) {
+          var local = state.userData.records[id];
+          var remote = imported.records[id];
+          if (!local) {
+            state.userData.records[id] = remote;
+            return;
+          }
+          local.starred = local.starred || remote.starred;
+          local.capturedAt = local.capturedAt || remote.capturedAt;
+          local.notes = local.notes || remote.notes;
+          local.tags = normalizeTags(local.tags.concat(remote.tags));
+          local.updatedAt = local.updatedAt || remote.updatedAt;
+        });
+        state.userData.events = state.userData.events.concat(imported.events).filter(function (event, index, events) {
+          return events.findIndex(function (other) { return other.id === event.id && other.type === event.type && other.at === event.at; }) === index;
+        }).slice(0, 100);
+        persistUserData();
+        renderAll();
+        if (state.readerId) renderReader();
+        dom.dataStatus.textContent = 'Datos importados y combinados.';
+        showToast('Datos personales actualizados.');
+      }
+
+      function importUserData(file) {
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function () {
+          var parsed = safeJson(String(reader.result || ''), null);
+          if (!validUserDataImport(parsed)) {
+            dom.dataStatus.textContent = 'El archivo no es un export válido de ODEDEX.';
+            return;
+          }
+          mergeUserData(parsed);
+        };
+        reader.onerror = function () { dom.dataStatus.textContent = 'No se pudo leer el archivo.'; };
+        reader.readAsText(file);
+        dom.dataFileInput.value = '';
+      }
+
+      function updateQuery(value) {
+        state.query = value;
+        state.querySuggestionIndex = 0;
+        saveUi();
+        renderAll();
+      }
+
+      function resetView(focusListAfter) {
+        state.query = '';
+        state.filters = [];
+        state.groupings = [];
+        state.sorts = [];
+        state.collapsed = {};
+        state.showStarred = false;
+        state.selectedKey = '';
+        state.readerId = '';
+        state.querySuggestionIndex = 0;
+        saveUi();
+        renderAll();
+        if (focusListAfter) focusList();
+        showToast('Vista reiniciada. Tus capturas se conservan.');
+      }
+
+      function bindEvents() {
+        dom.queryForm.addEventListener('submit', function (event) { event.preventDefault(); focusList(); });
+        dom.queryInput.addEventListener('input', function () { updateQuery(dom.queryInput.value); });
+        dom.queryInput.addEventListener('keydown', function (event) {
+          var suggestions = directQuerySuggestions();
+          if (event.key === 'ArrowDown' && suggestions.length) {
+            event.preventDefault(); state.querySuggestionIndex = (state.querySuggestionIndex + 1) % suggestions.length; renderSuggestions();
+          } else if (event.key === 'ArrowUp' && suggestions.length) {
+            event.preventDefault(); state.querySuggestionIndex = (state.querySuggestionIndex - 1 + suggestions.length) % suggestions.length; renderSuggestions();
+          } else if (event.key === 'Tab' && suggestions.length) {
+            event.preventDefault(); applySuggestion(state.querySuggestionIndex);
+          } else if (event.key === 'Escape') {
+            event.preventDefault(); dom.queryInput.blur(); focusList();
+          }
+        });
+        dom.clearSearch.addEventListener('click', function () { updateQuery(''); dom.queryInput.focus(); });
+        dom.suggestionStrip.addEventListener('click', function (event) {
+          var button = event.target.closest('[data-suggestion]');
+          if (button) applySuggestion(Number(button.dataset.suggestion));
+        });
+        dom.activeTokens.addEventListener('click', function (event) {
+          var filterButton = event.target.closest('[data-remove-filter]');
+          if (filterButton) {
+            state.filters.splice(Number(filterButton.dataset.removeFilter), 1);
+            saveUi(); renderAll(); focusList();
+            return;
+          }
+          var removeButton = event.target.closest('[data-remove-config]');
+          if (removeButton) {
+            var removeParts = removeButton.dataset.removeConfig.split(':');
+            var removeList = removeParts[0] === 'group' ? state.groupings : state.sorts;
+            removeList.splice(Number(removeParts[1]), 1);
+            if (removeParts[0] === 'group') state.collapsed = {};
+            saveUi(); renderAll(); focusList();
+            return;
+          }
+          var invertButton = event.target.closest('[data-invert-sort]');
+          if (invertButton) {
+            var sort = state.sorts[Number(invertButton.dataset.invertSort)];
+            if (sort) sort.direction = sort.direction === 'desc' ? 'asc' : 'desc';
+            saveUi(); renderAll(); focusList();
+            return;
+          }
+          var sortToken = event.target.closest('[data-config-kind="sort"]');
+          if (sortToken && !event.target.closest('button, .token-grip')) {
+            var clickedSort = state.sorts[Number(sortToken.dataset.configIndex)];
+            if (clickedSort) clickedSort.direction = clickedSort.direction === 'desc' ? 'asc' : 'desc';
+            saveUi(); renderAll(); focusList();
+          }
+        });
+        dom.activeTokens.addEventListener('dragstart', function (event) {
+          var token = event.target.closest('[data-config-kind]');
+          if (!token) return;
+          state.draggedConfig = { kind: token.dataset.configKind, index: Number(token.dataset.configIndex) };
+          event.dataTransfer.effectAllowed = 'move';
+          event.dataTransfer.setData('text/plain', token.dataset.configKind + ':' + token.dataset.configIndex);
+          token.classList.add('is-dragging');
+        });
+        dom.activeTokens.addEventListener('dragover', function (event) {
+          if (!state.draggedConfig) return;
+          var token = event.target.closest('[data-config-kind]');
+          var zone = event.target.closest('[data-config-zone]');
+          var sourceValue = configList(state.draggedConfig.kind)[state.draggedConfig.index];
+          var sourceKey = state.draggedConfig.kind === 'group' ? sourceValue : sourceValue && sourceValue.key;
+          var targetKind = token ? token.dataset.configKind : (zone && zone.dataset.configZone);
+          if (!targetKind || !configCanAccept(targetKind, sourceKey)) return;
+          event.preventDefault();
+          dom.activeTokens.querySelectorAll('.is-drop-target').forEach(function (item) { item.classList.remove('is-drop-target'); });
+          (token || zone).classList.add('is-drop-target');
+        });
+        dom.activeTokens.addEventListener('drop', function (event) {
+          if (!state.draggedConfig) return;
+          var token = event.target.closest('[data-config-kind]');
+          var zone = event.target.closest('[data-config-zone]');
+          var target = token || zone;
+          if (!target) return;
+          event.preventDefault();
+          var targetKind = token ? token.dataset.configKind : zone.dataset.configZone;
+          var targetIndex = token ? Number(token.dataset.configIndex) : configList(targetKind).length;
+          if (token) {
+            var tokenRect = token.getBoundingClientRect();
+            if (event.clientX > tokenRect.left + tokenRect.width / 2) targetIndex += 1;
+          }
+          var draggedConfig = state.draggedConfig;
+          state.draggedConfig = null;
+          moveConfig(draggedConfig.kind, draggedConfig.index, targetKind, targetIndex);
+        });
+        dom.activeTokens.addEventListener('dragend', function () {
+          state.draggedConfig = null;
+          dom.activeTokens.querySelectorAll('.is-dragging').forEach(function (item) { item.classList.remove('is-dragging'); });
+          dom.activeTokens.querySelectorAll('.is-drop-target').forEach(function (item) { item.classList.remove('is-drop-target'); });
+        });
+        dom.openStarred.addEventListener('click', function () {
+          state.showStarred = !state.showStarred;
+          renderAll();
+          focusList();
+        });
+        dom.openFilter.addEventListener('click', function () { openPalette('filter'); });
+        dom.openGroup.addEventListener('click', function () { openPalette('group'); });
+        dom.openSort.addEventListener('click', function () { openPalette('sort'); });
+        dom.reverseSort.addEventListener('click', function () { toggleLastSortDirection(); focusList(); });
+        dom.collapseAll.addEventListener('click', function () { toggleCollapseAll(true); });
+        dom.resetView.addEventListener('click', function () { resetView(true); });
+        dom.openData.addEventListener('click', function () { openDataPanel(); });
+        dom.openHelp.addEventListener('click', function () { openHelp(); });
+        dom.recordList.addEventListener('click', function (event) {
+          var group = event.target.closest('[data-toggle-group]');
+          if (group) {
+            state.collapsed[group.dataset.toggleGroup] = !state.collapsed[group.dataset.toggleGroup];
+            saveUi(); renderList();
+            var restoredGroup = dom.recordList.querySelector('[data-toggle-group="' + CSS.escape(group.dataset.toggleGroup) + '"]');
+            if (restoredGroup) restoredGroup.focus();
+            return;
+          }
+          var row = event.target.closest('[data-row-key]');
+          if (!row) return;
+          state.selectedKey = row.dataset.rowKey;
+          renderList();
+          focusList();
+        });
+        dom.recordList.addEventListener('dblclick', function (event) {
+          var row = event.target.closest('[data-row-key]');
+          if (!row) return;
+          state.selectedKey = row.dataset.rowKey;
+          openReader(selectedRecord(), true);
+        });
+        dom.readerContent.addEventListener('click', function (event) {
+          var referenceLink = event.target.closest('[data-reference-id]');
+          if (referenceLink) { openReference(referenceLink.dataset.referenceId); return; }
+          var removeTag = event.target.closest('[data-remove-tag]');
+          if (removeTag) {
+            removePersonalTag(state.library.find(function (item) { return item.id === state.readerId; }), removeTag.dataset.removeTag);
+            return;
+          }
+          var action = event.target.closest('[data-reader-action]');
+          if (!action) return;
+          if (action.dataset.readerAction === 'star') toggleStarred(state.library.find(function (item) { return item.id === state.readerId; }));
+          if (action.dataset.readerAction === 'capture') toggleCapture(state.library.find(function (item) { return item.id === state.readerId; }));
+          if (action.dataset.readerAction === 'save-notes') savePersonalNotes(state.library.find(function (item) { return item.id === state.readerId; }), false);
+          if (action.dataset.readerAction === 'add-tag') addPersonalTags(state.library.find(function (item) { return item.id === state.readerId; }));
+          if (action.dataset.readerAction === 'close') closeReader();
+          if (action.dataset.readerAction === 'reference-back') closeReference();
+          if (action.dataset.readerAction === 'reference-focus') toggleReaderFocus();
+        });
+        dom.readerContent.addEventListener('input', function (event) {
+          if (!event.target.matches('[data-personal-note]')) return;
+          var status = dom.readerContent.querySelector('[data-notes-status]');
+          if (status) status.textContent = 'cambios pendientes';
+          window.clearTimeout(state.noteTimer);
+          state.noteTimer = window.setTimeout(function () {
+            savePersonalNotes(state.library.find(function (item) { return item.id === state.readerId; }), true);
+          }, 650);
+        });
+        dom.readerContent.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' && event.target.matches('[data-personal-tag]')) {
+            event.preventDefault();
+            addPersonalTags(state.library.find(function (item) { return item.id === state.readerId; }));
+          }
+        });
+        window.addEventListener('odedex:explorer-open', function (event) {
+          if (event.detail && event.detail.id) openExplorerRecord(event.detail.id);
+        });
+        window.addEventListener('odedex:reference-close', closeReference);
+        dom.paletteInput.addEventListener('input', function () { if (state.palette) { state.palette.query = dom.paletteInput.value; state.palette.index = 0; renderPalette(); } });
+        dom.paletteInput.addEventListener('keydown', function (event) {
+          if (!state.palette) return;
+          var items = filteredPaletteItems();
+          if (event.key === 'ArrowDown') { event.preventDefault(); state.palette.index = Math.min(items.length - 1, state.palette.index + 1); renderPalette(); }
+          else if (event.key === 'ArrowUp') { event.preventDefault(); state.palette.index = Math.max(0, state.palette.index - 1); renderPalette(); }
+          else if (event.key === 'Enter') { event.preventDefault(); choosePaletteItem(state.palette.index); }
+          else if (event.key === 'Escape') { event.preventDefault(); closePalette(dom.recordList); }
+          else if (event.key === 'Backspace' && !state.palette.query && state.palette.kind === 'filter' && state.palette.step === 'value') { event.preventDefault(); state.palette.step = 'field'; state.palette.field = ''; state.palette.index = 0; renderPalette(); }
+          else if (event.key === 'Backspace' && !state.palette.query && state.palette.kind === 'group' && state.groupings.length) {
+            event.preventDefault(); state.groupings.pop(); state.collapsed = {}; state.palette.index = 0; saveUi(); renderAll(); renderPalette();
+          } else if (event.key === 'Backspace' && !state.palette.query && state.palette.kind === 'sort' && state.palette.step === 'direction') {
+            event.preventDefault(); state.palette.step = 'field'; state.palette.field = ''; state.palette.index = 0; renderPalette();
+          } else if (event.key === 'Backspace' && !state.palette.query && state.palette.kind === 'sort' && state.sorts.length) {
+            event.preventDefault(); state.sorts.pop(); state.palette.index = 0; saveUi(); renderAll(); renderPalette();
+          }
+        });
+        dom.paletteOptions.addEventListener('click', function (event) { var item = event.target.closest('[data-palette-index]'); if (item) choosePaletteItem(Number(item.dataset.paletteIndex)); });
+        dom.closePalette.addEventListener('click', function () { closePalette(dom.recordList); });
+        dom.paletteBackdrop.addEventListener('click', function () { closePalette(dom.recordList); });
+        dom.closeHelp.addEventListener('click', function () { closeHelp(dom.recordList); });
+        dom.helpBackdrop.addEventListener('click', function () { closeHelp(dom.recordList); });
+        dom.exportData.addEventListener('click', exportUserData);
+        dom.importData.addEventListener('click', function () { dom.dataFileInput.click(); });
+        dom.dataFileInput.addEventListener('change', function () { importUserData(dom.dataFileInput.files[0]); });
+        dom.closeData.addEventListener('click', function () { closeDataPanel(dom.recordList); });
+        dom.dataBackdrop.addEventListener('click', function () { closeDataPanel(dom.recordList); });
+        window.addEventListener('storage', function (event) {
+          if (event.key === USER_DATA_KEY || event.key === PROGRESS_KEY || event.key === STARRED_KEY) { state.userData = loadUserData(); renderAll(); }
+        });
+        document.addEventListener('keydown', function (event) {
+          if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey) return;
+          if (!dom.palette.hidden) {
+            if (event.key === 'Escape') { event.preventDefault(); closePalette(dom.recordList); }
+            return;
+          }
+          if (!dom.helpPanel.hidden) {
+            if (event.key === 'Escape' || event.key === '?') { event.preventDefault(); closeHelp(dom.recordList); }
+            return;
+          }
+          if (!dom.dataPanel.hidden) {
+            if (event.key === 'Escape') { event.preventDefault(); closeDataPanel(dom.recordList); }
+            return;
+          }
+          var target = event.target;
+          var isEditing = target.matches && target.matches('input, textarea, select, [contenteditable="true"]');
+          if (isEditing) return;
+          if (event.key === '?') { event.preventDefault(); openHelp(); return; }
+          var isGroupControl = target.closest && target.closest('.group-toggle');
+          if (isGroupControl && (event.key === ' ' || event.key === 'Enter')) return;
+          if (event.key === 'a' || event.key === 'A') { event.preventDefault(); toggleIndexGroupFocus(); return; }
+          if (isGroupControl) {
+            if (event.key === 'ArrowDown' || event.key === 'j') { event.preventDefault(); moveGroupFocus(1); return; }
+            if (event.key === 'ArrowUp' || event.key === 'k') { event.preventDefault(); moveGroupFocus(-1); return; }
+            if (event.key === 'ArrowLeft') { event.preventDefault(); moveWithinGroupTree('left'); return; }
+            if (event.key === 'ArrowRight') { event.preventDefault(); moveWithinGroupTree('right'); return; }
+            if (event.key === 'Home') { event.preventDefault(); moveGroupToEdge(false); return; }
+            if (event.key === 'End') { event.preventDefault(); moveGroupToEdge(true); return; }
+          }
+          var isReaderControl = target.closest && target.closest('.reader-section, .reader-actions');
+          if (isReaderControl && (event.key === ',' || event.key === '.')) {
+            var summaries = Array.prototype.slice.call(dom.readerContent.querySelectorAll('.reader-section summary'));
+            var currentIndex = summaries.indexOf(target.closest('summary'));
+            if (currentIndex !== -1) {
+              event.preventDefault();
+              var nextIndex = Math.max(0, Math.min(summaries.length - 1, currentIndex + (event.key === '.' ? 1 : -1)));
+              summaries[nextIndex].focus();
+            }
+            return;
+          }
+          if (event.key === 'e' || event.key === 'E') { event.preventDefault(); toggleReaderFocus(); return; }
+          if (event.key === '/') { event.preventDefault(); dom.queryInput.focus(); dom.queryInput.select(); return; }
+          if (event.key === 'f' || event.key === 'F') { event.preventDefault(); openPalette('filter'); return; }
+          if (event.key === 's' || event.key === 'S') { event.preventDefault(); toggleStarred(selectedRecord()); return; }
+          if (event.key === 'g' || event.key === 'G') { event.preventDefault(); openPalette('group'); return; }
+          if (event.key === 'o' || event.key === 'O') { event.preventDefault(); openPalette('sort'); return; }
+          if (event.key === 'r' || event.key === 'R') { event.preventDefault(); toggleLastSortDirection(); return; }
+          if (event.key === 'p' || event.key === 'P') { event.preventDefault(); toggleCollapseAll(true); return; }
+          if (event.key === 'x' || event.key === 'X') { event.preventDefault(); resetView(true); return; }
+          if (event.key === 'd' || event.key === 'D') { event.preventDefault(); openDataPanel(); return; }
+          var isPreviousGroup = event.key === ',' || event.code === 'Comma';
+          var isNextGroup = event.key === '.' || event.code === 'Period';
+          if (isPreviousGroup) { event.preventDefault(); jumpGroup(-1); return; }
+          if (isNextGroup) { event.preventDefault(); jumpGroup(1); return; }
+          if (event.key === ' ') { event.preventDefault(); toggleSelectedGroup(); return; }
+          if (event.key === 'c' || event.key === 'C') { event.preventDefault(); toggleCapture(selectedRecord()); return; }
+          if (event.key === 'Enter') {
+            if (isReaderControl) return;
+            event.preventDefault();
+            openReader(selectedRecord(), Boolean(state.readerId));
+            return;
+          }
+          if (event.key === 'Escape') {
+            event.preventDefault();
+            if (state.readerId) closeReader();
+            else if (state.query || state.filters.length) { state.query = ''; state.filters = []; saveUi(); renderAll(); focusList(); }
+            return;
+          }
+          if (event.key === 'ArrowDown' || event.key === 'j') { event.preventDefault(); moveSelection(1); return; }
+          if (event.key === 'ArrowUp' || event.key === 'k') { event.preventDefault(); moveSelection(-1); return; }
+          if (event.key === 'Home') { event.preventDefault(); moveToEdge(false); return; }
+          if (event.key === 'End') { event.preventDefault(); moveToEdge(true); return; }
+          if (event.key === 'PageDown') { event.preventDefault(); moveSelection(10); return; }
+          if (event.key === 'PageUp') { event.preventDefault(); moveSelection(-10); return; }
+        });
+      }
+
+      function loadLibrary() {
+        function finishLibrary(records) {
+          state.library = records.map(normalizeRecord);
+          state.dataState = 'ready';
+          renderAll();
+          return Promise.all([
+            fetch(REFERENCES_URL, { cache: 'no-cache' }).then(function (response) {
+              if (!response.ok) throw new Error('HTTP ' + response.status);
+              return response.json();
+            }).catch(function () { return {}; }),
+            fetch(DATA_ROOT + 'search-index.json', { cache: 'no-cache' }).then(function (response) {
+              if (!response.ok) throw new Error('HTTP ' + response.status);
+              return response.json();
+            }).catch(function () { return {}; })
+          ]).then(function (assets) {
+            state.references = assets[0] && typeof assets[0] === 'object' ? assets[0] : {};
+            state.contentIndex = assets[1] && typeof assets[1] === 'object' ? assets[1] : {};
+            renderAll();
+          });
+        }
+        if (Array.isArray(window.ODEDEX_LIBRARY) && window.ODEDEX_LIBRARY.length) {
+          return finishLibrary(window.ODEDEX_LIBRARY);
+        }
+        return fetch(DATA_URL, { cache: 'no-cache' }).then(function (response) {
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          return response.json();
+        }).then(function (manifest) {
+          if (!manifest || !Array.isArray(manifest.records)) throw new Error('Manifiesto no válido');
+          return finishLibrary(manifest.records);
+        }).catch(function () {
+          state.dataState = 'fallback';
+          renderAll();
+        });
+      }
+
+      loadUi();
+      state.library = [];
+      bindEvents();
+      renderAll();
+      loadLibrary();
+    }());
+  </script>
+  <script src="shared/odedex-shell.js"></script>
+  <script src="shared/odedex-explorer.js"></script>
+</body>
+</html>

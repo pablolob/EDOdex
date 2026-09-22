@@ -1,0 +1,1 @@
+(function(){try{var c=JSON.parse(localStorage.getItem('odedex:v2:context')||'{}'),m=document.documentElement.getAttribute('data-odedex-module');if(!c.selectedId)return;if(m==='pokedex'){var u=JSON.parse(localStorage.getItem('odedex:px02:ui')||'{}');u.selectedId=c.selectedId;localStorage.setItem('odedex:px02:ui',JSON.stringify(u));}}catch(e){}}());

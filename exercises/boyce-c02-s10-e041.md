@@ -1,0 +1,16 @@
+---
+title: "Boyce 2.10 Ejercicio 41"
+exercise-id: boyce-c02-s10-e041
+author:
+  - name: "William E. Boyce"
+source-key: boyce
+source-locator: "Sección 2.10, ejercicio 41"
+statement-status: accepted
+solution-status: open
+source-images:
+  - c02s10i04-p110.png
+---
+
+## Enunciado
+
+Encuentre todas las curvas planas cuya tangente en cada punto $(x, y)$ pasa por el punto fijo $(a, b)$.

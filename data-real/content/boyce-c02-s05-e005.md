@@ -1,0 +1,10 @@
+
+## Enunciado
+
+**Determinación de fechas por radiocarbono.** Un instrumento importante en la investigación arqueológica es la determinación de fechas por radiocarbono, que es un medio para determinar la antigüedad de ciertos restos de madera y plantas y, por tanto, de huesos humanos o de animales o artefactos encontrados a la misma profundidad. El procedimiento fue desarrollado por el químico estadounidense Willard Libby (1908-1980) a principios de la década de 1950, por lo que fue galardonado con el Premio Nobel de Química en 1960. La determinación de fechas por radiocarbono se basa en el hecho de que algunos restos de madera o plantas, siguen conteniendo cantidades residuales de carbono 14, un isótopo radiactivo del carbono. Este isótopo se acumula durante la vida de la planta y comienza a decaer a la muerte de ésta. Como la vida media del carbono 14 es larga (aproximadamente de 5 568 años), después de muchos miles de años permanecen cantidades medibles de carbono 14. Libby demostró que si incluso está presente una diminuta fracción de la cantidad original de carbono 14, entonces por medio de mediciones adecuadas de laboratorio puede determinarse con exactitud la proporción de la cantidad original de carbono 14 que resta. En otras palabras, si $Q(t)$ es la cantidad de carbono 14 en el instante $t$ y $Q_0$ es la cantidad original, entonces puede determinarse la razón $Q(t)/Q_0$, por lo menos si esta cantidad no es demasiado pequeña. Las técnicas de medición actuales permiten la aplicación de este método para periodos de hasta alrededor de 100 000 años, después de los cuales la cantidad de carbono 14 restante es de sólo poco más o menos $4 \times 10^{-6}$ de la cantidad original.
+
+a) Si se supone que $Q$ satisface la ecuación diferencial $Q' = -rQ$, determinar la constante de decaimiento $r$ para el carbono 14.
+
+b) Halle una expresión para $Q(t)$ en cualquier instante $t$, si $Q(0) = Q_0$.
+
+c) Suponga que se descubren ciertos restos en los que la cantidad residual presente de carbono 14 es el 20% de la cantidad original. Determine la antigüedad de estos restos.

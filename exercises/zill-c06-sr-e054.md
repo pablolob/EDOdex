@@ -1,0 +1,30 @@
+---
+title: "Zill Repaso C6 Ejercicio 54"
+exercise-id: zill-c06-sr-e054
+author:
+  - name: "Dennis G. Zill"
+source-key: zill
+source-locator: "Repaso del capítulo 6, ejercicio 54"
+statement-status: accepted
+solution-status: open
+topics:
+  - frobenius
+source-images:
+  - zill-c06sri01-p289
+competencies:
+  - resolver-analiticamente.series-frobenius
+difficulty:
+  conceptual: 3
+  technical: 3
+---
+
+## Enunciado
+
+**a)** Cuando $\alpha = n$ es un entero no negativo, la ecuación diferencial de Hermite también tiene una solución polinomial de grado $n$. Utilice la $y_1(x)$ dada en el problema 53, para encontrar las soluciones polinomiales para $n = 0, n = 2 \text{ y } n = 4$. Después use $y_2(x)$ para encontrar las soluciones polinomiales para $n = 1, n = 3 \text{ y } n = 5$.
+**b)** Un **polinomio de Hermite** $H_n(x)$ se define como un polinomio de grado $n$-ésimo que es solución de la ecuación de Hermite multiplicada por una constante adecuada de forma que el coeficiente de $x^n$ en $H_n(x)$ es $2^n$. Utilice las soluciones polinomiales del inciso a) para demostrar que los primeros seis polinomios de Hermite son
+$$H_0(x) = 1$$
+$$H_1(x) = 2x$$
+$$H_2(x) = 4x^2 - 2$$
+$$H_3(x) = 8x^3 - 12x$$
+$$H_4(x) = 16x^4 - 48x^2 + 12$$
+$$H_5(x) = 32x^5 - 160x^3 + 120x$$

@@ -1,0 +1,96 @@
+{
+  "zill-c01-s01-eq04": {
+    "id": "zill-c01-s01-eq04",
+    "type": "reference",
+    "sourceKey": "zill",
+    "locator": "Seccion 1.1, ecuacion (4)",
+    "sourceImage": "imagen aportada por el docente",
+    "file": "",
+    "alt": "",
+    "caption": "",
+    "transcription": "F(x, y, y', ..., y^(n)) = 0.",
+    "publicDisplay": false,
+    "status": "verified"
+  },
+  "zill-c01-s01-eq05": {
+    "id": "zill-c01-s01-eq05",
+    "type": "reference",
+    "sourceKey": "zill",
+    "locator": "Seccion 1.1, ecuacion (5)",
+    "sourceImage": "imagen aportada por el docente",
+    "file": "",
+    "alt": "",
+    "caption": "",
+    "transcription": "d^n y/dx^n = f(x, y, y', ..., y^(n-1)).",
+    "publicDisplay": false,
+    "status": "verified"
+  },
+  "zill-c01-s01-eq06": {
+    "id": "zill-c01-s01-eq06",
+    "type": "reference",
+    "sourceKey": "zill",
+    "locator": "Seccion 1.1, ecuacion (6)",
+    "sourceImage": "c01s01i01-p025.png",
+    "file": "",
+    "alt": "",
+    "caption": "",
+    "transcription": "a_n(x) d^n y/dx^n + a_{n-1}(x) d^{n-1}y/dx^{n-1} + ... + a_1(x) dy/dx + a_0(x)y = g(x).",
+    "publicDisplay": false,
+    "status": "verified"
+  },
+  "zill-c01-s01-eq07": {
+    "id": "zill-c01-s01-eq07",
+    "type": "reference",
+    "sourceKey": "zill",
+    "locator": "Seccion 1.1, ecuacion (7)",
+    "sourceImage": "c01s01i01-p025.png",
+    "file": "",
+    "alt": "",
+    "caption": "",
+    "transcription": {
+      "first-order": "a_1(x) dy/dx + a_0(x)y = g(x)",
+      "second-order": "a_2(x) d^2y/dx^2 + a_1(x) dy/dx + a_0(x)y = g(x)"
+    },
+    "publicDisplay": false,
+    "status": "verified"
+  },
+  "zill-c01-s01-eq12": {
+    "id": "zill-c01-s01-eq12",
+    "type": "reference",
+    "sourceKey": "zill",
+    "locator": "Seccion 1.1, ecuacion (12)",
+    "sourceImage": "imagen aportada por el docente",
+    "file": "",
+    "alt": "",
+    "caption": "",
+    "transcription": "F'(x) = d/dx integral_a^x g(t) dt = g(x), para g continua en [a,b] y a <= x <= b.",
+    "publicDisplay": false,
+    "status": "verified"
+  },
+  "zill-c01-s01-fig49": {
+    "id": "zill-c01-s01-fig49",
+    "type": "figure",
+    "sourceKey": "zill",
+    "locator": "Seccion 1.1, figura 1.1.6, problema 49",
+    "sourceImage": "",
+    "file": "zill/c01s01i03-fig49.png",
+    "alt": "Curva cerrada en el plano xy",
+    "caption": "Grafica para el problema 49.",
+    "transcription": "",
+    "publicDisplay": false,
+    "status": "verified"
+  },
+  "zill-c01-s01-fig50": {
+    "id": "zill-c01-s01-fig50",
+    "type": "figure",
+    "sourceKey": "zill",
+    "locator": "Seccion 1.1, figura 1.1.7, problema 50",
+    "sourceImage": "",
+    "file": "zill/c01s01i03-fig50.png",
+    "alt": "Curva en el plano xy para el problema 50",
+    "caption": "Grafica para el problema 50.",
+    "transcription": "",
+    "publicDisplay": false,
+    "status": "verified"
+  }
+}

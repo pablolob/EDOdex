@@ -1,0 +1,4 @@
+
+## Enunciado
+
+$\ln|\cos x|$
