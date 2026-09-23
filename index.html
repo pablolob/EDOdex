@@ -2692,8 +2692,18 @@
         ensureSelection(rows);
         var index = rows.findIndex(function (row) { return row.key === state.selectedKey; });
         var next = Math.max(0, Math.min(rows.length - 1, index + delta));
-        if (rows[next]) state.selectedKey = rows[next].key;
-        renderList();
+        if (!rows[next] || rows[next].key === state.selectedKey) return;
+        var previousKey = state.selectedKey;
+        state.selectedKey = rows[next].key;
+        var rowElements = dom.recordList.querySelectorAll('.record-row');
+        Array.prototype.forEach.call(rowElements, function (rowElement) {
+          var isSelected = rowElement.dataset.rowKey === state.selectedKey;
+          var wasSelected = rowElement.dataset.rowKey === previousKey;
+          if (!isSelected && !wasSelected) return;
+          rowElement.classList.toggle('is-selected', isSelected);
+          rowElement.setAttribute('aria-selected', String(isSelected));
+        });
+        dom.recordList.setAttribute('aria-activedescendant', 'option-' + state.selectedKey.replace(/[^a-zA-Z0-9_-]/g, '-'));
         var selected = dom.recordList.querySelector('.record-row.is-selected');
         focusList();
         if (selected) scrollListItemIntoView(selected);
