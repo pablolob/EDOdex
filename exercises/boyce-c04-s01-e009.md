@@ -9,9 +9,11 @@ statement-status: accepted
 solution-status: draft
 topics:
   - orden-superior
-competencies: []
+competencies:
+  - modelizar.formular-edo
 prerequisitos:
-  - ecuaciones-diferenciales.wronskiano
+  - ecuaciones-diferenciales.linealidad
+  - derivacion.regla-cadena
 difficulty:
   conceptual: 1
   technical: 2
@@ -21,88 +23,89 @@ source-images:
 
 ## Enunciado
 
-En cada uno de los problemas 7 a 12, determine si las funciones dadas son linealmente dependientes o independientes. Si son linealmente dependientes, halle una relación lineal entre ellas.
+En cada uno de los problemas 7 a 12 elimine las constantes $c_1, c_2, \ldots, c_n$ entre las expresiones para $y$ y sus derivadas $y', \ldots, y^{(n-1)}$. Con ello, determine la ecuación diferencial que satisface la función dada.
 
 9. $y = c_1 e^x + c_2 e^{-x} + c_3 e^{2x}$
 
 ## Solución
 
-Las funciones $e^x$, $e^{-x}$ y $e^{2x}$ son **linealmente independientes**. Como no son linealmente dependientes, no existe relación lineal entre ellas. Su wronskiano es
+La función dada satisface la ecuación diferencial de **tercer orden**, **lineal** y **homogénea**
 
 $$
-W(x) = -6e^{2x},
+y''' - 2y'' - y' + 2y = 0.
 $$
-
-que no se anula en ningún punto.
 
 ## Resolución
 
-Las funciones que se comparan son los factores que multiplican a las constantes arbitrarias en la expresión dada:
+La expresión contiene tres constantes arbitrarias $c_1$, $c_2$ y $c_3$, por lo que la ecuación diferencial que la admite como solución general es de tercer orden. Se obtiene eliminando las constantes entre $y$ y sus derivadas $y'$, $y''$ y $y'''$.
 
-$$
-f_1(x) = e^x, \qquad f_2(x) = e^{-x}, \qquad f_3(x) = e^{2x}.
-$$
-
-Tres funciones son linealmente dependientes en un intervalo si existen constantes $c_1, c_2, c_3$, no todas nulas, tales que $c_1 f_1 + c_2 f_2 + c_3 f_3 = 0$ en todo el intervalo. El **wronskiano** decide el caso: si $W(f_1, f_2, f_3)(x) \ne 0$ en algún punto del intervalo, las funciones son linealmente independientes.
-
-Se calculan las dos primeras derivadas de cada función:
+Se derivan la expresión y sus derivadas sucesivas:
 
 $$
 \begin{aligned}
-f_1 = e^{x}, \quad & f_1' = e^{x}, \quad & f_1'' = e^{x}, \\
-f_2 = e^{-x}, \quad & f_2' = -e^{-x}, \quad & f_2'' = e^{-x}, \\
-f_3 = e^{2x}, \quad & f_3' = 2e^{2x}, \quad & f_3'' = 4e^{2x}.
+y &= c_1 e^{x} + c_2 e^{-x} + c_3 e^{2x}, \\
+y' &= c_1 e^{x} - c_2 e^{-x} + 2c_3 e^{2x}, \\
+y'' &= c_1 e^{x} + c_2 e^{-x} + 4c_3 e^{2x}, \\
+y''' &= c_1 e^{x} - c_2 e^{-x} + 8c_3 e^{2x}.
 \end{aligned}
 $$
 
-Con ellas se forma el wronskiano
+La eliminación se realiza en tres pasos, cancelando una constante en cada uno.
+
+**Primera constante.** La combinación $y' - y$ elimina $c_1$, porque $c_1 e^{x}$ se reproduce al derivar:
 
 $$
-W(x) = \begin{vmatrix}
-e^{x} & e^{-x} & e^{2x} \\
-e^{x} & -e^{-x} & 2e^{2x} \\
-e^{x} & e^{-x} & 4e^{2x}
-\end{vmatrix}.
+z_1 = y' - y = -2c_2 e^{-x} + c_3 e^{2x}.
 $$
 
-Se extrae de cada columna el factor exponencial correspondiente:
+**Segunda constante.** Al derivar $z_1$ resulta $z_1' = 2c_2 e^{-x} + 2c_3 e^{2x}$. La combinación $z_1' + z_1$ elimina $c_2$:
 
 $$
-W(x) = e^{x} e^{-x} e^{2x} \begin{vmatrix}
-1 & 1 & 1 \\
-1 & -1 & 2 \\
-1 & 1 & 4
-\end{vmatrix}
-= e^{2x} \begin{vmatrix}
-1 & 1 & 1 \\
-1 & -1 & 2 \\
-1 & 1 & 4
-\end{vmatrix}.
+z_2 = z_1' + z_1 = 3c_3 e^{2x}.
 $$
 
-El determinante restante es
+**Tercera constante.** La función $z_2 = 3c_3 e^{2x}$ cumple $z_2' = 6c_3 e^{2x} = 2z_2$, de modo que
 
 $$
-\begin{vmatrix}
-1 & 1 & 1 \\
-1 & -1 & 2 \\
-1 & 1 & 4
-\end{vmatrix}
-= 1\,(-4 - 2) - 1\,(4 - 2) + 1\,(1 + 1) = -6 - 2 + 2 = -6.
+z_2' - 2z_2 = 0.
 $$
 
-Por tanto,
+Se expresa ahora $z_2$ en términos de $y$. Como $z_1 = y' - y$, se tiene
 
 $$
-W(x) = -6e^{2x},
+z_2 = z_1' + z_1 = (y'' - y') + (y' - y) = y'' - y,
 $$
 
-que es distinto de cero para todo $x \in \mathbb{R}$. Al existir puntos donde el wronskiano no se anula, las tres funciones son linealmente independientes y no hay ninguna relación lineal que las ligue.
+y por tanto $z_2' = y''' - y'$. Al sustituir en $z_2' - 2z_2 = 0$ se obtiene
+
+$$
+(y''' - y') - 2(y'' - y) = 0,
+$$
+
+es decir,
+
+$$
+y''' - 2y'' - y' + 2y = 0.
+$$
+
+La ecuación es de **tercer orden**, **lineal** y **homogénea**, coherente con las tres constantes arbitrarias de la familia dada.
 
 ## Observaciones
 
-Las tres funciones son soluciones de la ecuación lineal homogénea $y''' - 2y'' - y' + 2y = 0$, cuya ecuación característica tiene raíces $1$, $-1$ y $2$. El wronskiano distinto de cero confirma que forman un conjunto fundamental de soluciones.
+Cada una de las funciones $e^{x}$, $e^{-x}$ y $e^{2x}$ es solución de la ecuación obtenida. Su wronskiano es $W(x) = -6e^{2x} \ne 0$ en todo $\mathbb{R}$, luego forman un conjunto fundamental y la familia de tres parámetros es la solución general.
 
-### Método alternativo: evaluación directa de la combinación lineal
+### Método alternativo: eliminación mediante un sistema lineal
 
-También puede razonarse sin el wronskiano. Si $c_1 e^x + c_2 e^{-x} + c_3 e^{2x} = 0$ para todo $x$, al dividir entre $e^{2x}$ resulta $c_1 e^{-x} + c_2 e^{-3x} + c_3 = 0$. Al tomar el límite $x \to \infty$ se obtiene $c_3 = 0$; multiplicando entonces por $e^{x}$ queda $c_1 e^{2x} + c_2 = 0$, y al hacer $x \to -\infty$ se concluye $c_2 = 0$ y luego $c_1 = 0$. La única combinación lineal nula es la trivial.
+Se tratan $u = c_1 e^{x}$, $v = c_2 e^{-x}$ y $w = c_3 e^{2x}$ como incógnitas. Las expresiones de $y$, $y'$ y $y''$ forman el sistema
+
+$$
+u + v + w = y, \qquad u - v + 2w = y', \qquad u + v + 4w = y''.
+$$
+
+Su determinante es el wronskiano $W = -6e^{2x} \ne 0$, de modo que la solución es única:
+
+$$
+w = \frac{y'' - y}{3}, \qquad v = \frac{y'' - 3y' + 2y}{6}, \qquad u = \frac{2y + y' - y''}{2}.
+$$
+
+Al sustituir estas expresiones en $y''' = u - v + 8w$ resulta $y''' = 2y'' + y' - 2y$, que es la misma ecuación diferencial.

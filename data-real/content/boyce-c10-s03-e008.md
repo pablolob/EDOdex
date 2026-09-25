@@ -1,4 +1,0 @@
-
-## Enunciado
-
-$\ln|\sin x|$

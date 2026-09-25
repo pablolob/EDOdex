@@ -21,4 +21,18 @@
   }
   window.ODEDEX_THEME={get:get,apply:apply,toggle:toggle,themes:themes};
   apply(get());
+  document.addEventListener('DOMContentLoaded',function(){
+    var button=document.createElement('button');
+    button.className='theme-toggle';
+    button.type='button';
+    function paint(){
+      var next=document.documentElement.dataset.theme==='archive'?'Light':'Dark';
+      button.innerHTML='<span class="theme-toggle-icon" aria-hidden="true">'+(next==='Light'?'◑':'◐')+'</span><span class="theme-toggle-label">'+next+'</span>';
+      button.setAttribute('aria-label','Cambiar a modo '+next);
+      button.title='Cambiar a modo '+next;
+    }
+    button.addEventListener('click',function(){toggle();paint()});
+    document.body.appendChild(button);
+    paint();
+  });
 }());

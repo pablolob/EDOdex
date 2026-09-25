@@ -1,69 +1,77 @@
 
 ## Enunciado
 
-En cada uno de los problemas 7 a 12, determine si las funciones dadas son linealmente dependientes o independientes. Si son linealmente dependientes, halle una relación lineal entre ellas.
+En cada uno de los problemas 7 a 12 elimine las constantes $c_1, c_2, \ldots, c_n$ entre las expresiones para $y$ y sus derivadas $y', \ldots, y^{(n-1)}$. Con ello, determine la ecuación diferencial que satisface la función dada.
 
 8. $y = c_1 + c_2 \cos x + c_3 \sin x$
 
 ## Solución
 
-Las funciones que acompañan a las constantes son $y_1 = 1$, $y_2 = \cos x$ y $y_3 = \sin x$. Son **linealmente independientes** y no existe una relación lineal entre ellas. Su wronskiano es
+La familia satisface la ecuación diferencial **lineal, homogénea y de tercer orden**
 
 $$
-W(1,\cos x,\sin x)=1\neq 0.
+y''' + y' = 0,
 $$
+
+definida para todo $x \in \mathbb{R}$.
 
 ## Resolución
 
-Las funciones del conjunto son
-
-$$
-y_1 = 1, \qquad y_2 = \cos x, \qquad y_3 = \sin x.
-$$
-
-Están definidas y son derivables en todo $\mathbb{R}$, de modo que su wronskiano está definido en todo $\mathbb{R}$.
-
-Se forma el **wronskiano** del conjunto:
-
-$$
-W(1,\cos x,\sin x)=
-\begin{vmatrix}
-1 & \cos x & \sin x\\
-0 & -\sin x & \cos x\\
-0 & -\cos x & -\sin x
-\end{vmatrix}.
-$$
-
-Se desarrolla por la primera columna, en la que el único elemento no nulo es el primero:
-
-$$
-W = 1\cdot
-\begin{vmatrix}
--\sin x & \cos x\\
--\cos x & -\sin x
-\end{vmatrix}
-= (-\sin x)(-\sin x)-(\cos x)(-\cos x)
-= \sin^2 x+\cos^2 x = 1.
-$$
-
-El wronskiano vale $1$ para todo $x\in\mathbb{R}$, en particular no se anula. Por el criterio del wronskiano, un conjunto de funciones con wronskiano distinto de cero en algún punto es linealmente independiente. Por tanto, $1$, $\cos x$ y $\sin x$ son linealmente independientes.
-
-En consecuencia, la única combinación lineal que se anula idénticamente es la trivial, $c_1=c_2=c_3=0$. No existe una relación lineal no trivial entre las funciones, de modo que no hay nada que hallar en el segundo supuesto del enunciado.
-
-## Observaciones
-
-El conjunto $\{1,\cos x,\sin x\}$ es un conjunto fundamental de soluciones de la ecuación de tercer orden $y'''+y'=0$; por ello la expresión $y=c_1+c_2\cos x+c_3\sin x$ es la solución general de esa ecuación.
-
-### Método alternativo: definición de independencia lineal
-
-Sin calcular el wronskiano, se supone que $c_1+c_2\cos x+c_3\sin x=0$ para todo $x$. Al evaluar en $x=0$, $x=\dfrac{\pi}{2}$ y $x=\pi$ se obtiene el sistema
+Se derivan sucesivamente las funciones de la familia:
 
 $$
 \begin{aligned}
-c_1+c_2 &= 0,\\
-c_1+c_3 &= 0,\\
-c_1-c_2 &= 0.
+y    &= c_1 + c_2 \cos x + c_3 \sin x, \\
+y'   &= -c_2 \sin x + c_3 \cos x, \\
+y''  &= -c_2 \cos x - c_3 \sin x, \\
+y''' &= c_2 \sin x - c_3 \cos x.
 \end{aligned}
 $$
 
-De la primera y la tercera ecuaciones resulta $c_1=c_2=0$; al sustituir en la segunda, $c_3=0$. La única combinación lineal que se anula es la trivial, así que las funciones son linealmente independientes.
+El miembro derecho de $y''$ es el opuesto de $c_2 \cos x + c_3 \sin x$, y esta última expresión es $y - c_1$. Por tanto,
+
+$$
+y'' = -(y - c_1),
+$$
+
+es decir,
+
+$$
+y'' + y = c_1.
+$$
+
+En esta relación quedan eliminadas $c_2$ y $c_3$; solo permanece $c_1$. Al derivar una vez más se elimina también esa constante:
+
+$$
+y''' + y' = 0.
+$$
+
+**Verificación.** Al sustituir $y'''$ y $y'$ en el miembro izquierdo,
+
+$$
+y''' + y' = \left(c_2 \sin x - c_3 \cos x\right) + \left(-c_2 \sin x + c_3 \cos x\right) = 0,
+$$
+
+para todo $x \in \mathbb{R}$ y cualesquiera valores de $c_1$, $c_2$ y $c_3$.
+
+## Observaciones
+
+La ecuación obtenida es de tercer orden, lineal, homogénea y con coeficientes constantes. Su ecuación característica es
+
+$$
+r^3 + r = r\left(r^2 + 1\right) = 0,
+$$
+
+con raíces $r = 0$ y $r = \pm i$. La raíz $r = 0$ aporta la constante $c_1$ y el par $r = \pm i$ aporta la combinación $c_2 \cos x + c_3 \sin x$, de modo que la familia dada es la solución general de la ecuación.
+
+El procedimiento es general: una familia con $n$ constantes arbitrarias origina una ecuación diferencial de orden $n$.
+
+### Método alternativo: comparación directa de las derivadas
+
+Sin pasar por la relación $y'' + y = c_1$, la comparación de $y'$ y $y'''$ da directamente el resultado. En efecto,
+
+$$
+y' = -c_2 \sin x + c_3 \cos x, \qquad y''' = c_2 \sin x - c_3 \cos x,
+$$
+
+son opuestos, luego $y''' = -y'$ y de ahí $y''' + y' = 0$.

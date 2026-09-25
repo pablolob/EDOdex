@@ -1,128 +1,72 @@
 
 ## Enunciado
 
-En cada uno de los problemas 7 a 12, determine si las funciones dadas son linealmente dependientes o independientes. Si son linealmente dependientes, halle una relación lineal entre ellas.
+En cada uno de los problemas 7 a 12 elimine las constantes $c_1, c_2, \ldots, c_n$ entre las expresiones para $y$ y sus derivadas $y', \ldots, y^{(n-1)}$. Con ello, determine la ecuación diferencial que satisface la función dada.
 
 12. $y = c_1 + c_2 x + c_3 \sinh x + c_4 \cosh x$
 
 ## Solución
 
-Las funciones que acompañan a las constantes son $1$, $x$, $\sinh x$ y $\cosh x$. Estas funciones son **linealmente independientes**, de modo que no existe una relación lineal no trivial entre ellas. Su wronskiano es
+La familia de funciones satisface la ecuación diferencial **lineal, homogénea y de cuarto orden**
 
 $$
-W(1,x,\sinh x,\cosh x)(x) = -1,
+y'''' - y'' = 0,
 $$
 
-que no se anula en ningún punto de $\mathbb{R}$.
+definida para todo $x \in \mathbb{R}$.
 
 ## Resolución
 
-La expresión
-
-$$
-y = c_1 + c_2 x + c_3 \sinh x + c_4 \cosh x
-$$
-
-es una combinación lineal de las funciones
-
-$$
-f_1(x) = 1, \qquad f_2(x) = x, \qquad f_3(x) = \sinh x, \qquad f_4(x) = \cosh x.
-$$
-
-Se pide decidir si este conjunto es linealmente dependiente o independiente.
-
-Un conjunto de funciones $f_1, \dots, f_n$ con $n-1$ derivadas continuas en un intervalo $I$ es linealmente independiente cuando la única combinación lineal que se anula idénticamente en $I$ es la trivial. El **wronskiano**
-
-$$
-W(f_1,\dots,f_n)(x) =
-\begin{vmatrix}
-f_1 & f_2 & \cdots & f_n \\
-f_1' & f_2' & \cdots & f_n' \\
-\vdots & \vdots & & \vdots \\
-f_1^{(n-1)} & f_2^{(n-1)} & \cdots & f_n^{(n-1)}
-\end{vmatrix}
-$$
-
-decide el caso: si $W(x_0) \ne 0$ para algún $x_0 \in I$, entonces las funciones son linealmente independientes.
-
-Las cuatro funciones son suaves en $\mathbb{R}$. Sus derivadas hasta el orden tres son
+La familia contiene cuatro constantes arbitrarias, $c_1$, $c_2$, $c_3$ y $c_4$, de modo que la ecuación diferencial que la satisface es de **cuarto orden**. Se deriva la expresión de $y$ sucesivamente:
 
 $$
 \begin{aligned}
-f_1 = 1, &\quad f_1' = 0, &\quad f_1'' = 0, &\quad f_1''' = 0, \\
-f_2 = x, &\quad f_2' = 1, &\quad f_2'' = 0, &\quad f_2''' = 0, \\
-f_3 = \sinh x, &\quad f_3' = \cosh x, &\quad f_3'' = \sinh x, &\quad f_3''' = \cosh x, \\
-f_4 = \cosh x, &\quad f_4' = \sinh x, &\quad f_4'' = \cosh x, &\quad f_4''' = \sinh x.
+y &= c_1 + c_2 x + c_3\sinh x + c_4\cosh x, \\
+y' &= c_2 + c_3\cosh x + c_4\sinh x, \\
+y'' &= c_3\sinh x + c_4\cosh x, \\
+y''' &= c_3\cosh x + c_4\sinh x, \\
+y'''' &= c_3\sinh x + c_4\cosh x.
 \end{aligned}
 $$
 
-El wronskiano es el determinante de la matriz formada por estas derivadas:
+Las constantes $c_1$ y $c_2$ desaparecen a partir de $y''$. Las derivadas de las funciones hiperbólicas son $\dfrac{d}{dx}\sinh x = \cosh x$ y $\dfrac{d}{dx}\cosh x = \sinh x$, de modo que cada dos derivaciones la combinación $c_3\sinh x + c_4\cosh x$ se reproduce. Por eso la segunda y la cuarta derivada coinciden:
 
 $$
-W(x) =
-\begin{vmatrix}
-1 & x & \sinh x & \cosh x \\
-0 & 1 & \cosh x & \sinh x \\
-0 & 0 & \sinh x & \cosh x \\
-0 & 0 & \cosh x & \sinh x
-\end{vmatrix}.
+y'''' = c_3\sinh x + c_4\cosh x = y''.
 $$
 
-La primera columna tiene un único elemento no nulo, de modo que el determinante se reduce a un determinante de orden tres:
+Al pasar $y''$ al miembro izquierdo se obtiene una relación sin las constantes:
 
 $$
-W(x) =
-\begin{vmatrix}
-1 & \cosh x & \sinh x \\
-0 & \sinh x & \cosh x \\
-0 & \cosh x & \sinh x
-\end{vmatrix}.
+y'''' - y'' = 0.
 $$
 
-Se repite la reducción con la primera columna de este último determinante:
+**Verificación.** Al sustituir $y''$ y $y''''$ en el miembro izquierdo,
 
 $$
-W(x) =
-\begin{vmatrix}
-\sinh x & \cosh x \\
-\cosh x & \sinh x
-\end{vmatrix}
-= \sinh^2 x - \cosh^2 x.
+y'''' - y'' = \left(c_3\sinh x + c_4\cosh x\right) - \left(c_3\sinh x + c_4\cosh x\right) = 0,
 $$
 
-La identidad hiperbólica fundamental $\cosh^2 x - \sinh^2 x = 1$ da
-
-$$
-W(x) = -1,
-$$
-
-que es distinto de cero para todo $x \in \mathbb{R}$. Al existir puntos donde el wronskiano no se anula, las funciones $1$, $x$, $\sinh x$ y $\cosh x$ son **linealmente independientes** sobre $\mathbb{R}$.
-
-En consecuencia, la única combinación lineal que se anula idénticamente es la trivial, $c_1 = c_2 = c_3 = c_4 = 0$. No existe una relación lineal no trivial entre las funciones, así que no hay nada que hallar en el segundo supuesto del enunciado.
+para todo $x \in \mathbb{R}$ y cualesquiera valores de las constantes.
 
 ## Observaciones
 
-El wronskiano resulta constante porque la identidad $\cosh^2 x - \sinh^2 x = 1$ elimina toda dependencia en $x$; el valor $-1$ es distinto de cero en todo punto.
+La ecuación $y'''' - y'' = 0$ es **lineal, homogénea y de coeficientes constantes**. Su ecuación característica es $r^4 - r^2 = r^2(r-1)(r+1)$, con la raíz doble $r = 0$ y las raíces $r = \pm 1$. Por ello $\{1,\, x,\, \sinh x,\, \cosh x\}$ es un conjunto fundamental de soluciones. Al ser lineal, la ecuación no posee soluciones singulares.
 
-Las cuatro funciones forman un conjunto fundamental de soluciones de $y'''' - y'' = 0$. Su ecuación característica es $r^4 - r^2 = r^2(r-1)(r+1)$, con raíces $0$ (doble), $1$ y $-1$. Las funciones $\sinh x$ y $\cosh x$ generan el mismo subespacio que $e^{x}$ y $e^{-x}$, ya que
+Las funciones $\sinh x$ y $\cosh x$ generan el mismo subespacio que $e^{x}$ y $e^{-x}$:
 
 $$
 \sinh x = \frac{e^{x} - e^{-x}}{2}, \qquad \cosh x = \frac{e^{x} + e^{-x}}{2}.
 $$
 
-### Método alternativo: identidades hiperbólicas
+En general, una familia con $n$ constantes arbitrarias origina una ecuación diferencial de orden $n$.
 
-Las identidades anteriores reescriben la combinación lineal como
+### Método alternativo: base exponencial
 
-$$
-c_1 + c_2 x + c_3 \sinh x + c_4 \cosh x
-= c_1 + c_2 x + \frac{c_3 + c_4}{2} e^{x} + \frac{c_4 - c_3}{2} e^{-x}.
-$$
-
-Si esta expresión se anula para todo $x$, la independencia lineal del conjunto $\{1, x, e^{x}, e^{-x}\}$ fuerza
+Al reescribir la familia en la base $\{1,\, x,\, e^{x},\, e^{-x}\}$,
 
 $$
-c_1 = 0, \qquad c_2 = 0, \qquad c_3 + c_4 = 0, \qquad c_4 - c_3 = 0.
+y = c_1 + c_2 x + A e^{x} + B e^{-x},
 $$
 
-Las dos últimas ecuaciones dan $c_3 = c_4 = 0$. La única combinación lineal nula es la trivial, de modo que las funciones son linealmente independientes.
+con $A = \dfrac{c_3 + c_4}{2}$ y $B = \dfrac{c_4 - c_3}{2}$, la segunda derivada es $y'' = A e^{x} + B e^{-x}$. Como las exponenciales se reproducen cada dos derivaciones, $y'''' = A e^{x} + B e^{-x} = y''$, lo que conduce a la misma ecuación $y'''' - y'' = 0$.

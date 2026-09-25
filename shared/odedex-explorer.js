@@ -350,6 +350,20 @@
     var entries = keys.map(function (key) { return { key: key, label: key.length > 13 ? key.slice(0, 13) + '…' : key, value: map[key].length }; }).sort(function (a, b) { return b.value - a.value; }).slice(0, 8);
     return frame(source, 'seguir una ecuación por la biblioteca', 'Desde una referencia puedes descubrir qué otros ejercicios la utilizan y volver al texto original sin perder contexto.', barChart(entries, 'referencias más reutilizadas', 'reference-filter') + '<div class="lab-reference-list">' + content + '</div>');
   }
+  function renderCurrentReferences(source) {
+    var references = rawReferences(source);
+    var list = function (key, empty) {
+      var values = arrayField(source, key);
+      return values.length ? '<ul>' + values.map(function (value) { return '<li>' + esc(key === 'competencies' || key === 'hiddenCompetencies' ? label(value) : value) + '</li>'; }).join('') + '</ul>' : '<p class="lab-empty">' + empty + '</p>';
+    };
+    var content = references.length ? references.map(function (reference) {
+      return '<article class="lab-reference-card"><header><strong>' + esc(reference) + '</strong></header><p>Referencia citada en este ejercicio.</p></article>';
+    }).join('') : '<p class="lab-empty">Este ejercicio no tiene referencias verificadas.</p>';
+    return '<div class="reference-view explorer-reference-view"><p class="reference-view-kicker">contexto del ejercicio</p><h3 class="reference-view-title">' + esc(recordNumber(source) + ' · ' + title(source)) + '</h3>' +
+      '<dl class="reader-meta"><dt>Fuente</dt><dd>' + esc(source.source || '') + '</dd><dt>Capítulo</dt><dd>' + esc(chapter(source) + ' · sección ' + section(source)) + '</dd><dt>Dificultad</dt><dd>' + esc(difficulty(source)) + '</dd><dt>Estado</dt><dd>' + esc(status(source)) + '</dd></dl>' +
+      '<div class="explorer-details"><details><summary>Competencias</summary>' + list('competencies', 'No hay competencias asignadas.') + '</details><details><summary>Competencias ocultas</summary>' + list('hiddenCompetencies', 'No hay competencias ocultas.') + '</details><details><summary>Prerrequisitos</summary>' + list('prerequisites', 'No hay prerrequisitos registrados.') + '</details></div>' +
+      '<div class="reader-references"><h3>Referencias</h3><div class="lab-reference-list">' + content + '</div></div></div>';
+  }
   function renderPersonal(source) {
     var data = personalData(), all = viewRecords(records()), capturedList = all.filter(captured), starredList = all.filter(starred), tagged = all.filter(function (record) { return (personalRecord(record.id).tags || []).length; }), events = Array.isArray(data.events) ? data.events : [];
     var chapters = allChapters().map(function (value) { var list = all.filter(function (record) { return chapter(record) === Number(value); }); var count = capturedList.filter(function (record) { return chapter(record) === Number(value); }).length; return '<div class="lab-personal-bar"><span>c' + value + '</span><i><b style="width:' + (list.length ? Math.round(count / list.length * 100) : 0) + '%"></b></i><strong>' + count + '/' + list.length + '</strong></div>'; }).join('');
@@ -380,17 +394,39 @@
     return frame(source, 'volver sobre tus pasos', 'El historial convierte los saltos de exploración en una ruta recuperable. Los eventos personales se mantienen locales al navegador.', group('saltos recientes', historyCards || '<p class="lab-empty">Todavía no hay saltos en esta sesión.</p>', state.history.length) + group('actividad guardada', eventCards || '<p class="lab-empty">Todavía no hay eventos personales.</p>', events.length));
   }
   function renderReferencePanel(reference) {
-    return '<div class="reference-view explorer-reference-view"><p class="reference-view-kicker">referencia citada</p><h3 class="reference-view-title">' + esc(reference.locator || reference.id) + '</h3><p class="reference-view-meta">' + esc(reference.type || 'referencia') + '</p><div class="reference-view-body"><div class="reference-transcription"><p>' + esc(reference.transcription || reference.caption || 'Referencia disponible en el material editorial.') + '</p><p class="reference-view-meta">Fuente: ' + esc(reference.sourceKey || 'sin especificar') + '</p></div><div class="reader-actions"><button class="reader-action primary" type="button" data-explorer-reference-back>volver al ejercicio</button></div></div></div>';
+    var transcription = reference.transcription || reference.caption || 'Referencia disponible en el material editorial.';
+    var formula = reference.type !== 'figure' && typeof transcription === 'string'
+      ? '<div class="reference-formula">\\(' + esc(transcription) + '\\)</div>'
+      : reference.type !== 'figure' && transcription && typeof transcription === 'object'
+        ? Object.keys(transcription).map(function (key) { return '<div class="reference-formula"><span class="reference-variant-label">' + esc(key) + '</span>\\(' + esc(String(transcription[key])) + '\\)</div>'; }).join('')
+        : '<p>' + esc(transcription) + '</p>';
+    return '<div class="reference-view explorer-reference-view"><p class="reference-view-kicker">referencia citada</p><h3 class="reference-view-title">' + esc(reference.locator || reference.id) + '</h3><p class="reference-view-meta">' + esc(reference.type || 'referencia') + '</p><div class="reference-view-body"><div class="reference-transcription">' + formula + '<p class="reference-view-meta">Fuente: ' + esc(reference.sourceKey || 'sin especificar') + '</p></div><div class="reader-actions"><button class="reader-action primary" type="button" data-explorer-reference-back>volver al ejercicio</button></div></div></div>';
+  }
+  function typesetExplorer() {
+    if (!window.MathJax || typeof window.MathJax.typesetPromise !== 'function') {
+      window.addEventListener('load', typesetExplorer, { once: true });
+      return;
+    }
+    var typeset = function () {
+      if (typeof window.MathJax.typesetClear === 'function') window.MathJax.typesetClear([dom.body]);
+      return window.MathJax.typesetPromise([dom.body]).catch(function () {});
+    };
+    if (window.MathJax.startup && window.MathJax.startup.promise) window.MathJax.startup.promise.then(typeset);
+    else typeset();
   }
   function render() {
     if (!dom.body || !dom.panel) return;
     var source = current();
     document.querySelectorAll('[data-explorer-mode]').forEach(function (button) { var selected = !state.reference && button.dataset.explorerMode === state.mode; button.classList.toggle('is-active', selected); button.setAttribute('aria-selected', String(selected)); });
-    dom.title.textContent = state.reference ? 'Referencia' : MODE_LABELS[state.mode];
+    dom.title.textContent = state.reference ? 'Referencia' : 'Referencias';
     dom.scope.textContent = 'laboratorio · ' + records().length + ' fichas · selección editable';
-    if (state.reference) { dom.body.innerHTML = renderReferencePanel(state.reference); return; }
-    var renderers = { similarity: renderSimilarity, difficulty: renderDifficulty, competencies: renderCompetencies, coverage: renderCoverage, dependencies: renderDependencies, chapters: renderChapters, families: renderFamilies, path: renderPath, ladder: renderLadder, compare: renderCompare, contrast: renderContrast, content: renderContent, references: renderReferences, personal: renderPersonal, session: renderSession, discover: renderDiscover, gaps: renderGaps, history: renderHistory, panorama: renderPanorama, constellation: renderConstellation, timeline: renderTimeline, activity: renderActivity };
-    dom.body.innerHTML = (renderers[state.mode] || renderSimilarity)(source);
+    if (state.reference) {
+      dom.body.innerHTML = renderReferencePanel(state.reference);
+      typesetExplorer();
+      window.requestAnimationFrame(typesetExplorer);
+      return;
+    }
+    dom.body.innerHTML = renderCurrentReferences(source);
   }
   function handleAction(action, value) {
     var source = current();

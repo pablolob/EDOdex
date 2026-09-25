@@ -1,4 +1,0 @@
-
-## Enunciado
-
-$$f(x) = 1 - x, \quad 0 \le x \le 1$$

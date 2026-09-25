@@ -1,64 +1,119 @@
 
 ## Enunciado
 
-En cada uno de los problemas 7 a 12, determine si las funciones dadas son linealmente dependientes o independientes. Si son linealmente dependientes, halle una relación lineal entre ellas.
+En cada uno de los problemas 7 a 12 elimine las constantes $c_1, c_2, \ldots, c_n$ entre las expresiones para $y$ y sus derivadas $y', \ldots, y^{(n-1)}$. Con ello, determine la ecuación diferencial que satisface la función dada.
 
 10. $y = c_1 x + c_2 x^2 + c_3 x^3$
 
 ## Solución
 
-Las funciones que acompañan a las constantes son $y_1 = x$, $y_2 = x^2$ y $y_3 = x^3$. Son **linealmente independientes** y no existe una relación lineal entre ellas. Su wronskiano es
+La ecuación diferencial que satisface la familia es de **tercer orden**, **lineal** y **homogénea**:
 
 $$
-W(x, x^2, x^3) = 2x^3,
+x^3 y''' - 3x^2 y'' + 6x y' - 6y = 0.
 $$
-
-que no es idénticamente nulo.
 
 ## Resolución
 
-Las funciones del conjunto son
+La familia está formada por
 
 $$
-y_1 = x, \qquad y_2 = x^2, \qquad y_3 = x^3.
+y = c_1 x + c_2 x^2 + c_3 x^3.
 $$
 
-Son polinomios, definidos y derivables en todo $\mathbb{R}$, de modo que su wronskiano está definido en todo $\mathbb{R}$.
-
-Se forma el **wronskiano** del conjunto:
-
-$$
-W(x, x^2, x^3) =
-\begin{vmatrix}
-x & x^2 & x^3\\
-1 & 2x & 3x^2\\
-0 & 2 & 6x
-\end{vmatrix}.
-$$
-
-Se desarrolla por la primera fila:
+Se deriva sucesivamente:
 
 $$
 \begin{aligned}
-W &= x \begin{vmatrix} 2x & 3x^2 \\ 2 & 6x \end{vmatrix}
-   - x^2 \begin{vmatrix} 1 & 3x^2 \\ 0 & 6x \end{vmatrix}
-   + x^3 \begin{vmatrix} 1 & 2x \\ 0 & 2 \end{vmatrix} \\
-  &= x\left(12x^2 - 6x^2\right) - x^2\left(6x\right) + x^3\left(2\right) \\
-  &= 6x^3 - 6x^3 + 2x^3 \\
-  &= 2x^3.
+y' &= c_1 + 2c_2 x + 3c_3 x^2, \\
+y'' &= 2c_2 + 6c_3 x, \\
+y''' &= 6c_3.
 \end{aligned}
 $$
 
-El wronskiano $W = 2x^3$ no es idénticamente nulo: se anula en $x = 0$ y es distinto de cero en cualquier otro punto. Por el criterio del wronskiano, si $W$ no se anula en algún punto de un intervalo, las funciones son linealmente independientes sobre ese intervalo. Por tanto, $x$, $x^2$ y $x^3$ son linealmente independientes sobre $\mathbb{R}$.
+La tercera derivada contiene solo $c_3$, de modo que
 
-En consecuencia, la única combinación lineal que se anula idénticamente es la trivial, $c_1 = c_2 = c_3 = 0$. No existe una relación lineal no trivial entre las funciones, de modo que no hay nada que hallar en el segundo supuesto del enunciado.
+$$
+c_3 = \frac{y'''}{6}.
+$$
+
+Al sustituir este valor en $y''$ se despeja $c_2$:
+
+$$
+y'' = 2c_2 + x y''' \quad\Longrightarrow\quad c_2 = \frac{y'' - x y'''}{2}.
+$$
+
+Con $c_2$ y $c_3$ ya conocidos, la expresión de $y'$ permite despejar $c_1$:
+
+$$
+c_1 = y' - 2c_2 x - 3c_3 x^2
+    = y' - x\left(y'' - x y'''\right) - \frac{x^2}{2}y'''
+    = y' - x y'' + \frac{x^2}{2}y'''.
+$$
+
+Se sustituyen las tres constantes en la familia:
+
+$$
+\begin{aligned}
+y &= x c_1 + x^2 c_2 + x^3 c_3 \\
+  &= x\left(y' - x y'' + \frac{x^2}{2}y'''\right)
+     + \frac{x^2}{2}\left(y'' - x y'''\right)
+     + \frac{x^3}{6}y''' \\
+  &= x y' - x^2 y'' + \frac{x^3}{2}y''' + \frac{x^2}{2}y''
+     - \frac{x^3}{2}y''' + \frac{x^3}{6}y''' \\
+  &= x y' - \frac{x^2}{2}y'' + \frac{x^3}{6}y'''.
+\end{aligned}
+$$
+
+Al agrupar los términos y multiplicar por $6$,
+
+$$
+6y = 6x y' - 3x^2 y'' + x^3 y''',
+$$
+
+es decir,
+
+$$
+x^3 y''' - 3x^2 y'' + 6x y' - 6y = 0.
+$$
+
+**Verificación.** Al sustituir la familia y sus derivadas en el miembro izquierdo,
+
+$$
+\begin{aligned}
+&x^3(6c_3) - 3x^2\left(2c_2 + 6c_3 x\right) + 6x\left(c_1 + 2c_2 x + 3c_3 x^2\right)
+ - 6\left(c_1 x + c_2 x^2 + c_3 x^3\right) \\
+&\quad = (6 - 18 + 18 - 6)c_3 x^3 + (-6 + 12 - 6)c_2 x^2 + (6 - 6)c_1 x = 0
+\end{aligned}
+$$
+
+para todo $x$ y cualesquiera valores de $c_1$, $c_2$ y $c_3$.
 
 ## Observaciones
 
-El conjunto $\{x, x^2, x^3\}$ es linealmente independiente porque los tres polinomios tienen grados distintos; el wronskiano lo confirma.
+La familia contiene tres constantes arbitrarias, de modo que la ecuación que la describe es de **tercer orden**.
 
-El que $W$ se anule en $x = 0$ no implica dependencia lineal. El criterio del wronskiano es una implicación en un solo sentido: $W \neq 0$ en algún punto garantiza independencia, mientras que $W = 0$ en un punto aislado no aporta información.
+En forma estándar la ecuación es
 
-### Método alternativo: definición de independencia lineal
+$$
+y''' - \frac{3}{x}y'' + \frac{6}{x^2}y' - \frac{6}{x^3}y = 0,
+$$
 
-Sin calcular el wronskiano, se supone que $c_1 x + c_2 x^2 + c_3 x^3 = 0$ para todo $x$. Para $x \neq 0$ se divide entre $x$ y resulta el polinomio $c_1 + c_2 x + c_3 x^2 = 0$. Un polinomio de grado a lo más $2$ que se anula en todos los $x \neq 0$ es idénticamente nulo, luego $c_1 = c_2 = c_3 = 0$. La única combinación lineal que se anula es la trivial, así que las funciones son linealmente independientes.
+que no está definida en $x = 0$. La familia está definida en todo $\mathbb{R}$, pero la ecuación describe su solución general solo en intervalos que no contienen el origen, como $(0,\infty)$ o $(-\infty,0)$.
+
+La ecuación es lineal y homogénea, así que no posee soluciones singulares, y queda determinada salvo un factor multiplicativo no nulo.
+
+### Método alternativo: determinante
+
+Como $y$, $y'$, $y''$ y $y'''$ son combinaciones lineales de las columnas $(x,1,0,0)$, $(x^2,2x,2,0)$ y $(x^3,3x^2,6x,6)$, los cuatro vectores son linealmente dependientes y el determinante formado por ellos se anula:
+
+$$
+\begin{vmatrix}
+y & x & x^2 & x^3\\
+y' & 1 & 2x & 3x^2\\
+y'' & 0 & 2 & 6x\\
+y''' & 0 & 0 & 6
+\end{vmatrix} = 0.
+$$
+
+Al desarrollar por la primera columna resulta $12y - 12x y' + 6x^2 y'' - 2x^3 y''' = 0$, que equivale a la misma ecuación.

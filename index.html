@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-odedex-module="archive">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -551,6 +551,7 @@
     .explorer-close { flex: 0 0 auto; align-self: start; padding: 6px 0; border: 0; background: transparent; color: var(--muted); cursor: pointer; font: 10px var(--mono); text-transform: uppercase; }
     .explorer-close:hover { color: var(--ink); }
     .explorer-modes { display: flex; gap: 3px; overflow-x: auto; padding: 9px 18px; border-bottom: 1px solid var(--line); }
+    .explorer-modes { display: none; }
     .explorer-mode { padding: 6px 8px; border: 1px solid transparent; background: transparent; color: var(--quiet); cursor: pointer; font: 10px var(--mono); text-transform: uppercase; white-space: nowrap; }
     .explorer-mode:hover, .explorer-mode.is-active { border-color: var(--line-strong); color: var(--accent); }
     .explorer-body { min-height: 0; overflow: auto; padding: 14px 18px 20px; }
@@ -873,6 +874,14 @@
     .reader-meta dt { color: var(--quiet); }
     .reader-meta dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
 
+    .explorer-details { margin-top: 20px; border-top: 1px solid var(--line); }
+    .explorer-details details { border-bottom: 1px solid var(--line); }
+    .explorer-details summary { padding: 10px 0; color: var(--muted); cursor: pointer; font: 11px var(--mono); }
+    .explorer-details summary::marker { color: var(--accent); }
+    .explorer-details ul { margin: 0 0 10px; padding-left: 18px; color: var(--quiet); font-size: 11px; }
+    .explorer-details li + li { margin-top: 4px; }
+    .explorer-details .lab-empty { margin: 0 0 10px; }
+
     .reader-alert {
       margin: 0 0 18px;
       padding: 9px 10px;
@@ -1177,7 +1186,6 @@
   </style>
   <link rel="stylesheet" href="shared/odedex-theme.css">
   <script src="shared/odedex-theme.js"></script>
-<link rel="stylesheet" href="shared/odedex-shell.css">
   <script src="shared/odedex-library.js"></script>
   <script src="shared/odedex-bootstrap.js"></script>
   <script src="shared/odedex-core.js"></script>
@@ -1611,51 +1619,6 @@
       }
 
       function pad(number) { return String(number).padStart(3, '0'); }
-
-      function statusFor(number) {
-        if (number <= 16) return 'verified';
-        if (number === 49 || number === 50 || number === 52) return 'open';
-        return 'draft';
-      }
-
-      function competencyFor(number) {
-        var directAndDomain = [11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 28, 29, 47, 49, 62];
-        var directOnly = [4, 14, 23, 24, 25, 26, 27, 31, 32, 33, 34, 35, 36, 37, 39, 40, 41, 42, 43, 44, 45, 46, 48, 51, 52, 54, 57, 58, 59, 63, 64];
-        if ((number >= 1 && number <= 3) || (number >= 5 && number <= 8) || number === 56) return ['clasificar.orden', 'clasificar.linealidad'];
-        if (number === 9 || number === 10) return ['clasificar.linealidad'];
-        if (directAndDomain.indexOf(number) !== -1) return ['verificar.sustitucion-directa', 'verificar.dominio-intervalo'];
-        if (directOnly.indexOf(number) !== -1) return ['verificar.sustitucion-directa'];
-        if (number === 30 || number === 50 || number === 53) return ['verificar.dominio-intervalo'];
-        if (number === 38) return ['analizar-cualitativamente.puntos-equilibrio'];
-        if (number === 55) return ['seleccionar-metodo.justificar-eleccion'];
-        if (number === 60) return ['analizar-cualitativamente.puntos-equilibrio', 'analizar-cualitativamente.estabilidad'];
-        if (number === 61) return ['verificar.sustitucion-directa', 'analizar-cualitativamente.puntos-equilibrio'];
-        return ['verificar.sustitucion-directa'];
-      }
-
-      function makeFallback() {
-        var difficultyPairs = '11,11,11,11,11,11,11,11,21,21,11,12,22,13,22,22,22,22,32,22,22,12,12,23,22,22,22,22,21,21,11,11,21,22,21,22,11,21,21,11,22,22,31,31,21,21,32,33,31,31,23,32,21,32,21,32,31,32,32,21,32,32,14,14'.split(',');
-        return Array.from({ length: 64 }, function (_, index) {
-          var number = index + 1;
-          var pair = difficultyPairs[index];
-          return normalizeRecord({
-            id: 'zill-c01-s01-e' + pad(number),
-            title: 'Zill 1.1 Ejercicio ' + number,
-            authors: ['Dennis G. Zill'],
-            sourceKey: 'zill',
-            sourceLocator: 'Sección 1.1, ejercicio ' + number,
-            chapter: 1,
-            section: 1,
-            exerciseNumber: number,
-            topics: ['fundamentos'],
-            competencies: competencyFor(number),
-            difficulty: { conceptual: Number(pair.charAt(0)), technical: Number(pair.charAt(1)) },
-            solutionStatus: statusFor(number),
-            blocked: number === 49 || number === 50 || number === 52 ? 'enunciado' : '',
-            content: 'content/zill-c01-s01-e' + pad(number) + '.md'
-          }, index);
-        });
-      }
 
       function asArray(value) {
         if (Array.isArray(value)) return value.map(String);
@@ -3357,7 +3320,6 @@
       loadLibrary();
     }());
   </script>
-  <script src="shared/odedex-shell.js"></script>
   <script src="shared/odedex-explorer.js"></script>
 </body>
 </html>

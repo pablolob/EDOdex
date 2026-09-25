@@ -1,4 +1,0 @@
-
-## Enunciado
-
-$e^{-x}$
