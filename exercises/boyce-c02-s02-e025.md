@@ -13,7 +13,7 @@ competencies:
   - resolver-analiticamente.lineales-primer-orden
   - interpretar.comportamiento-solucion
 hidden-competencies:
-  - clasificar.lineal-primer-orden
+  - clasificar.linealidad
 prerequisitos:
   - integracion.directa
 difficulty:

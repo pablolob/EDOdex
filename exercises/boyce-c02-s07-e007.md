@@ -9,6 +9,7 @@ statement-status: accepted
 solution-status: open
 source-images:
   - c02s07i01-p092.png
+requires-tooling: [numerico]
 ---
 
 ## Enunciado

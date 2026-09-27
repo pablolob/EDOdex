@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.2, ejercicio 37"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite a las ecuaciones de los problemas 33 a 35, que no están escritas en el texto ni disponibles como referencia verificada."
 source-images:
   - c03s02i03-p154.png
 ---

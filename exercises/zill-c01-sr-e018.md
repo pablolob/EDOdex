@@ -8,7 +8,7 @@ source-locator: "Repaso del capítulo 1, ejercicio 18"
 topics:
   - fundamentos
 competencies:
-  - verificar.sustitucion-directa
+  - verificar.solucion
   - verificar.condiciones-iniciales
   - determinar.dominio
 difficulty:

@@ -23,6 +23,8 @@ competencies:
 difficulty:
   conceptual: 2
   technical: 2
+blocked: enunciado
+blocked-detail: "El enunciado remite a la figura 3.R.6 (no existe como archivo en el repositorio) y a la «fórmula 41 en la tabla de integrales dada en el apéndice», que no está escrita explícitamente ni figura con entrada verificada en references/zill.yml. Además, el inciso b) pide trazar la gráfica de t(x), acción no ejecutable (grafica)."
 ---
 
 ## Enunciado

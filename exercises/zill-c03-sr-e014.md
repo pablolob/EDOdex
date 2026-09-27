@@ -22,6 +22,8 @@ competencies:
 difficulty:
   conceptual: 2
   technical: 2
+blocked: enunciado
+blocked-detail: "El enunciado remite a la figura 3.R.4 («Utilice la información de la figura») para obtener los caudales de bombeo entre los tanques A y B, pero esa figura no existe como archivo en el repositorio ni está disponible en `references/zill.yml` con `status: verified`. Sin esos datos los balances de sal son indeterminados."
 ---
 
 ## Enunciado

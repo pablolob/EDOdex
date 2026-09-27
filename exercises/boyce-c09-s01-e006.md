@@ -1,0 +1,22 @@
+---
+title: "Boyce 9.1 Ejercicio 6"
+exercise-id: boyce-c09-s01-e006
+author:
+  - name: "William E. Boyce"
+source-key: boyce
+source-locator: "Sección 9.1, ejercicio 6"
+statement-status: pending-review
+solution-status: open
+source-images:
+  - c09s01i01-p483.png
+---
+
+## Enunciado
+
+Para cada uno de los sistemas de los problemas 1 a 12:
+a) Encuentre los eigenvalues y los eigenvectors.
+b) Clasifique el punto crítico $(0,0)$ según su tipo y determine si es estable, asintóticamente estable o inestable.
+c) Trace varias trayectorias en el plano fase y también la gráfica de $x_1$ contra $t$.
+d) En caso de ser posible, use una computadora para trazar con exactitud las curvas solicitadas en el inciso c).
+
+6. $$\frac{dx}{dt} = \begin{pmatrix} 2 & -5 \\ 1 & -2 \end{pmatrix} \mathbf{x}$$

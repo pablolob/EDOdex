@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 5, ejercicio 30"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado cita las figuras 5.3.3 y 5.R.4, ausentes, y las ecuaciones (14) y (6) de la sección 5.3 y la solución de (2), no escritas ni disponibles en references/."
 topics:
   - orden-superior
 source-images:

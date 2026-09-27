@@ -1,0 +1,6 @@
+
+## Enunciado
+
+En los problemas 1 y 2 calcule el error local por truncamiento en términos de la solución exacta $y = \phi(t)$ si se aplica el método de Euler. Obtenga una cota para $e_{n+1}$ en términos de $t$ y $\phi(t)$ que sea válida sobre el intervalo $0 \le t \le 1$. Al usar la solución exacta, obtenga una cota más precisa del error para $e_{n+1}$. Para $h = 0.1$, calcule una cota para $e_1$ y compárela con el error real en $t = 0.1$. Calcule también una cota para el error $e_4$ del cuarto paso.
+
+$$y' = 2y - 1, \quad y(0) = 1$$

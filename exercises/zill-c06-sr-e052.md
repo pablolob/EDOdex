@@ -7,6 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 6, ejercicio 52"
 statement-status: accepted
 solution-status: open
+requires-tooling: [numerico]
 topics:
   - frobenius
 source-images:

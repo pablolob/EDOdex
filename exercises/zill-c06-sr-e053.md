@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 6, ejercicio 53"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "Transcripción infiel de las series de Hermite: falta el factor (-1)^k de la fuente, de modo que la serie publicada no satisface la EDO transcrita. Debe corregirse el enunciado antes de resolver."
 topics:
   - frobenius
 source-images:

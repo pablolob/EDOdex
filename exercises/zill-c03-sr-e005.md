@@ -22,6 +22,8 @@ competencies:
 difficulty:
   conceptual: 2
   technical: 2
+blocked: enunciado
+blocked-detail: "El enunciado remite al «método ilustrado en el ejemplo 3 de la sección 3.1», material externo no escrito en el texto ni disponible en el repositorio (no hay entrada `verified` en `references/zill.yml`, que solo cubre la sección 1.1). Falta la ecuación/modelo de decaimiento y la constante necesaria (vida media del C-14) para datar la muerte; además, la «figura 3.R.1» citada no existe como archivo."
 ---
 
 ## Enunciado

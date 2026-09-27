@@ -14,7 +14,7 @@ competencies:
   - aplicar-condiciones.problema-valor-inicial
   - determinar.intervalo-existencia
 hidden-competencies:
-  - clasificar.lineal-primer-orden
+  - clasificar.linealidad
 prerequisitos:
   - integracion.por-partes
 difficulty:

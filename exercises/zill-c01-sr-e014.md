@@ -8,7 +8,7 @@ source-locator: "Repaso del capítulo 1, ejercicio 14"
 topics:
   - fundamentos
 competencies:
-  - verificar.sustitucion-directa
+  - verificar.solucion
 difficulty:
   conceptual: 1
   technical: 1

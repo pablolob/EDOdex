@@ -9,6 +9,8 @@ statement-status: accepted
 solution-status: open
 source-images:
   - c02s05i03-p069.png
+blocked: enunciado
+blocked-detail: "Falta la temperatura normal del cuerpo al morir (del orden de 98.6 °F); sin ese dato no puede estimarse el momento de la muerte con fidelidad."
 ---
 
 ## Enunciado

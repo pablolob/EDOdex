@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.2, ejercicio 21"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado cita el teorema 3.2.5 sin reproducirlo y no existe una referencia verificada de Boyce en el repositorio."
 source-images:
   - c03s02i02-p153.png
 ---

@@ -1,0 +1,4 @@
+
+## Enunciado
+
+$\sec x$

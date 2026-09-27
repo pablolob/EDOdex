@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 6, ejercicio 54"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite a la ecuación de Hermite y a las soluciones y1 e y2 del problema 53, no escritas ni disponibles."
 topics:
   - frobenius
 source-images:

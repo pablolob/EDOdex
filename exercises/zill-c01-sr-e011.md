@@ -8,8 +8,7 @@ source-locator: "Repaso del capítulo 1, ejercicio 11"
 topics:
   - fundamentos
 competencies:
-  - verificar.sustitucion-directa
-  - clasificar.identificar-familia
+  - verificar.solucion
 difficulty:
   conceptual: 1
   technical: 1

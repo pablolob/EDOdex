@@ -8,7 +8,7 @@ source-locator: "Repaso del capítulo 1, ejercicio 27"
 topics:
   - fundamentos
 competencies:
-  - verificar.sustitucion-directa
+  - verificar.solucion
   - determinar.dominio
 difficulty:
   conceptual: 3

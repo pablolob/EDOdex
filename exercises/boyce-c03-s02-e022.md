@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.2, ejercicio 22"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite al teorema 3.2.5, que no está escrito explícitamente ni disponible como referencia verificada de Boyce."
 source-images:
   - c03s02i02-p153.png
 ---

@@ -1,0 +1,4 @@
+
+## Enunciado
+
+$$\begin{pmatrix} -2 & 1 \\ 1 & -2 \end{pmatrix}$$

@@ -22,6 +22,8 @@ competencies:
 difficulty:
   conceptual: 2
   technical: 2
+blocked: enunciado
+blocked-detail: "El enunciado cita «la ecuación diferencial (3) de la sección 3.2» (modelo logístico) que no está escrita explícitamente en el texto ni disponible como referencia verificada en `references/zill.yml` (solo contiene entradas de la sección 1.1). Además remite a las «figuras 2.1.7 y 3.2.2», que no existen como archivos en el repositorio. Sin la ecuación (3) no puede determinarse con fidelidad cómo modificarla para introducir el nivel límite A."
 ---
 
 ## Enunciado

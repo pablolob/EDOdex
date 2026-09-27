@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 5, ejercicio 28"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite a la ED del problema 27 (fricción de Coulomb, ecuación por tramos) sin escribirla, y no hay material verificado que la proporcione; además el inciso e) pide trazar la gráfica de x(t)."
 topics:
   - orden-superior
 source-images:

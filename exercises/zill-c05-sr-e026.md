@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 5, ejercicio 26"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite a la figura 5.R.3, que no existe como archivo verificado y cuya disposición de dos resortes es esencial para plantear la ED, y al problema 25, tampoco transcrito."
 topics:
   - orden-superior
 source-images:

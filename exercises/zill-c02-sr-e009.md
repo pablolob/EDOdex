@@ -6,19 +6,15 @@ author:
 source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 9"
 language: es
-topics: []
 competencies: []
-difficulty: null
 solution-status: open
 statement-status: accepted
+requires-tooling:
+  - numerico
 topics:
   - primer-orden
 source-images:
   - c02sri01-p094.png
-competencies:
-  - clasificar.identificar-familia
-  - seleccionar-metodo.justificar-eleccion
-  - resolver-analiticamente.variables-separables
 difficulty:
   conceptual: 2
   technical: 3

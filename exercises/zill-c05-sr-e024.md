@@ -7,6 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 5, ejercicio 24"
 statement-status: accepted
 solution-status: open
+requires-tooling: [grafica, numerico]
 topics:
   - orden-superior
 source-images:

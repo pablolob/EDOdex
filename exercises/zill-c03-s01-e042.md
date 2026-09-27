@@ -22,6 +22,7 @@ competencies:
 difficulty:
   conceptual: 2
   technical: 2
+requires-tooling: [grafica]
 ---
 
 ## Enunciado

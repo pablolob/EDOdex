@@ -7,10 +7,12 @@ source-key: zill
 source-locator: "Repaso del capítulo 12, ejercicio 4"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "Remite a las condiciones de frontera del problema 3, no escritas en el ejercicio."
 source-images:
   - c12sri01-p512.png
 ---
 
 ## Enunciado
 
-Ejercicio 4
+Dé una interpretación física de las condiciones de frontera del problema 3.

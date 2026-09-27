@@ -8,7 +8,7 @@ source-locator: "Repaso del capítulo 1, ejercicio 21"
 topics:
   - fundamentos
 competencies:
-  - verificar.sustitucion-directa
+  - verificar.solucion
 difficulty:
   conceptual: 3
   technical: 2

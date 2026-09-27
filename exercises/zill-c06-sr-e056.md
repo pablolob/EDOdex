@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 6, ejercicio 56"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado cita la definición (30) de las funciones esféricas de Bessel, no escrita en el ejercicio ni disponible."
 topics:
   - frobenius
 source-images:

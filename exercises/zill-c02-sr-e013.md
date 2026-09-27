@@ -6,19 +6,15 @@ author:
 source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 13"
 language: es
-topics: []
 competencies: []
-difficulty: null
 solution-status: open
 statement-status: accepted
+blocked: enunciado
+blocked-detail: "Pide una ED autónoma cuyo diagrama de fase sea consistente con la FIGURA 2.R.1; la figura no está disponible ni verificada, y el enlace embebido no resuelve."
 topics:
   - primer-orden
 source-images:
   - c02sri01-p094.png
-competencies:
-  - clasificar.identificar-familia
-  - seleccionar-metodo.justificar-eleccion
-  - resolver-analiticamente.variables-separables
 difficulty:
   conceptual: 2
   technical: 3

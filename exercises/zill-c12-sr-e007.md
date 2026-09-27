@@ -5,12 +5,14 @@ author:
   - name: "Dennis G. Zill"
 source-key: zill
 source-locator: "Repaso del capítulo 12, ejercicio 7"
-statement-status: accepted
+statement-status: pending-review
 solution-status: open
+blocked: enunciado
+blocked-detail: "Figura 12.R.2 Placa cuadrada del problema 7."
 source-images:
   - c12sri02-p513.png
 ---
 
 ## Enunciado
 
-Ejercicio 7
+Encuentre la temperatura $u(x, y)$ de estado estable en la placa cuadrada de la figura 12.R.2.

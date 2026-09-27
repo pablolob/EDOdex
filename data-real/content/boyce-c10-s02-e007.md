@@ -1,0 +1,4 @@
+
+## Enunciado
+
+$\sin mx$

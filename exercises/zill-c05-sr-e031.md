@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 5, ejercicio 31"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite esencialmente a la figura 5.R.5, que no existe como archivo verificado y es imprescindible para definir los desplazamientos angulares y la geometría del péndulo con el clavo."
 topics:
   - orden-superior
 source-images:

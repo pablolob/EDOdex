@@ -12,7 +12,7 @@ topics:
 competencies:
   - determinar.intervalo-existencia
 hidden-competencies:
-  - clasificar.lineal-primer-orden
+  - clasificar.linealidad
 difficulty:
   conceptual: 2
   technical: 1

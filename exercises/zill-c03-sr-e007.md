@@ -22,6 +22,8 @@ competencies:
 difficulty:
   conceptual: 2
   technical: 2
+blocked: enunciado
+blocked-detail: "El enunciado remite al «problema 28 de los ejercicios 1.3» (planteamiento de la tractriz) para fijar el parámetro $a$ y la condición del problema; esa referencia no está escrita en el texto ni disponible con `status: verified` en `references/zill.yml`, y los datos propios resultan insuficientes/ambiguos (punto inicial $(0,10)$ frente a «longitud de la cuerda $x=3$ m») sin el planteamiento citado."
 ---
 
 ## Enunciado

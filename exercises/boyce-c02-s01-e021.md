@@ -13,7 +13,7 @@ competencies:
   - resolver-analiticamente.lineales-primer-orden
   - aplicar-condiciones.problema-valor-inicial
 hidden-competencies:
-  - clasificar.lineal-primer-orden
+  - clasificar.linealidad
 prerequisitos:
   - integracion.directa
   - derivacion.regla-cadena

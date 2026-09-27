@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - primer-orden
 competencies:
-  - clasificar.lineal-primer-orden
+  - clasificar.linealidad
   - resolver-analiticamente.lineales-primer-orden
 prerequisitos:
   - integracion.sustitucion

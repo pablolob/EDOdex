@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 5, ejercicio 25"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite a las figuras 5.R.2(a) y 5.R.2(b), que no existen como archivos verificados, y cita la ecuación (1) de la sección 5.1, no escrita ni disponible."
 topics:
   - orden-superior
 source-images:

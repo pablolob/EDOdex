@@ -2,7 +2,7 @@
 
 Archivo de ejercicios de ecuaciones diferenciales.
 
-Incluye 3318 ejercicios en Markdown, con o sin solución.
+Incluye 4375 ejercicios en Markdown, con o sin solución.
 
 La interfaz minimal se mantiene en docs/frontend/drafts/odedex-ui-minimal/.
 

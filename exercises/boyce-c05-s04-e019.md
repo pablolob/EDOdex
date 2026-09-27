@@ -1,0 +1,18 @@
+---
+title: "Boyce 5.4 Ejercicio 19"
+exercise-id: boyce-c05-s04-e019
+author:
+  - name: "William E. Boyce"
+source-key: boyce
+source-locator: "Sección 5.4, ejercicio 19"
+statement-status: pending-review
+solution-status: open
+source-images:
+  - c05s04i02-p271.png
+---
+
+## Enunciado
+
+En cada uno de los problemas 19 y 20 demuestre que el punto $x = 0$ es un punto singular regular. En cada problema, intente hallar soluciones de la forma $\sum_{n=0}^{\infty} a_n x^n$. Demuestre que en el problema 19 sólo existe una solución diferente de cero de esta forma y que en el problema 20 no existen soluciones diferentes de cero de esta forma. Por tanto, en ningún caso es posible hallar la solución general de esta manera. Esto es típico de las ecuaciones con puntos singulares.
+
+19. $2xy'' + 3y' + xy = 0$

@@ -1,0 +1,4 @@
+
+## Enunciado
+
+$\tan \pi x$

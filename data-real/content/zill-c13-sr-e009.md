@@ -1,4 +1,4 @@
 
 ## Enunciado
 
-Ejercicio 9
+Determine la temperatura de estado estable $u(r,z)$ en el cilindro de la figura 13.2.5, si la superficie lateral se mantiene a temperatura 50, la tapa superior $z = 4$ se mantiene a temperatura 0 y la base $z = 0$ está aislada.

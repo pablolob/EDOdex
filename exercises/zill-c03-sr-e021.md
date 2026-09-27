@@ -22,6 +22,8 @@ competencies:
 difficulty:
   conceptual: 2
   technical: 2
+blocked: enunciado
+blocked-detail: "El enunciado remite a la «figura 3.R.7» (no existe como archivo en el repositorio) y al «problema de valor inicial del problema 20», que no está escrito explícitamente ni disponible en `references/zill.yml`. Sin esos datos no pueden determinarse la región triangular ni la EDO/condición inicial."
 ---
 
 ## Enunciado

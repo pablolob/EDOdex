@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 5, ejercicio 27"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite al sistema masa resorte del problema 25 sin escribir la ED ni las condiciones de ese problema, y esa referencia no está disponible como material verificado."
 topics:
   - orden-superior
 source-images:

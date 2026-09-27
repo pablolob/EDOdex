@@ -7,6 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 5, ejercicio 29"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite al ejemplo 3 de la sección 4.10 como procedimiento, y ese ejemplo no está transcrito ni disponible como entrada verificada."
 topics:
   - orden-superior
 source-images:

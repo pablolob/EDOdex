@@ -12,8 +12,7 @@ topics:
 source-images:
   - c04sri01-p206.png
 competencies:
-  - resolver-analiticamente.lineales-orden-superior
-  - aplicar-condiciones.problema-valor-inicial
+  - determinar.independencia-lineal
 difficulty:
   conceptual: 3
   technical: 3
