@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.4, ejercicio 24"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El inciso d) remite a la ecuación (14) sin escribirla, y no está disponible como referencia verificada del repositorio."
 source-images:
   - c03s04i01-p166.png
 ---

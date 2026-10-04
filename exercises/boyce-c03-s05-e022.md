@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.5, ejercicio 22"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "La solución dada y1=sin x no satisface la EDO del enunciado; el dato es inconsistente y la reducción de orden no puede aplicarse."
 source-images:
   - c03s05i02-p176.png
 ---

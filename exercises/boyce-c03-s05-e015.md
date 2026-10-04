@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.5, ejercicio 15"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El inciso b) cita la fórmula de Abel (ecuación (7) de la sección 3.3) sin escribirla, y el inciso c) depende de ese resultado."
 source-images:
   - c03s05i01-p175.png
 ---

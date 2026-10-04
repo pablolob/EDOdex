@@ -12,7 +12,7 @@ topics:
 competencies:
   - determinar.independencia-lineal
   - verificar.solucion
-prerequisites:
+prerequisitos:
   - ecuaciones-diferenciales.linealidad
   - ecuaciones-diferenciales.wronskiano
 difficulty:

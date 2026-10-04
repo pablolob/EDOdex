@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-27T19:20:05Z",
+  "generatedAt": "2026-10-04T22:29:32Z",
   "records": [
     {
       "id": "boyce-c01-s01-e001",
@@ -7418,15 +7418,23 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 7,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7447,15 +7455,21 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 8,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7487,8 +7501,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "Transcripción incompleta del coeficiente de dy: la fuente dice (x e^{xy} cos 2x - 3) dy y el enunciado transcrito (e^{xy} cos 2x - 3) dy, sin el factor x. Como está transcrito la ecuación no es exacta; requiere corregir la transcripción.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c02-s08-e009.md"
@@ -7505,15 +7519,23 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 10,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7534,15 +7556,21 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 11,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7563,15 +7591,23 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 12,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.sustitucion"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7592,15 +7628,26 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 13,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "resolver-analiticamente.ecuaciones-exactas",
+        "aplicar-condiciones.problema-valor-inicial",
+        "determinar.intervalo-existencia"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.exacta"
+      ],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
+        "conceptual": 2,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7621,15 +7668,28 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 14,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "resolver-analiticamente.ecuaciones-exactas",
+        "aplicar-condiciones.problema-valor-inicial",
+        "determinar.intervalo-existencia"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.exacta"
+      ],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa",
+        "ecuaciones-diferenciales.condiciones-iniciales",
+        "polinomios.resolver"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7650,15 +7710,23 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 15,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
+        "conceptual": 2,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7679,15 +7747,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 16,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "derivacion.producto",
+        "integracion.sustitucion"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7737,15 +7814,22 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 18,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
+        "conceptual": 2,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7766,15 +7850,25 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 19,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
+      "hiddenCompetencies": [
+        "verificar.soluciones-singulares"
+      ],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
+        "conceptual": 2,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7795,15 +7889,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 20,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa",
+        "derivacion.cociente"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7824,15 +7927,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 21,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "derivacion.producto",
+        "integracion.por-partes"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7853,15 +7965,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 22,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa",
+        "derivacion.producto"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7882,15 +8003,23 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 23,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "resolver-analiticamente.ecuaciones-exactas",
+        "seleccionar-metodo.factor-integrante"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7911,15 +8040,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 24,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "resolver-analiticamente.ecuaciones-exactas",
+        "seleccionar-metodo.factor-integrante"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "derivacion.regla-cadena",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7940,15 +8078,26 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 25,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "seleccionar-metodo.factor-integrante",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.exacta"
+      ],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa",
+        "derivacion.producto"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7969,15 +8118,23 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 26,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "resolver-analiticamente.ecuaciones-exactas",
+        "seleccionar-metodo.factor-integrante"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
+        "conceptual": 2,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -7998,15 +8155,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 27,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "seleccionar-metodo.factor-integrante",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.por-partes"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8027,15 +8193,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 28,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "seleccionar-metodo.factor-integrante",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8056,15 +8231,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 29,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "seleccionar-metodo.factor-integrante",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8085,15 +8269,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 8,
       "exerciseNumber": 30,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.exacta",
+        "seleccionar-metodo.factor-integrante",
+        "resolver-analiticamente.ecuaciones-exactas"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8125,8 +8318,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El enunciado remite al «problema 24» para la condición del factor integrante μ(x) o μ(y), cuyo contenido no está transcrito ni disponible como material verificado en el repositorio.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c02-s08-e031.md"
@@ -8154,8 +8347,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El enunciado pide comparar con la solución del «ejemplo 4» (factor integrante distinto), que no está transcrita ni disponible como material verificado en el repositorio.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c02-s08-e032.md"
@@ -8172,15 +8365,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 9,
       "exerciseNumber": 1,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.homogenea",
+        "resolver-analiticamente.homogeneas-primer-orden"
+      ],
+      "hiddenCompetencies": [
+        "seleccionar-metodo.sustitucion"
+      ],
+      "prerequisites": [
+        "integracion.directa"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8201,15 +8403,23 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 9,
       "exerciseNumber": 2,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.homogenea",
+        "resolver-analiticamente.homogeneas-primer-orden"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "ecuaciones-diferenciales.primer-orden",
+        "integracion.directa"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8230,15 +8440,25 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 9,
       "exerciseNumber": 3,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.homogenea",
+        "resolver-analiticamente.homogeneas-primer-orden"
+      ],
+      "hiddenCompetencies": [
+        "seleccionar-metodo.sustitucion"
+      ],
+      "prerequisites": [
+        "derivacion.producto",
+        "integracion.directa"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8259,15 +8479,23 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 9,
       "exerciseNumber": 4,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.homogenea",
+        "resolver-analiticamente.homogeneas-primer-orden"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "derivacion.producto",
+        "integracion.sustitucion"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8288,15 +8516,22 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 9,
       "exerciseNumber": 5,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.homogenea",
+        "resolver-analiticamente.homogeneas-primer-orden"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "integracion.fracciones-parciales"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8317,15 +8552,24 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 9,
       "exerciseNumber": 6,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.homogenea",
+        "resolver-analiticamente.homogeneas-primer-orden"
+      ],
+      "hiddenCompetencies": [
+        "seleccionar-metodo.sustitucion"
+      ],
+      "prerequisites": [
+        "integracion.fracciones-parciales"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8346,15 +8590,25 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 9,
       "exerciseNumber": 7,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.homogenea",
+        "resolver-analiticamente.homogeneas-primer-orden"
+      ],
+      "hiddenCompetencies": [
+        "seleccionar-metodo.sustitucion"
+      ],
+      "prerequisites": [
+        "ecuaciones-diferenciales.primer-orden",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -8375,15 +8629,25 @@
       "chapterTitle": "Ecuaciones diferenciales de primer orden",
       "section": 9,
       "exerciseNumber": 8,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "primer-orden"
+      ],
+      "competencies": [
+        "clasificar.homogenea",
+        "resolver-analiticamente.homogeneas-primer-orden"
+      ],
+      "hiddenCompetencies": [
+        "seleccionar-metodo.sustitucion"
+      ],
+      "prerequisites": [
+        "integracion.directa",
+        "derivacion.producto"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -14381,7 +14645,10 @@
         "verificar.solucion"
       ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "ecuaciones-diferenciales.linealidad",
+        "ecuaciones-diferenciales.wronskiano"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 1
@@ -14483,7 +14750,7 @@
         "orden-superior"
       ],
       "competencies": [
-        "determinar.independencia-lineal"
+        "determinar.wronskiano"
       ],
       "hiddenCompetencies": [],
       "prerequisites": [
@@ -14519,7 +14786,7 @@
         "orden-superior"
       ],
       "competencies": [
-        "determinar.independencia-lineal"
+        "determinar.wronskiano"
       ],
       "hiddenCompetencies": [],
       "prerequisites": [
@@ -14555,10 +14822,13 @@
         "orden-superior"
       ],
       "competencies": [
-        "determinar.independencia-lineal"
+        "construir.formula-abel"
       ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "ecuaciones-diferenciales.wronskiano",
+        "ecuaciones-diferenciales.linealidad"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 1
@@ -14811,8 +15081,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El enunciado remite al teorema 3.3.2 sin reproducir su contenido, y no está disponible como referencia verificada del repositorio.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s03-e022.md"
@@ -14840,8 +15110,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "Enunciado matemáticamente falso: con f=x y g=x² son linealmente independientes y W=x² (no nulo). El problema 23 del libro usa f=x² y g=x|x|; la transcripción es errónea.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s03-e023.md"
@@ -14858,15 +15128,19 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 1,
-      "topics": [],
+      "topics": [
+        "orden-superior"
+      ],
       "competencies": [],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -14887,15 +15161,19 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 2,
-      "topics": [],
+      "topics": [
+        "orden-superior"
+      ],
       "competencies": [],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -14916,15 +15194,21 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 3,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.exponencial-compleja"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -14945,15 +15229,19 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 4,
-      "topics": [],
+      "topics": [
+        "orden-superior"
+      ],
       "competencies": [],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -14974,15 +15262,19 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 5,
-      "topics": [],
+      "topics": [
+        "orden-superior"
+      ],
       "competencies": [],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15003,15 +15295,19 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 6,
-      "topics": [],
+      "topics": [
+        "orden-superior"
+      ],
       "competencies": [],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15032,15 +15328,22 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 7,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15061,15 +15364,24 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 8,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15090,15 +15402,24 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 9,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.factorizacion-polinomios"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15119,15 +15440,25 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 10,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "seleccionar-metodo.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15148,15 +15479,23 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 11,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15177,15 +15516,24 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 12,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15206,15 +15554,24 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 13,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15235,15 +15592,24 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 14,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.factorizacion-polinomios"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15264,15 +15630,24 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 15,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15293,15 +15668,24 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 16,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15322,15 +15706,25 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 17,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes",
+        "aplicar-condiciones.problema-valor-inicial"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15351,15 +15745,27 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 18,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes",
+        "aplicar-condiciones.problema-valor-inicial"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "clasificar.lineal-hom"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15380,15 +15786,27 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 19,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes",
+        "aplicar-condiciones.problema-valor-inicial"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "clasificar.lineal-hom"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15409,15 +15827,26 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 20,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes",
+        "aplicar-condiciones.problema-valor-inicial"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "clasificar.lineal-hom"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15438,15 +15867,23 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 21,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes",
+        "aplicar-condiciones.problema-valor-inicial"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15467,15 +15904,25 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 22,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes",
+        "aplicar-condiciones.problema-valor-inicial"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15496,15 +15943,23 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 23,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "determinar.wronskiano"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "ecuaciones-diferenciales.wronskiano",
+        "derivacion.producto",
+        "derivacion.regla-cadena"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15536,8 +15991,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El inciso d) remite a la ecuación (14) sin escribirla, y no está disponible como referencia verificada del repositorio.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s04-e024.md"
@@ -15565,8 +16020,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El enunciado cita la fórmula de Euler sin escribirla, y no está disponible como referencia verificada del repositorio.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s04-e025.md"
@@ -15583,15 +16038,22 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 26,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "verificar.solucion"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.numeros-complejos",
+        "ecuaciones-diferenciales.linealidad"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15612,15 +16074,25 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 27,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "determinar.independencia-lineal",
+        "analizar-cualitativamente.separacion-ceros"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "ecuaciones-diferenciales.wronskiano",
+        "ecuaciones-diferenciales.linealidad",
+        "derivacion.cociente",
+        "calculo-avanzado.teoremas-valor-medio"
+      ],
       "difficulty": {
-        "conceptual": 1,
+        "conceptual": 3,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15652,8 +16124,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El enunciado remite a la ecuación (i) sin escribirla, y no está disponible como referencia verificada del repositorio.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s04-e028.md"
@@ -15681,8 +16153,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El enunciado remite al método del problema 28, que no está escrito explícitamente ni disponible como referencia verificada.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s04-e029.md"
@@ -15710,8 +16182,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El enunciado remite al método del problema 28, que no está escrito explícitamente ni disponible como referencia verificada.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s04-e030.md"
@@ -15739,8 +16211,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El enunciado remite al método del problema 28, que no está escrito explícitamente ni disponible como referencia verificada.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s04-e031.md"
@@ -15757,15 +16229,22 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 32,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.cambio-variable"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "derivacion.regla-cadena",
+        "derivacion.producto"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15786,15 +16265,23 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 33,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.cambio-variable",
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15815,15 +16302,23 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 34,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.cambio-variable",
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.factorizacion-polinomios"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15844,15 +16339,24 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 35,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.cambio-variable",
+        "resolver-analiticamente.lineales-coeficientes-constantes",
+        "resolver-analiticamente.cauchy-euler"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15873,15 +16377,23 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 4,
       "exerciseNumber": 36,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.cambio-variable",
+        "resolver-analiticamente.cauchy-euler"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.factorizacion-polinomios"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15902,15 +16414,22 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 1,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15931,15 +16450,25 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 2,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "seleccionar-metodo.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15960,15 +16489,25 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 3,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "seleccionar-metodo.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -15989,15 +16528,22 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 4,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16018,15 +16564,26 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 5,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "seleccionar-metodo.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.numeros-complejos",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16047,15 +16604,22 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 6,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16076,15 +16640,25 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 7,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "seleccionar-metodo.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16105,15 +16679,25 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 8,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "seleccionar-metodo.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16134,15 +16718,22 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 9,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16163,15 +16754,26 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 10,
-      "topics": [],
-      "competencies": [],
-      "hiddenCompetencies": [],
-      "prerequisites": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
+      "hiddenCompetencies": [
+        "clasificar.coeficientes-constantes",
+        "seleccionar-metodo.coeficientes-constantes"
+      ],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.numeros-complejos",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16205,7 +16807,9 @@
       "metadataStatus": "pending",
       "blocked": "",
       "blockedDetail": "",
-      "requiresTooling": [],
+      "requiresTooling": [
+        "grafica"
+      ],
       "references": [],
       "content": "content/boyce-c03-s05-e011.md"
     },
@@ -16234,7 +16838,9 @@
       "metadataStatus": "pending",
       "blocked": "",
       "blockedDetail": "",
-      "requiresTooling": [],
+      "requiresTooling": [
+        "grafica"
+      ],
       "references": [],
       "content": "content/boyce-c03-s05-e012.md"
     },
@@ -16263,7 +16869,9 @@
       "metadataStatus": "pending",
       "blocked": "",
       "blockedDetail": "",
-      "requiresTooling": [],
+      "requiresTooling": [
+        "grafica"
+      ],
       "references": [],
       "content": "content/boyce-c03-s05-e013.md"
     },
@@ -16292,7 +16900,9 @@
       "metadataStatus": "pending",
       "blocked": "",
       "blockedDetail": "",
-      "requiresTooling": [],
+      "requiresTooling": [
+        "grafica"
+      ],
       "references": [],
       "content": "content/boyce-c03-s05-e014.md"
     },
@@ -16319,8 +16929,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "El inciso b) cita la fórmula de Abel (ecuación (7) de la sección 3.3) sin escribirla, y el inciso c) depende de ese resultado.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s05-e015.md"
@@ -16337,15 +16947,25 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 16,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "verificar.solucion",
+        "resolver-analiticamente.lineales-coeficientes-constantes"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "ecuaciones-diferenciales.linealidad",
+        "algebra.ecuaciones-caracteristicas",
+        "calculo-avanzado.derivadas-parciales",
+        "calculo-avanzado.regla-lhopital"
+      ],
       "difficulty": {
-        "conceptual": 1,
+        "conceptual": 2,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16366,15 +16986,24 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 17,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.lineales-coeficientes-constantes",
+        "verificar.solucion"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "derivacion.producto",
+        "calculo-avanzado.derivadas-parciales"
+      ],
       "difficulty": {
-        "conceptual": 1,
+        "conceptual": 2,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16395,15 +17024,22 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 18,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.reduccion-orden"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "ecuaciones-diferenciales.linealidad",
+        "ecuaciones-diferenciales.primer-orden"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16424,15 +17060,23 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 19,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.reduccion-orden"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "derivacion.producto",
+        "integracion.directa",
+        "ecuaciones-diferenciales.primer-orden"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16453,15 +17097,23 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 20,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.reduccion-orden"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "derivacion.producto",
+        "ecuaciones-diferenciales.primer-orden",
+        "integracion.directa"
+      ],
       "difficulty": {
-        "conceptual": 1,
-        "technical": 1
+        "conceptual": 2,
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16482,15 +17134,22 @@
       "chapterTitle": "Ecuaciones lineales de segundo orden",
       "section": 5,
       "exerciseNumber": 21,
-      "topics": [],
-      "competencies": [],
+      "topics": [
+        "orden-superior"
+      ],
+      "competencies": [
+        "resolver-analiticamente.reduccion-orden"
+      ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "derivacion.producto",
+        "integracion.directa"
+      ],
       "difficulty": {
         "conceptual": 1,
-        "technical": 1
+        "technical": 2
       },
-      "solutionStatus": "open",
+      "solutionStatus": "draft",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
       "blocked": "",
@@ -16522,8 +17181,8 @@
       "solutionStatus": "open",
       "statementStatus": "accepted",
       "metadataStatus": "pending",
-      "blocked": "",
-      "blockedDetail": "",
+      "blocked": "enunciado",
+      "blockedDetail": "La solución dada y1=sin x no satisface la EDO del enunciado; el dato es inconsistente y la reducción de orden no puede aplicarse.",
       "requiresTooling": [],
       "references": [],
       "content": "content/boyce-c03-s05-e022.md"
@@ -66702,7 +67361,9 @@
         "resolver-analiticamente.homogeneas-primer-orden"
       ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "integracion.directa"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 3
@@ -66879,7 +67540,9 @@
         "aplicar-condiciones.problema-valor-inicial"
       ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "integracion.sustitucion"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 3
@@ -91709,7 +92372,9 @@
       "hiddenCompetencies": [
         "seleccionar-metodo.coeficientes-indeterminados"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 3
@@ -98028,7 +98693,9 @@
         "clasificar.punto-singular-irregular"
       ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.factorizacion-polinomios"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 2
@@ -103787,7 +104454,9 @@
         "resolver-analiticamente.transformada-laplace"
       ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "transformadas.transformada-laplace"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
@@ -119804,7 +120473,10 @@
         "analizar-cualitativamente.puntos-equilibrio"
       ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.factorizacion-polinomios",
+        "polinomios.resolver"
+      ],
       "difficulty": {
         "conceptual": 1,
         "technical": 1
@@ -119875,7 +120547,11 @@
       "hiddenCompetencies": [
         "seleccionar-metodo.valores-propios"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "algebra.ecuaciones-caracteristicas",
+        "matrices.autovalores",
+        "matrices.autovectores"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 2
@@ -121276,7 +121952,11 @@
         "analizar-cualitativamente.estabilidad"
       ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 2
@@ -122357,7 +123037,11 @@
         "analizar-cualitativamente.jacobiana",
         "analizar-cualitativamente.clasificar-punto-critico"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "algebra.ecuaciones-caracteristicas",
+        "algebra.numeros-complejos"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 2
@@ -132288,7 +132972,11 @@
         "aplicar-condiciones.problema-valor-inicial"
       ],
       "hiddenCompetencies": [],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "ecuaciones-diferenciales.linealidad",
+        "algebra.ecuaciones-caracteristicas"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 2
@@ -135026,7 +135714,10 @@
         "seleccionar-metodo.separacion-variables-edp",
         "clasificar.sturm-liouville"
       ],
-      "prerequisites": [],
+      "prerequisites": [
+        "calculo-avanzado.derivadas-parciales",
+        "ecuaciones-diferenciales.condiciones-frontera"
+      ],
       "difficulty": {
         "conceptual": 2,
         "technical": 2
@@ -142333,11 +143024,11 @@
     "blocked": [
       {
         "value": "enunciado",
-        "count": 728
+        "count": 741
       },
       {
         "value": "no",
-        "count": 3647
+        "count": 3634
       }
     ],
     "chapter": [
@@ -142432,6 +143123,10 @@
         "count": 70
       },
       {
+        "value": "analizar-cualitativamente.separacion-ceros",
+        "count": 1
+      },
+      {
         "value": "analizar-espectralmente.funciones-propias",
         "count": 25
       },
@@ -142457,7 +143152,7 @@
       },
       {
         "value": "aplicar-condiciones.problema-valor-inicial",
-        "count": 458
+        "count": 466
       },
       {
         "value": "clasificar.autonoma",
@@ -142473,11 +143168,11 @@
       },
       {
         "value": "clasificar.exacta",
-        "count": 53
+        "count": 69
       },
       {
         "value": "clasificar.homogenea",
-        "count": 28
+        "count": 36
       },
       {
         "value": "clasificar.lineal-hom",
@@ -142532,20 +143227,24 @@
         "count": 4
       },
       {
+        "value": "construir.formula-abel",
+        "count": 1
+      },
+      {
         "value": "determinar.dominio",
         "count": 43
       },
       {
         "value": "determinar.independencia-lineal",
-        "count": 41
+        "count": 39
       },
       {
         "value": "determinar.intervalo-existencia",
-        "count": 70
+        "count": 72
       },
       {
         "value": "determinar.wronskiano",
-        "count": 1
+        "count": 4
       },
       {
         "value": "interpretar.comportamiento-solucion",
@@ -142573,7 +143272,11 @@
       },
       {
         "value": "resolver-analiticamente.cambio-variable",
-        "count": 3
+        "count": 8
+      },
+      {
+        "value": "resolver-analiticamente.cauchy-euler",
+        "count": 2
       },
       {
         "value": "resolver-analiticamente.coeficientes-indeterminados",
@@ -142581,15 +143284,19 @@
       },
       {
         "value": "resolver-analiticamente.ecuaciones-exactas",
-        "count": 49
+        "count": 68
       },
       {
         "value": "resolver-analiticamente.escalon-unitario",
         "count": 19
       },
       {
+        "value": "resolver-analiticamente.exponencial-compleja",
+        "count": 1
+      },
+      {
         "value": "resolver-analiticamente.homogeneas-primer-orden",
-        "count": 28
+        "count": 36
       },
       {
         "value": "resolver-analiticamente.legendre",
@@ -142597,7 +143304,7 @@
       },
       {
         "value": "resolver-analiticamente.lineales-coeficientes-constantes",
-        "count": 133
+        "count": 164
       },
       {
         "value": "resolver-analiticamente.lineales-orden-superior",
@@ -142609,7 +143316,7 @@
       },
       {
         "value": "resolver-analiticamente.reduccion-orden",
-        "count": 8
+        "count": 12
       },
       {
         "value": "resolver-analiticamente.reduccion-orden-no-lineal",
@@ -142729,7 +143436,7 @@
       },
       {
         "value": "seleccionar-metodo.factor-integrante",
-        "count": 7
+        "count": 15
       },
       {
         "value": "seleccionar-metodo.separacion-variables-edp",
@@ -142753,7 +143460,7 @@
       },
       {
         "value": "verificar.solucion",
-        "count": 191
+        "count": 194
       },
       {
         "value": "verificar.solucion-general",
@@ -142767,15 +143474,15 @@
     "conceptual": [
       {
         "value": "1",
-        "count": 2643
+        "count": 2622
       },
       {
         "value": "2",
-        "count": 1221
+        "count": 1241
       },
       {
         "value": "3",
-        "count": 511
+        "count": 512
       }
     ],
     "hiddenCompetency": [
@@ -142841,11 +143548,11 @@
       },
       {
         "value": "clasificar.coeficientes-constantes",
-        "count": 58
+        "count": 77
       },
       {
         "value": "clasificar.exacta",
-        "count": 3
+        "count": 6
       },
       {
         "value": "clasificar.homogenea",
@@ -142853,7 +143560,7 @@
       },
       {
         "value": "clasificar.lineal-hom",
-        "count": 24
+        "count": 27
       },
       {
         "value": "clasificar.lineal-no-hom",
@@ -142917,7 +143624,7 @@
       },
       {
         "value": "seleccionar-metodo.coeficientes-constantes",
-        "count": 8
+        "count": 15
       },
       {
         "value": "seleccionar-metodo.coeficientes-indeterminados",
@@ -142945,7 +143652,7 @@
       },
       {
         "value": "seleccionar-metodo.sustitucion",
-        "count": 4
+        "count": 9
       },
       {
         "value": "seleccionar-metodo.valores-propios",
@@ -142961,7 +143668,7 @@
       },
       {
         "value": "verificar.soluciones-singulares",
-        "count": 3
+        "count": 4
       }
     ],
     "prerequisite": [
@@ -142983,15 +143690,15 @@
       },
       {
         "value": "algebra.ecuaciones-caracteristicas",
-        "count": 218
+        "count": 255
       },
       {
         "value": "algebra.factorizacion-polinomios",
-        "count": 132
+        "count": 138
       },
       {
         "value": "algebra.numeros-complejos",
-        "count": 97
+        "count": 124
       },
       {
         "value": "calculo-avanzado.convergencia",
@@ -142999,7 +143706,7 @@
       },
       {
         "value": "calculo-avanzado.derivadas-parciales",
-        "count": 129
+        "count": 157
       },
       {
         "value": "calculo-avanzado.integrales-dobles",
@@ -143010,6 +143717,10 @@
         "count": 8
       },
       {
+        "value": "calculo-avanzado.regla-lhopital",
+        "count": 1
+      },
+      {
         "value": "calculo-avanzado.series-potencias",
         "count": 55
       },
@@ -143018,12 +143729,16 @@
         "count": 10
       },
       {
+        "value": "calculo-avanzado.teoremas-valor-medio",
+        "count": 1
+      },
+      {
         "value": "derivacion",
         "count": 24
       },
       {
         "value": "derivacion.cociente",
-        "count": 4
+        "count": 6
       },
       {
         "value": "derivacion.implicita",
@@ -143031,11 +143746,11 @@
       },
       {
         "value": "derivacion.producto",
-        "count": 73
+        "count": 86
       },
       {
         "value": "derivacion.regla-cadena",
-        "count": 71
+        "count": 74
       },
       {
         "value": "ecuaciones-diferenciales.bessel",
@@ -143043,11 +143758,11 @@
       },
       {
         "value": "ecuaciones-diferenciales.condiciones-frontera",
-        "count": 94
+        "count": 95
       },
       {
         "value": "ecuaciones-diferenciales.condiciones-iniciales",
-        "count": 26
+        "count": 27
       },
       {
         "value": "ecuaciones-diferenciales.existencia-unicidad",
@@ -143055,15 +143770,15 @@
       },
       {
         "value": "ecuaciones-diferenciales.linealidad",
-        "count": 62
+        "count": 69
       },
       {
         "value": "ecuaciones-diferenciales.primer-orden",
-        "count": 74
+        "count": 79
       },
       {
         "value": "ecuaciones-diferenciales.wronskiano",
-        "count": 69
+        "count": 73
       },
       {
         "value": "integracion",
@@ -143071,11 +143786,11 @@
       },
       {
         "value": "integracion.directa",
-        "count": 177
+        "count": 202
       },
       {
         "value": "integracion.fracciones-parciales",
-        "count": 35
+        "count": 37
       },
       {
         "value": "integracion.identidades-trigonometricas",
@@ -143083,11 +143798,11 @@
       },
       {
         "value": "integracion.por-partes",
-        "count": 90
+        "count": 92
       },
       {
         "value": "integracion.sustitucion",
-        "count": 34
+        "count": 38
       },
       {
         "value": "integracion.teorema-fundamental-calculo",
@@ -143099,11 +143814,11 @@
       },
       {
         "value": "matrices.autovalores",
-        "count": 37
+        "count": 38
       },
       {
         "value": "matrices.autovectores",
-        "count": 28
+        "count": 29
       },
       {
         "value": "matrices.determinantes",
@@ -143115,7 +143830,7 @@
       },
       {
         "value": "polinomios.resolver",
-        "count": 38
+        "count": 53
       },
       {
         "value": "transformadas.funcion-escalon",
@@ -143123,7 +143838,7 @@
       },
       {
         "value": "transformadas.transformada-laplace",
-        "count": 20
+        "count": 21
       }
     ],
     "section": [
@@ -143193,11 +143908,11 @@
     "status": [
       {
         "value": "draft",
-        "count": 1497
+        "count": 1573
       },
       {
         "value": "open",
-        "count": 2877
+        "count": 2801
       },
       {
         "value": "verified",
@@ -143207,11 +143922,11 @@
     "technical": [
       {
         "value": "1",
-        "count": 2728
+        "count": 2702
       },
       {
         "value": "2",
-        "count": 1036
+        "count": 1062
       },
       {
         "value": "3",
@@ -143245,11 +143960,11 @@
       },
       {
         "value": "orden-superior",
-        "count": 732
+        "count": 778
       },
       {
         "value": "primer-orden",
-        "count": 468
+        "count": 498
       },
       {
         "value": "sistemas",

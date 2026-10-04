@@ -9,6 +9,8 @@ statement-status: accepted
 solution-status: open
 source-images:
   - c02s08i02-p102.png
+blocked: enunciado
+blocked-detail: "Transcripción incompleta del coeficiente de dy: la fuente dice (x e^{xy} cos 2x - 3) dy y el enunciado transcrito (e^{xy} cos 2x - 3) dy, sin el factor x. Como está transcrito la ecuación no es exacta; requiere corregir la transcripción."
 ---
 
 ## Enunciado

@@ -1,7 +1,7 @@
 
 ## Enunciado
 
-Suponga que se lanza un cohete directamente hacia arriba desde la superficie de la Tierra con una velocidad inicial $v_0\sqrt{2gR}$, en donde $R$ es el radio de la Tierra. Despreciese la resistencia del aire.
+Suponga que se lanza un cohete directamente hacia arriba desde la superficie de la Tierra con una velocidad inicial $v_0=\sqrt{2gR}$, en donde $R$ es el radio de la Tierra. Despreciese la resistencia del aire.
 
 a) Encuentre una expresión para la velocidad $v$ en términos de la distancia $x$ desde la superficie de la Tierra.
 
@@ -111,7 +111,7 @@ $$
 
 ## Observaciones
 
-La velocidad inicial impuesta es la de escape, $v_0=\sqrt{2gR}$ (en el enunciado, $v_0$ es la etiqueta de esa velocidad inicial). Su energía mecánica total por unidad de masa es nula, de modo que $v\to 0$ cuando $x\to\infty$. El cohete no regresa y alcanza cualquier distancia finita, incluida la de la Luna.
+La velocidad inicial impuesta es la de escape, $v_0=\sqrt{2gR}$. Su energía mecánica total por unidad de masa es nula, de modo que $v\to 0$ cuando $x\to\infty$. El cohete no regresa y alcanza cualquier distancia finita, incluida la de la Luna.
 
 A diferencia de los modelos con $g$ constante, aquí la aceleración de la gravedad disminuye con la altura como $1/(R+x)^2$. Esta variación es imprescindible a distancias comparables al radio terrestre.
 

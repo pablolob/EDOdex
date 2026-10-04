@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - determinar.independencia-lineal
+  - determinar.wronskiano
 prerequisitos:
   - ecuaciones-diferenciales.wronskiano
   - integracion.sustitucion

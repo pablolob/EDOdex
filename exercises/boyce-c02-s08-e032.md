@@ -9,6 +9,8 @@ statement-status: accepted
 solution-status: open
 source-images:
   - c02s08i03-p103.png
+blocked: enunciado
+blocked-detail: "El enunciado pide comparar con la solución del «ejemplo 4» (factor integrante distinto), que no está transcrita ni disponible como material verificado en el repositorio."
 ---
 
 ## Enunciado

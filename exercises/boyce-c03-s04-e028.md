@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.4, ejercicio 28"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite a la ecuación (i) sin escribirla, y no está disponible como referencia verificada del repositorio."
 source-images:
   - c03s04i02-p167.png
 ---

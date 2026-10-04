@@ -45,4 +45,4 @@ Los términos $f f' g h$ aparecen con signos opuestos y se cancelan, de modo que
 
 La identidad no exige $f \ne 0$. El factor $f^2$ proviene de que el wronskiano es un determinante y cada una de sus dos entradas se multiplica por el factor común $f$; como el determinante es lineal en cada entrada, el factor aparece dos veces.
 
-Una consecuencia directa: si $f$ no es idénticamente nula, $W(fg, fh)$ y $W(g, h)$ se anulan en los mismos puntos. En particular, el par $\{fg, fh\}$ es linealmente dependiente si y solo si lo es $\{g, h\}$ en todo intervalo donde $f$ no se anule.
+Una consecuencia directa: en todo intervalo donde $f$ no se anule, $W(fg, fh)$ y $W(g, h)$ se anulan en los mismos puntos. En particular, el par $\{fg, fh\}$ es linealmente dependiente si y solo si lo es $\{g, h\}$ en todo intervalo donde $f$ no se anule.

@@ -1,0 +1,91 @@
+/* Shared by Astra High and Minimal Develop. Each palette is composed for both modes. */
+:root {
+  color-scheme: dark;
+  --bg:#10151e; --surface:#161e2a; --surface-raised:#202c3d;
+  --line:#2d3b50; --line-strong:#60789b; --ink:#e4ebf6;
+  --muted:#b0bdd0; --quiet:#96a8c2; --accent:#afc7f4; --accent-ink:#142139;
+  --capture:#afc7f4; --warning:#e2b16e; --danger:#e28472; --focus:#cfddff;
+  --hover:#202c3d; --selected-bg:#263958; --selected-ink:#e4ebf6;
+  --topic-fundamentos:#a3bdf0; --topic-primer-orden:#76d5c7;
+  --topic-orden-superior:#b5a6ed; --topic-sistemas:#dda6c9; --topic-laplace:#e6c17d;
+  --topic-frobenius:#84c8dd; --topic-contorno:#c8d693; --topic-sturm-liouville:#dfad91;
+  --topic-estabilidad:#90c6a8; --topic-unclassified:#a1acbf;
+  --panel:var(--surface); --stage:var(--bg); --raised:var(--surface-raised);
+  --subtle:var(--line); --dim:var(--quiet); --accent-dark:var(--accent-ink);
+  --accent-soft:var(--selection-tint); --paper:var(--surface); --paper-ink:var(--ink);
+  --paper-muted:var(--muted); --amber:var(--warning);
+  --success:var(--topic-estabilidad); --review:var(--topic-sturm-liouville);
+  --on-data:var(--bg); --selection-tint:color-mix(in srgb,var(--accent) 12%,var(--bg));
+  --warning-soft:color-mix(in srgb,var(--warning) 12%,var(--surface));
+  --danger-soft:color-mix(in srgb,var(--danger) 12%,var(--surface));
+  --success-soft:color-mix(in srgb,var(--success) 12%,var(--surface));
+}
+html[data-theme="radar"] {
+  color-scheme:light;
+  --bg:#dce7f7; --surface:#eef3fc; --surface-raised:#c7d9f2;
+  --line:#b5c6df; --line-strong:#6c83a4; --ink:#20334f;
+  --muted:#415a7c; --quiet:#455c7b; --accent:#2d5087; --accent-ink:#eef3fc;
+  --capture:#2d5087; --warning:#85571f; --danger:#a33e39; --focus:#2d5087;
+  --hover:#c7d9f2; --selected-bg:#2d5087; --selected-ink:#eef3fc;
+  --topic-fundamentos:#30558b; --topic-primer-orden:#17615d;
+  --topic-orden-superior:#625092; --topic-sistemas:#88466f; --topic-laplace:#765009;
+  --topic-frobenius:#245d77; --topic-contorno:#536025; --topic-sturm-liouville:#8c4a32;
+  --topic-estabilidad:#326047; --topic-unclassified:#4c5c73;
+}
+html[data-palette="verdant"] {
+  --bg:#0d120e; --surface:#151d16; --surface-raised:#202c1e;
+  --line:#344636; --line-strong:#64795b; --ink:#e0e8da;
+  --muted:#afbea7; --quiet:#97aa8d; --accent:#c7e89a; --accent-ink:#0f180f;
+  --capture:#9eddb4; --warning:#dfb87d; --danger:#e2a28e; --focus:#ecf6c9;
+  --hover:#202c1e; --selected-bg:#283b24; --selected-ink:#e0e8da;
+  --topic-fundamentos:#a3b8d9; --topic-primer-orden:#80cdbc;
+  --topic-orden-superior:#b9aed8; --topic-sistemas:#d2adc3; --topic-laplace:#dfc78c;
+  --topic-frobenius:#92c7ce; --topic-contorno:#cad695; --topic-sturm-liouville:#d9b198;
+  --topic-estabilidad:#9cc6a4; --topic-unclassified:#aab8a3;
+}
+html[data-palette="verdant"][data-theme="radar"] {
+  --bg:#e3ebd6; --surface:#f1f6e8; --surface-raised:#d7e3c6;
+  --line:#b0bea0; --line-strong:#6e835a; --ink:#243922;
+  --muted:#496341; --quiet:#4c6445; --accent:#335531; --accent-ink:#f1f6e8;
+  --capture:#335531; --warning:#79581f; --danger:#9a4434; --focus:#335531;
+  --hover:#d7e3c6; --selected-bg:#335531; --selected-ink:#f1f6e8;
+  --topic-fundamentos:#3b5579; --topic-primer-orden:#245f50;
+  --topic-orden-superior:#665185; --topic-sistemas:#7d4d68; --topic-laplace:#725416;
+  --topic-frobenius:#2b5965; --topic-contorno:#526125; --topic-sturm-liouville:#805038;
+  --topic-estabilidad:#3c5f3f; --topic-unclassified:#53634c;
+}
+html[data-palette="parchment"] {
+  --bg:#181613; --surface:#211e19; --surface-raised:#2e2820;
+  --line:#443b30; --line-strong:#8f7d62; --ink:#f1e7d6;
+  --muted:#c4b69e; --quiet:#baa98e; --accent:#e2c28d; --accent-ink:#211b12;
+  --capture:#e2c28d; --warning:#e8b477; --danger:#e6a092; --focus:#f4d7a0;
+  --hover:#2e2820; --selected-bg:#443725; --selected-ink:#f1e7d6;
+  --topic-fundamentos:#a8bbd5; --topic-primer-orden:#92c7b7;
+  --topic-orden-superior:#bbb0d5; --topic-sistemas:#d2aec0; --topic-laplace:#dfc18c;
+  --topic-frobenius:#9ebfc8; --topic-contorno:#cbd09c; --topic-sturm-liouville:#dbb095;
+  --topic-estabilidad:#afc5a4; --topic-unclassified:#bab4a8;
+}
+html[data-palette="parchment"][data-theme="radar"] {
+  --bg:#e8ddc8; --surface:#f7f0df; --surface-raised:#e9dbc0;
+  --line:#c8b99e; --line-strong:#927b59; --ink:#332b20;
+  --muted:#66523a; --quiet:#604d36; --accent:#74502d; --accent-ink:#f7f0df;
+  --capture:#74502d; --warning:#81531f; --danger:#a13c30; --focus:#74502d;
+  --hover:#e4d1ac; --selected-bg:#674528; --selected-ink:#faf1de;
+  --topic-fundamentos:#43546e; --topic-primer-orden:#365d50;
+  --topic-orden-superior:#67516f; --topic-sistemas:#784d60; --topic-laplace:#74531e;
+  --topic-frobenius:#3a5964; --topic-contorno:#56602e; --topic-sturm-liouville:#805038;
+  --topic-estabilidad:#4e5e3e; --topic-unclassified:#625b50;
+}
+::selection {background:var(--accent);color:var(--accent-ink)}
+input,textarea {caret-color:var(--accent)}
+input[type="checkbox"],input[type="radio"],input[type="range"] {accent-color:var(--accent)}
+html {scrollbar-color:var(--line-strong) var(--bg)}
+.appearance-picker {position:relative}
+.appearance-picker>summary {list-style:none;cursor:pointer;color:var(--muted)}
+.appearance-picker>summary::-webkit-details-marker {display:none}
+.appearance-picker[open]>summary {background:var(--accent-soft);color:var(--accent)}
+.appearance-options {position:absolute;right:0;top:calc(100% + 8px);z-index:60;width:244px;padding:18px;background:var(--raised);border-radius:10px;box-shadow:0 12px 32px #0005}
+.appearance-options label {display:block;font-size:12px;color:var(--muted)}
+.appearance-options label+label {margin-top:14px}
+.appearance-options select {display:block;width:100%;min-height:44px;margin-top:6px;padding:8px;border:1px solid var(--line-strong);border-radius:6px;background:var(--panel);color:var(--ink);font:inherit}
+@media(max-width:620px){.appearance-picker>summary{width:38px;min-width:38px}}

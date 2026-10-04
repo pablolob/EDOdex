@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.4, ejercicio 30"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite al método del problema 28, que no está escrito explícitamente ni disponible como referencia verificada."
 source-images:
   - c03s04i02-p167.png
 ---

@@ -16,7 +16,7 @@ competencies:
 hidden-competencies:
   - seleccionar-metodo.separacion-variables-edp
   - clasificar.sturm-liouville
-prerequisites:
+prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - ecuaciones-diferenciales.condiciones-frontera
 metadata-status: pending

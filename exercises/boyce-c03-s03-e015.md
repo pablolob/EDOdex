@@ -10,8 +10,8 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - determinar.independencia-lineal
-prerequisites:
+  - construir.formula-abel
+prerequisitos:
   - ecuaciones-diferenciales.wronskiano
   - ecuaciones-diferenciales.linealidad
 difficulty:

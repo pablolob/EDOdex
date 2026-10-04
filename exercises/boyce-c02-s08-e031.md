@@ -9,6 +9,8 @@ statement-status: accepted
 solution-status: open
 source-images:
   - c02s08i03-p103.png
+blocked: enunciado
+blocked-detail: "El enunciado remite al «problema 24» para la condición del factor integrante μ(x) o μ(y), cuyo contenido no está transcrito ni disponible como material verificado en el repositorio."
 ---
 
 ## Enunciado

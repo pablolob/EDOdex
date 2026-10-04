@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.3, ejercicio 22"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "El enunciado remite al teorema 3.3.2 sin reproducir su contenido, y no está disponible como referencia verificada del repositorio."
 source-images:
   - c03s03i02-p160.png
 ---

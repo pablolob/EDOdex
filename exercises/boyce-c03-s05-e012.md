@@ -7,6 +7,7 @@ source-key: boyce
 source-locator: "Sección 3.5, ejercicio 12"
 statement-status: accepted
 solution-status: open
+requires-tooling: [grafica]
 source-images:
   - c03s05i01-p175.png
 ---

@@ -7,6 +7,8 @@ source-key: boyce
 source-locator: "Sección 3.3, ejercicio 23"
 statement-status: accepted
 solution-status: open
+blocked: enunciado
+blocked-detail: "Enunciado matemáticamente falso: con f=x y g=x² son linealmente independientes y W=x² (no nulo). El problema 23 del libro usa f=x² y g=x|x|; la transcripción es errónea."
 source-images:
   - c03s03i02-p160.png
 ---
