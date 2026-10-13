@@ -11,7 +11,7 @@ topics:
   - primer-orden
   - estabilidad
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - aplicar-condiciones.problema-valor-inicial
   - determinar.intervalo-existencia
 hidden-competencies:

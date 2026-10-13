@@ -10,9 +10,9 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - seleccionar-metodo.coeficientes-indeterminados
-  - resolver-analiticamente.coeficientes-indeterminados
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - seleccionar.metodo.coeficientes-indeterminados
+  - resolver.lineal.nohomogenea.coeficientes-indeterminados
+  - resolver.lineal.homogenea.coeficientes-constantes
 prerequisitos:
   - algebra.ecuaciones-caracteristicas
   - algebra.factorizacion-polinomios

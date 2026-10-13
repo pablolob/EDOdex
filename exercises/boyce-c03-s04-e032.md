@@ -11,7 +11,7 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.cambio-variable
+  - resolver.cambio-variable
 prerequisitos:
   - derivacion.regla-cadena
   - derivacion.producto

@@ -12,7 +12,7 @@ source-images:
 topics:
   - sturm-liouville
 competencies:
-  - analizar-espectralmente.ortogonalidad
+  - analizar.espectralmente.ortogonalidad
 hidden-competencies:
   - clasificar.paridad
 prerequisitos:

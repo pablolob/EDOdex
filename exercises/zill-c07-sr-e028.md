@@ -14,7 +14,7 @@ topics:
 source-images:
   - c07sri01-p340.png
 competencies:
-  - resolver-analiticamente.transformada-laplace
+  - resolver.transformadas.laplace
 difficulty:
   conceptual: 3
   technical: 3

@@ -10,7 +10,7 @@ topics:
   - primer-orden
   - sistemas
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
 hidden-competencies:
   - clasificar.separable
 prerequisitos:

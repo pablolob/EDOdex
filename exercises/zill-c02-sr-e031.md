@@ -7,7 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 31"
 language: es
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - aplicar-condiciones.problema-valor-inicial
 prerequisitos:
   - integracion.directa

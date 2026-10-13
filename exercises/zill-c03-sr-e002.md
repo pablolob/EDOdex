@@ -11,7 +11,7 @@ topics:
 source-images:
   - c03sri01-p127.png
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - interpretar.contexto-modelo
 difficulty:
   conceptual: 1

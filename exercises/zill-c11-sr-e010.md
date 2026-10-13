@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - sturm-liouville
 competencies:
-  - analizar-espectralmente.ortogonalidad
+  - analizar.espectralmente.ortogonalidad
 prerequisitos:
   - algebra-lineal-avanzada.producto-interno
   - algebra-lineal-avanzada.ortogonalidad

@@ -11,7 +11,7 @@ topics:
   - orden-superior
   - fundamentos
 competencies:
-  - resolver-analiticamente.reduccion-orden
+  - resolver.lineal.orden-superior.reduccion-orden
 prerequisitos:
   - derivacion.producto
   - ecuaciones-diferenciales.linealidad

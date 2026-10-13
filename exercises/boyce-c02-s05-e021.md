@@ -11,10 +11,10 @@ topics:
   - primer-orden
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - interpretar.contexto-modelo
 hidden-competencies:
-  - seleccionar-metodo.factor-integrante
+  - seleccionar.metodo.factor-integrante
 prerequisitos:
   - ecuaciones-diferenciales.condiciones-iniciales
   - integracion.directa

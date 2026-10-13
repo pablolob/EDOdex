@@ -12,7 +12,7 @@ source-images:
 topics:
   - sturm-liouville
 competencies:
-  - analizar-espectralmente.funciones-propias
+  - analizar.espectralmente.funciones-propias
 prerequisitos:
   - ecuaciones-diferenciales.condiciones-frontera
   - ecuaciones-diferenciales.linealidad

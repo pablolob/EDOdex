@@ -12,7 +12,7 @@ competencies:
   - verificar.condiciones-frontera
   - verificar.condiciones-iniciales
 hidden-competencies:
-  - resolver-analiticamente.bessel
+  - resolver.bessel
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - ecuaciones-diferenciales.condiciones-frontera

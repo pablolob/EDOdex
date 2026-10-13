@@ -11,8 +11,8 @@ topics:
   - primer-orden
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.lineales-primer-orden
-  - analizar-cualitativamente.comportamiento-asintotico
+  - resolver.lineal.primer-orden
+  - analizar.cualitativamente.comportamiento-asintotico
 hidden-competencies:
   - clasificar.lineal-no-hom
 prerequisitos:

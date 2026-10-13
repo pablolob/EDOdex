@@ -10,8 +10,8 @@ solution-status: draft
 topics:
   - sistemas
 competencies:
-  - resolver-analiticamente.sistemas-valores-propios
-  - resolver-analiticamente.sistemas-no-homogeneos
+  - resolver.sistemas.lineales.valores-propios
+  - resolver.sistemas.lineales.nohomogeneos
   - verificar.solucion
 prerequisitos:
   - matrices.autovalores

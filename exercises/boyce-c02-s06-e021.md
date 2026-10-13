@@ -10,11 +10,11 @@ solution-status: draft
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - aplicar-condiciones.problema-valor-inicial
   - interpretar.comportamiento-solucion
 hidden-competencies:
-  - seleccionar-metodo.separacion-variables
+  - seleccionar.metodo.separacion-variables
 prerequisitos:
   - ecuaciones-diferenciales.condiciones-iniciales
   - integracion.directa

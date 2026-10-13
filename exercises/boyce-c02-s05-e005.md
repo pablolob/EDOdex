@@ -8,7 +8,7 @@ source-locator: "Sección 2.5, ejercicio 5"
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - aplicar-condiciones.problema-valor-inicial
   - interpretar.contexto-modelo
 prerequisitos:

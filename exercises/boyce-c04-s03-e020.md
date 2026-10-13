@@ -11,8 +11,8 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.aniquiladores
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.nohomogenea.aniquiladores
+  - resolver.lineal.homogenea.coeficientes-constantes
 prerequisitos:
   - algebra.ecuaciones-caracteristicas
   - algebra.factorizacion-polinomios

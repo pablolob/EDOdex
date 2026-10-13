@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - aplicar-condiciones.problema-valor-inicial
   - interpretar.comportamiento-solucion
 hidden-competencies:

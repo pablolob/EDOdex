@@ -7,7 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 2"
 language: es
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - aplicar-condiciones.problema-valor-inicial
 hidden-competencies:
   - clasificar.separable

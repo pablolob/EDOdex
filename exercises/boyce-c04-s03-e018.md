@@ -11,8 +11,8 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.lineales-orden-superior
-  - seleccionar-metodo.sustitucion
+  - resolver.lineal.orden-superior
+  - seleccionar.metodo.sustitucion
   - verificar.solucion
 prerequisitos:
   - derivacion.producto

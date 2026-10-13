@@ -8,7 +8,7 @@ source-locator: "Repaso del capítulo 2, ejercicio 8"
 language: es
 competencies:
   - verificar.solucion
-  - analizar-cualitativamente.puntos-equilibrio
+  - analizar.cualitativamente.puntos-equilibrio
 solution-status: draft
 statement-status: accepted
 topics:

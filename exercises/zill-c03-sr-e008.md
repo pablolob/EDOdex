@@ -14,7 +14,7 @@ source-images:
   - c03sri02-p128.png
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - interpretar.contexto-modelo
 difficulty:
   conceptual: 2

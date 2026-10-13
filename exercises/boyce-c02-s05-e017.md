@@ -9,7 +9,7 @@ topics:
   - primer-orden
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - aplicar-condiciones.problema-valor-inicial
 hidden-competencies:
   - clasificar.separable

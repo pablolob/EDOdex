@@ -11,8 +11,8 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.coeficientes-indeterminados
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.nohomogenea.coeficientes-indeterminados
+  - resolver.lineal.homogenea.coeficientes-constantes
 hidden-competencies:
   - clasificar.lineal-no-hom
   - clasificar.coeficientes-constantes

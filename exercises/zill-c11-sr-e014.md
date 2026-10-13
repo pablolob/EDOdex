@@ -12,8 +12,8 @@ source-images:
 topics:
   - sturm-liouville
 competencies:
-  - resolver-series.serie-fourier
-  - resolver-series.serie-cosenos
+  - resolver.series.fourier
+  - resolver.series.fourier.cosenos
 hidden-competencies:
   - clasificar.paridad
 prerequisitos:

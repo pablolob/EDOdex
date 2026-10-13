@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.exponencial-compleja
+  - resolver.exponencial-compleja
 prerequisitos:
   - algebra.numeros-complejos
 difficulty:

@@ -11,7 +11,7 @@ competencies:
   - modelizar.formular-edo
   - interpretar.contexto-modelo
 hidden-competencies:
-  - analizar-cualitativamente.puntos-equilibrio
+  - analizar.cualitativamente.puntos-equilibrio
 prerequisitos:
   - ecuaciones-diferenciales.primer-orden
 difficulty:

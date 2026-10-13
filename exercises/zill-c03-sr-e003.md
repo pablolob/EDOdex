@@ -10,7 +10,7 @@ topics:
   - primer-orden
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - interpretar.contexto-modelo
 source-images:
   - c03sri01-p127.png

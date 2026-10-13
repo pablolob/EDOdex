@@ -10,13 +10,13 @@ topics:
   - frobenius
   - sturm-liouville
 competencies:
-  - resolver-edp.ecuacion-laplace
-  - resolver-edp.coordenadas-cilindricas
-  - resolver-edp.separacion-variables
+  - resolver.edp.ecuacion-laplace
+  - resolver.edp.coordenadas.cilindricas
+  - resolver.edp.separacion-variables
 hidden-competencies:
-  - resolver-analiticamente.bessel
-  - resolver-series.serie-bessel
-  - analizar-espectralmente.ortogonalidad
+  - resolver.bessel
+  - resolver.series.bessel
+  - analizar.espectralmente.ortogonalidad
 prerequisitos:
   - ecuaciones-diferenciales.condiciones-frontera
   - calculo-avanzado.derivadas-parciales

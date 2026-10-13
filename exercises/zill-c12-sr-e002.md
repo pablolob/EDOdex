@@ -8,9 +8,9 @@ source-locator: "Repaso del capítulo 12, ejercicio 2"
 topics:
   - contorno
 competencies:
-  - seleccionar-metodo.separacion-variables-edp
-  - resolver-edp.separacion-variables
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - seleccionar.metodo.separacion-variables-edp
+  - resolver.edp.separacion-variables
+  - resolver.lineal.homogenea.coeficientes-constantes
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - algebra.ecuaciones-caracteristicas

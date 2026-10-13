@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - aplicar-condiciones.problema-valor-inicial
   - interpretar.contexto-modelo
 prerequisitos:

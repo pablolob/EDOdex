@@ -10,11 +10,11 @@ solution-status: draft
 topics:
   - sistemas
 competencies:
-  - resolver-analiticamente.sistemas-lineales
-  - resolver-analiticamente.sistemas-valores-propios
-  - analizar-espectralmente.valores-propios
+  - resolver.sistemas.lineales
+  - resolver.sistemas.lineales.valores-propios
+  - analizar.espectralmente.valores-propios
 hidden-competencies:
-  - seleccionar-metodo.valores-propios
+  - seleccionar.metodo.valores-propios
 prerequisitos:
   - matrices.autovalores
   - matrices.autovectores

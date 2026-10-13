@@ -8,7 +8,7 @@ source-locator: "Repaso del capítulo 11, ejercicio 6"
 topics:
   - sturm-liouville
 competencies:
-  - resolver-series.serie-fourier
+  - resolver.series.fourier
 prerequisitos:
   - calculo-avanzado.convergencia
 difficulty:

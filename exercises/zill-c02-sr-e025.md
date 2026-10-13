@@ -7,10 +7,10 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 25"
 language: es
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
 hidden-competencies:
   - clasificar.separable
-  - seleccionar-metodo.separacion-variables
+  - seleccionar.metodo.separacion-variables
 prerequisitos:
   - integracion.sustitucion
   - ecuaciones-diferenciales.primer-orden

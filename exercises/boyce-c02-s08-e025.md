@@ -10,8 +10,8 @@ solution-status: draft
 topics:
   - primer-orden
 competencies:
-  - seleccionar-metodo.factor-integrante
-  - resolver-analiticamente.ecuaciones-exactas
+  - seleccionar.metodo.factor-integrante
+  - resolver.exacta
 hidden-competencies:
   - clasificar.exacta
 prerequisitos:

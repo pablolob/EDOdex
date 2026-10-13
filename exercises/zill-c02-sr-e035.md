@@ -7,12 +7,12 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 35"
 language: es
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - aplicar-condiciones.problema-valor-inicial
   - determinar.intervalo-existencia
 hidden-competencies:
   - clasificar.separable
-  - seleccionar-metodo.separacion-variables
+  - seleccionar.metodo.separacion-variables
 prerequisitos:
   - integracion.directa
   - ecuaciones-diferenciales.existencia-unicidad

@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
 prerequisitos:
   - ecuaciones-diferenciales.wronskiano
   - ecuaciones-diferenciales.primer-orden

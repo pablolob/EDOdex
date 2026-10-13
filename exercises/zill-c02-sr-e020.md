@@ -7,10 +7,10 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 20"
 language: es
 competencies:
-  - resolver-analiticamente.ecuaciones-exactas
+  - resolver.exacta
 hidden-competencies:
   - clasificar.homogenea
-  - seleccionar-metodo.factor-integrante
+  - seleccionar.metodo.factor-integrante
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - integracion.por-partes

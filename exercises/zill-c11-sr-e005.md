@@ -11,8 +11,8 @@ topics:
   - sturm-liouville
   - contorno
 competencies:
-  - analizar-espectralmente.sturm-liouville
-  - analizar-espectralmente.valores-propios
+  - resolver.espectral.sturm-liouville
+  - analizar.espectralmente.valores-propios
 difficulty:
   conceptual: 2
   technical: 1

@@ -9,7 +9,7 @@ topics:
   - contorno
 competencies:
   - aplicar-condiciones.problema-valor-frontera
-  - resolver-edp.ecuacion-calor
+  - resolver.edp.ecuacion-calor
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - ecuaciones-diferenciales.condiciones-frontera

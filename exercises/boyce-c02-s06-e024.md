@@ -11,8 +11,8 @@ topics:
   - primer-orden
   - estabilidad
 competencies:
-  - resolver-analiticamente.variables-separables
-  - analizar-cualitativamente.comportamiento-asintotico
+  - resolver.separable
+  - analizar.cualitativamente.comportamiento-asintotico
   - aplicar-condiciones.problema-valor-inicial
 hidden-competencies:
   - clasificar.separable

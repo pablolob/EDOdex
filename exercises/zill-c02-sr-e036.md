@@ -7,12 +7,12 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 36"
 language: es
 competencies:
-  - resolver-analiticamente.homogeneas-primer-orden
+  - resolver.homogenea-primer-orden
   - aplicar-condiciones.problema-valor-inicial
   - determinar.intervalo-existencia
 hidden-competencies:
   - clasificar.homogenea
-  - seleccionar-metodo.sustitucion
+  - seleccionar.metodo.sustitucion
 prerequisitos:
   - integracion.directa
   - ecuaciones-diferenciales.primer-orden

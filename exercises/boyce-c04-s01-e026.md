@@ -11,8 +11,8 @@ topics:
   - orden-superior
   - fundamentos
 competencies:
-  - resolver-analiticamente.reduccion-orden
-  - resolver-analiticamente.lineales-orden-superior
+  - resolver.lineal.orden-superior.reduccion-orden
+  - resolver.lineal.orden-superior
 hidden-competencies:
   - clasificar.lineal-hom
 prerequisitos:

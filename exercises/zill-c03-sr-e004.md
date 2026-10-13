@@ -13,10 +13,10 @@ source-images:
   - c03sri02-p128.png
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - interpretar.contexto-modelo
 hidden-competencies:
-  - seleccionar-metodo.factor-integrante
+  - seleccionar.metodo.factor-integrante
 difficulty:
   conceptual: 2
   technical: 2

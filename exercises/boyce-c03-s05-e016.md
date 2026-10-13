@@ -12,7 +12,7 @@ topics:
   - orden-superior
 competencies:
   - verificar.solucion
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.homogenea.coeficientes-constantes
 prerequisitos:
   - ecuaciones-diferenciales.linealidad
   - algebra.ecuaciones-caracteristicas

@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.variacion-parametros
+  - resolver.lineal.nohomogenea.variacion-parametros
   - verificar.solucion
 hidden-competencies:
   - clasificar.cauchy-euler

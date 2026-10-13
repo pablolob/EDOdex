@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.ecuaciones-exactas
+  - resolver.exacta
   - aplicar-condiciones.problema-valor-inicial
   - determinar.intervalo-existencia
 hidden-competencies:

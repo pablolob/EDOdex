@@ -11,8 +11,8 @@ topics:
   - primer-orden
 competencies:
   - clasificar.separable
-  - resolver-analiticamente.cambio-variable
-  - resolver-analiticamente.variables-separables
+  - resolver.cambio-variable
+  - resolver.separable
 prerequisitos:
   - algebra.factorizacion-polinomios
   - integracion.fracciones-parciales

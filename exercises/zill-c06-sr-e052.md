@@ -13,7 +13,7 @@ topics:
 source-images:
   - zill-c06sri01-p289
 competencies:
-  - resolver-analiticamente.series-frobenius
+  - resolver.series.frobenius
 difficulty:
   conceptual: 3
   technical: 3

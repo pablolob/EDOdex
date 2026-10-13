@@ -7,10 +7,10 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 23"
 language: es
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
 hidden-competencies:
   - clasificar.linealidad
-  - seleccionar-metodo.factor-integrante
+  - seleccionar.metodo.factor-integrante
 prerequisitos:
   - integracion.por-partes
 solution-status: draft

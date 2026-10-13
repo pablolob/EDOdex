@@ -12,7 +12,7 @@ source-images:
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - verificar.soluciones-singulares
 hidden-competencies:
   - clasificar.bernoulli

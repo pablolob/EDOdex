@@ -13,9 +13,9 @@ topics:
 source-images:
   - zill-c05sri02-p246
 competencies:
-  - resolver-analiticamente.lineales-orden-superior
-  - analizar-espectralmente.valores-propios
-  - analizar-espectralmente.funciones-propias
+  - resolver.lineal.orden-superior
+  - analizar.espectralmente.valores-propios
+  - analizar.espectralmente.funciones-propias
 difficulty:
   conceptual: 2
   technical: 2

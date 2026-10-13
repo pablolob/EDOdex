@@ -11,12 +11,12 @@ topics:
   - contorno
   - sturm-liouville
 competencies:
-  - resolver-edp.separacion-variables
-  - analizar-espectralmente.ortogonalidad
-  - resolver-series.serie-senos
+  - resolver.edp.separacion-variables
+  - analizar.espectralmente.ortogonalidad
+  - resolver.series.fourier.senos
 hidden-competencies:
-  - seleccionar-metodo.separacion-variables-edp
-  - resolver-analiticamente.cambio-variable
+  - seleccionar.metodo.separacion-variables-edp
+  - resolver.cambio-variable
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - ecuaciones-diferenciales.condiciones-frontera

@@ -11,7 +11,7 @@ topics:
   - primer-orden
   - estabilidad
 competencies:
-  - analizar-cualitativamente.estabilidad
+  - analizar.cualitativamente.estabilidad
 prerequisitos:
   - ecuaciones-diferenciales.primer-orden
 difficulty:

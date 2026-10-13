@@ -9,7 +9,7 @@ language: es
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - aplicar-condiciones.problema-valor-inicial
   - interpretar.contexto-modelo
 hidden-competencies:

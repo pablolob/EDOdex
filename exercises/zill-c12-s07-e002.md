@@ -9,12 +9,12 @@ topics:
   - contorno
   - sturm-liouville
 competencies:
-  - resolver-edp.ecuacion-calor
-  - resolver-edp.separacion-variables
+  - resolver.edp.ecuacion-calor
+  - resolver.edp.separacion-variables
   - aplicar-condiciones.problema-valor-frontera
 hidden-competencies:
-  - analizar-espectralmente.valores-propios
-  - analizar-espectralmente.ortogonalidad
+  - analizar.espectralmente.valores-propios
+  - analizar.espectralmente.ortogonalidad
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - ecuaciones-diferenciales.condiciones-frontera

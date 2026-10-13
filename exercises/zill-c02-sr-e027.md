@@ -7,7 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 27"
 language: es
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - aplicar-condiciones.problema-valor-inicial
 hidden-competencies:
   - clasificar.lineal-no-hom

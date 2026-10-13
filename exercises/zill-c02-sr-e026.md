@@ -7,7 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 26"
 language: es
 competencies:
-  - resolver-analiticamente.ecuaciones-exactas
+  - resolver.exacta
   - verificar.solucion
 hidden-competencies:
   - clasificar.exacta

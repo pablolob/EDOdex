@@ -10,8 +10,8 @@ topics:
   - primer-orden
   - estabilidad
 competencies:
-  - analizar-cualitativamente.comportamiento-asintotico
-  - resolver-analiticamente.variables-separables
+  - analizar.cualitativamente.comportamiento-asintotico
+  - resolver.separable
   - interpretar.contexto-modelo
 difficulty:
   conceptual: 2

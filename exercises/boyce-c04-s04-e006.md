@@ -11,9 +11,9 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.variacion-parametros
+  - resolver.lineal.nohomogenea.variacion-parametros
 hidden-competencies:
-  - seleccionar-metodo.variacion-parametros
+  - seleccionar.metodo.variacion-parametros
 prerequisitos:
   - ecuaciones-diferenciales.wronskiano
   - matrices.determinantes

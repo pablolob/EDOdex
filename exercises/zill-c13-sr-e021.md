@@ -8,11 +8,11 @@ source-locator: "Repaso del capítulo 13, ejercicio 21"
 topics:
   - contorno
 competencies:
-  - resolver-edp.ecuacion-laplace
-  - resolver-edp.coordenadas-polares
+  - resolver.edp.ecuacion-laplace
+  - resolver.edp.coordenadas.polares
   - aplicar-condiciones.problema-valor-frontera
 hidden-competencies:
-  - seleccionar-metodo.separacion-variables-edp
+  - seleccionar.metodo.separacion-variables-edp
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - ecuaciones-diferenciales.condiciones-frontera

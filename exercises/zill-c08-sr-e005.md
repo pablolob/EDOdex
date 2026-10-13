@@ -12,9 +12,9 @@ source-images:
 topics:
   - sistemas
 competencies:
-  - resolver-analiticamente.sistemas-lineales
+  - resolver.sistemas.lineales
 hidden-competencies:
-  - seleccionar-metodo.valores-propios
+  - seleccionar.metodo.valores-propios
 prerequisitos:
   - algebra-lineal-avanzada.vectores-generalizados
   - matrices.autovalores

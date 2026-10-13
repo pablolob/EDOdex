@@ -7,12 +7,12 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 30"
 language: es
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - aplicar-condiciones.problema-valor-inicial
   - determinar.intervalo-existencia
 hidden-competencies:
   - clasificar.lineal-hom
-  - seleccionar-metodo.factor-integrante
+  - seleccionar.metodo.factor-integrante
 prerequisitos:
   - integracion.teorema-fundamental-calculo
   - derivacion.regla-cadena

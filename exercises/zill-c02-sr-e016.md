@@ -7,9 +7,9 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 16"
 language: es
 competencies:
-  - analizar-cualitativamente.puntos-equilibrio
-  - analizar-cualitativamente.estabilidad
-  - analizar-cualitativamente.comportamiento-asintotico
+  - analizar.cualitativamente.puntos-equilibrio
+  - analizar.cualitativamente.estabilidad
+  - analizar.cualitativamente.comportamiento-asintotico
 solution-status: draft
 statement-status: accepted
 topics:

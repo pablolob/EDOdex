@@ -11,13 +11,13 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.lineales-coeficientes-constantes
-  - resolver-analiticamente.coeficientes-indeterminados
+  - resolver.lineal.homogenea.coeficientes-constantes
+  - resolver.lineal.nohomogenea.coeficientes-indeterminados
   - aplicar-condiciones.problema-valor-inicial
-  - analizar-cualitativamente.comportamiento-asintotico
+  - analizar.cualitativamente.comportamiento-asintotico
 hidden-competencies:
   - clasificar.lineal-no-hom
-  - seleccionar-metodo.coeficientes-indeterminados
+  - seleccionar.metodo.coeficientes-indeterminados
 prerequisitos:
   - algebra.ecuaciones-caracteristicas
   - algebra.factorizacion-polinomios

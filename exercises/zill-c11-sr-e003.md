@@ -11,7 +11,7 @@ topics:
   - sturm-liouville
 competencies:
   - clasificar.paridad
-  - resolver-series.serie-cosenos
+  - resolver.series.fourier.cosenos
 difficulty:
   conceptual: 1
   technical: 1

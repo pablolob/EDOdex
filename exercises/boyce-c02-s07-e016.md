@@ -11,10 +11,10 @@ topics:
   - primer-orden
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
 hidden-competencies:
-  - seleccionar-metodo.separacion-variables
-  - analizar-cualitativamente.comportamiento-asintotico
+  - seleccionar.metodo.separacion-variables
+  - analizar.cualitativamente.comportamiento-asintotico
 prerequisitos:
   - ecuaciones-diferenciales.primer-orden
   - integracion.directa

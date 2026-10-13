@@ -10,8 +10,8 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.cambio-variable
-  - resolver-analiticamente.cauchy-euler
+  - resolver.cambio-variable
+  - resolver.cauchy-euler
 prerequisitos:
   - algebra.ecuaciones-caracteristicas
   - algebra.factorizacion-polinomios

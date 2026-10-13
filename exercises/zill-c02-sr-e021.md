@@ -11,7 +11,7 @@ solution-status: draft
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.ecuaciones-exactas
+  - resolver.exacta
   - verificar.solucion
 hidden-competencies:
   - clasificar.exacta

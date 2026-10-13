@@ -13,11 +13,11 @@ topics:
   - sturm-liouville
   - contorno
 competencies:
-  - analizar-espectralmente.valores-propios
-  - analizar-espectralmente.funciones-propias
+  - analizar.espectralmente.valores-propios
+  - analizar.espectralmente.funciones-propias
   - aplicar-condiciones.problema-valor-frontera
 hidden-competencies:
-  - resolver-analiticamente.cauchy-euler
+  - resolver.cauchy-euler
 prerequisitos:
   - algebra.ecuaciones-caracteristicas
   - algebra.numeros-complejos

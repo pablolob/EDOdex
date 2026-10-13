@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.homogenea.coeficientes-constantes
   - aplicar-condiciones.problema-valor-inicial
 prerequisitos:
   - algebra.numeros-complejos

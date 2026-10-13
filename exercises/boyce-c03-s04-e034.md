@@ -11,8 +11,8 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.cambio-variable
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.cambio-variable
+  - resolver.lineal.homogenea.coeficientes-constantes
 prerequisitos:
   - algebra.ecuaciones-caracteristicas
   - algebra.factorizacion-polinomios

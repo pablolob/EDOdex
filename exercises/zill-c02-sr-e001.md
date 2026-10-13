@@ -7,9 +7,9 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 1"
 language: es
 competencies:
-  - analizar-cualitativamente.puntos-equilibrio
-  - analizar-cualitativamente.estabilidad
-  - analizar-cualitativamente.clasificar-punto-critico
+  - analizar.cualitativamente.puntos-equilibrio
+  - analizar.cualitativamente.estabilidad
+  - analizar.cualitativamente.clasificar-punto-critico
 solution-status: draft
 statement-status: accepted
 topics:

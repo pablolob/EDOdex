@@ -11,7 +11,7 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.variacion-parametros
+  - resolver.lineal.nohomogenea.variacion-parametros
 prerequisitos:
   - algebra.ecuaciones-caracteristicas
   - algebra.numeros-complejos

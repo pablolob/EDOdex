@@ -11,8 +11,8 @@ topics:
   - primer-orden
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.variables-separables
-  - analizar-cualitativamente.comportamiento-asintotico
+  - resolver.separable
+  - analizar.cualitativamente.comportamiento-asintotico
 hidden-competencies:
   - clasificar.separable
 prerequisitos:

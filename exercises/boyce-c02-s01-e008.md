@@ -11,7 +11,7 @@ topics:
   - primer-orden
 competencies:
   - clasificar.linealidad
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
 prerequisitos:
   - integracion.sustitucion
   - integracion.directa

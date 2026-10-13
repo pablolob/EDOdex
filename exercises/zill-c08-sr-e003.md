@@ -12,7 +12,7 @@ topics:
 source-images:
   - c08sri01-p379.png
 competencies:
-  - resolver-analiticamente.sistemas-valores-propios
+  - resolver.sistemas.lineales.valores-propios
   - verificar.solucion
 prerequisitos:
   - matrices.autovalores

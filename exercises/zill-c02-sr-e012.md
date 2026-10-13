@@ -9,7 +9,7 @@ language: es
 competencies:
   - clasificar.autonoma
   - clasificar.linealidad
-  - analizar-cualitativamente.puntos-equilibrio
+  - analizar.cualitativamente.puntos-equilibrio
 solution-status: draft
 statement-status: accepted
 topics:

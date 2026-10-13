@@ -11,8 +11,8 @@ topics:
   - primer-orden
 competencies:
   - clasificar.exacta
-  - seleccionar-metodo.factor-integrante
-  - resolver-analiticamente.ecuaciones-exactas
+  - seleccionar.metodo.factor-integrante
+  - resolver.exacta
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - integracion.por-partes

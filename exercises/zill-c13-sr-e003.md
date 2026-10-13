@@ -9,12 +9,12 @@ topics:
   - contorno
   - sturm-liouville
 competencies:
-  - resolver-edp.ecuacion-laplace
-  - resolver-edp.coordenadas-polares
-  - resolver-edp.separacion-variables
+  - resolver.edp.ecuacion-laplace
+  - resolver.edp.coordenadas.polares
+  - resolver.edp.separacion-variables
 hidden-competencies:
-  - seleccionar-metodo.separacion-variables-edp
-  - analizar-espectralmente.valores-propios
+  - seleccionar.metodo.separacion-variables-edp
+  - analizar.espectralmente.valores-propios
 prerequisitos:
   - ecuaciones-diferenciales.condiciones-frontera
   - calculo-avanzado.derivadas-parciales

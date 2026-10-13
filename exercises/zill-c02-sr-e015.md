@@ -7,8 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 15"
 language: es
 competencies:
-  - analizar-cualitativamente.estabilidad
-  - analizar-cualitativamente.puntos-equilibrio
+  - analizar.cualitativamente.estabilidad
+  - analizar.cualitativamente.puntos-equilibrio
 solution-status: draft
 statement-status: accepted
 topics:

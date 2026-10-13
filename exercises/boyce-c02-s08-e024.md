@@ -10,8 +10,8 @@ solution-status: draft
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.ecuaciones-exactas
-  - seleccionar-metodo.factor-integrante
+  - resolver.exacta
+  - seleccionar.metodo.factor-integrante
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - derivacion.regla-cadena

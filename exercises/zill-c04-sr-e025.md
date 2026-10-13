@@ -12,7 +12,7 @@ topics:
 source-images:
   - c04sri01-p206.png
 competencies:
-  - resolver-analiticamente.lineales-orden-superior
+  - resolver.lineal.orden-superior
   - aplicar-condiciones.problema-valor-inicial
 difficulty:
   conceptual: 3

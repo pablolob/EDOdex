@@ -10,8 +10,8 @@ solution-status: draft
 topics:
   - sturm-liouville
 competencies:
-  - resolver-series.serie-legendre
-  - analizar-espectralmente.ortogonalidad
+  - resolver.series.legendre
+  - analizar.espectralmente.ortogonalidad
 hidden-competencies:
   - clasificar.paridad
 prerequisitos:

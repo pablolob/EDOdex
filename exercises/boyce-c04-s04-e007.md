@@ -11,8 +11,8 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.variacion-parametros
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.nohomogenea.variacion-parametros
+  - resolver.lineal.homogenea.coeficientes-constantes
 hidden-competencies:
   - clasificar.coeficientes-constantes
 prerequisitos:

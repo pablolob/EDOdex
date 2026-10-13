@@ -8,10 +8,10 @@ source-locator: "Sección 3.4, ejercicio 10"
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.homogenea.coeficientes-constantes
 hidden-competencies:
   - clasificar.coeficientes-constantes
-  - seleccionar-metodo.coeficientes-constantes
+  - seleccionar.metodo.coeficientes-constantes
 prerequisitos:
   - algebra.numeros-complejos
   - algebra.ecuaciones-caracteristicas

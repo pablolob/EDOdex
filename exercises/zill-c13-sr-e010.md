@@ -9,12 +9,12 @@ topics:
   - contorno
   - sturm-liouville
 competencies:
-  - resolver-edp.separacion-variables
-  - resolver-edp.coordenadas-cilindricas
-  - resolver-series.serie-bessel
+  - resolver.edp.separacion-variables
+  - resolver.edp.coordenadas.cilindricas
+  - resolver.series.bessel
 hidden-competencies:
-  - seleccionar-metodo.separacion-variables-edp
-  - analizar-espectralmente.valores-propios
+  - seleccionar.metodo.separacion-variables-edp
+  - analizar.espectralmente.valores-propios
 prerequisitos:
   - ecuaciones-diferenciales.condiciones-frontera
   - calculo-avanzado.derivadas-parciales

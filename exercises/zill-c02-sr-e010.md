@@ -7,7 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 10"
 language: es
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - aplicar-condiciones.problema-valor-inicial
 solution-status: draft
 statement-status: accepted

@@ -11,13 +11,13 @@ topics:
   - contorno
   - sturm-liouville
 competencies:
-  - resolver-edp.ecuacion-onda
-  - resolver-edp.separacion-variables
-  - resolver-edp.coordenadas-esfericas
+  - resolver.edp.ecuacion-onda
+  - resolver.edp.separacion-variables
+  - resolver.edp.coordenadas.esfericas
 hidden-competencies:
-  - analizar-espectralmente.valores-propios
-  - analizar-espectralmente.ortogonalidad
-  - seleccionar-metodo.separacion-variables-edp
+  - analizar.espectralmente.valores-propios
+  - analizar.espectralmente.ortogonalidad
+  - seleccionar.metodo.separacion-variables-edp
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - ecuaciones-diferenciales.condiciones-frontera

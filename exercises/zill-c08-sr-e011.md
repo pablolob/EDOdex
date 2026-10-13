@@ -10,11 +10,11 @@ solution-status: draft
 topics:
   - sistemas
 competencies:
-  - resolver-analiticamente.sistemas-no-homogeneos
-  - resolver-analiticamente.sistemas-valores-propios
+  - resolver.sistemas.lineales.nohomogeneos
+  - resolver.sistemas.lineales.valores-propios
 hidden-competencies:
-  - seleccionar-metodo.valores-propios
-  - seleccionar-metodo.coeficientes-indeterminados
+  - seleccionar.metodo.valores-propios
+  - seleccionar.metodo.coeficientes-indeterminados
 prerequisitos:
   - matrices.autovalores
   - matrices.autovectores

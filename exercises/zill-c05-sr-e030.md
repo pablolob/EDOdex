@@ -15,7 +15,7 @@ source-images:
   - zill-c05sri03-p247
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.lineales-orden-superior
+  - resolver.lineal.orden-superior
   - interpretar.contexto-modelo
 difficulty:
   conceptual: 3

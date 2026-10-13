@@ -8,7 +8,7 @@ source-locator: "Sección 2.6, ejercicio 15"
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - aplicar-condiciones.problema-valor-inicial
 hidden-competencies:
   - clasificar.separable

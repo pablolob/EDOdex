@@ -12,7 +12,7 @@ topics:
 competencies:
   - modelizar.formular-edo
   - modelizar.definir-condiciones
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
 hidden-competencies:
   - clasificar.separable
 prerequisitos:

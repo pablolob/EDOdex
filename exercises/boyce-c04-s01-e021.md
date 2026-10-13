@@ -11,7 +11,7 @@ topics:
   - orden-superior
   - fundamentos
 competencies:
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.homogenea.coeficientes-constantes
   - verificar.solucion
 prerequisitos:
   - algebra.factorizacion-polinomios

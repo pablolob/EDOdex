@@ -10,7 +10,7 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.reduccion-orden
+  - resolver.lineal.orden-superior.reduccion-orden
 prerequisitos:
   - derivacion.producto
   - integracion.directa

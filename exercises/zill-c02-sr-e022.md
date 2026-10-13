@@ -7,7 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 22"
 language: es
 competencies:
-  - resolver-analiticamente.ecuaciones-exactas
+  - resolver.exacta
 hidden-competencies:
   - clasificar.exacta
 prerequisitos:

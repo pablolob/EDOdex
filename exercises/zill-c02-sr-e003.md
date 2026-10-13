@@ -7,7 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 3"
 language: es
 competencies:
-  - analizar-cualitativamente.puntos-equilibrio
+  - analizar.cualitativamente.puntos-equilibrio
   - verificar.solucion
 solution-status: draft
 statement-status: accepted

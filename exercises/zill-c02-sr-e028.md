@@ -7,11 +7,11 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 28"
 language: es
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - aplicar-condiciones.problema-valor-inicial
 hidden-competencies:
   - clasificar.linealidad
-  - seleccionar-metodo.factor-integrante
+  - seleccionar.metodo.factor-integrante
 prerequisitos:
   - integracion.teorema-fundamental-calculo
   - derivacion.regla-cadena

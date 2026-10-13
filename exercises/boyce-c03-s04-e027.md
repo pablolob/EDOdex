@@ -11,7 +11,7 @@ topics:
   - orden-superior
 competencies:
   - determinar.independencia-lineal
-  - analizar-cualitativamente.separacion-ceros
+  - analizar.cualitativamente.separacion-ceros
 prerequisitos:
   - ecuaciones-diferenciales.wronskiano
   - ecuaciones-diferenciales.linealidad

@@ -12,7 +12,7 @@ source-images:
 topics:
   - sturm-liouville
 competencies:
-  - resolver-series.serie-fourier
+  - resolver.series.fourier
 prerequisitos:
   - integracion.directa
   - integracion.por-partes

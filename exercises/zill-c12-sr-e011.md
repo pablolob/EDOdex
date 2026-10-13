@@ -11,10 +11,10 @@ topics:
   - contorno
   - sturm-liouville
 competencies:
-  - resolver-edp.ecuacion-calor
+  - resolver.edp.ecuacion-calor
   - aplicar-condiciones.problema-valor-frontera
 hidden-competencies:
-  - seleccionar-metodo.separacion-variables-edp
+  - seleccionar.metodo.separacion-variables-edp
   - clasificar.sturm-liouville
 prerequisitos:
   - calculo-avanzado.derivadas-parciales

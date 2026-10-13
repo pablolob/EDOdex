@@ -10,8 +10,8 @@ solution-status: draft
 topics:
   - sturm-liouville
 competencies:
-  - resolver-series.serie-cosenos
-  - analizar-espectralmente.ortogonalidad
+  - resolver.series.fourier.cosenos
+  - analizar.espectralmente.ortogonalidad
 prerequisitos:
   - integracion.identidades-trigonometricas
   - algebra-lineal-avanzada.producto-interno

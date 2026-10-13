@@ -11,9 +11,9 @@ topics:
   - sturm-liouville
   - contorno
 competencies:
-  - resolver-series.serie-bessel
-  - analizar-espectralmente.ortogonalidad
-  - analizar-espectralmente.valores-propios
+  - resolver.series.bessel
+  - analizar.espectralmente.ortogonalidad
+  - analizar.espectralmente.valores-propios
 prerequisitos:
   - ecuaciones-diferenciales.bessel
   - algebra-lineal-avanzada.ortogonalidad

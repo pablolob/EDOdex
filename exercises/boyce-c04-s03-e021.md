@@ -10,8 +10,8 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.aniquiladores
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.nohomogenea.aniquiladores
+  - resolver.lineal.homogenea.coeficientes-constantes
 hidden-competencies:
   - clasificar.lineal-no-hom
   - clasificar.coeficientes-constantes

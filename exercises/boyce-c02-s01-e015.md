@@ -8,7 +8,7 @@ source-locator: "Sección 2.1, ejercicio 15"
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
+  - resolver.lineal.primer-orden
   - aplicar-condiciones.problema-valor-inicial
 hidden-competencies:
   - clasificar.linealidad

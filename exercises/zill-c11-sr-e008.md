@@ -11,9 +11,9 @@ topics:
   - sturm-liouville
   - contorno
 competencies:
-  - analizar-espectralmente.funciones-propias
+  - analizar.espectralmente.funciones-propias
   - aplicar-condiciones.problema-valor-frontera
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.homogenea.coeficientes-constantes
 prerequisitos:
   - algebra.ecuaciones-caracteristicas
   - algebra.numeros-complejos

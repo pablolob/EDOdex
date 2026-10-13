@@ -9,8 +9,8 @@ language: es
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.variables-separables
-  - seleccionar-metodo.sustitucion
+  - resolver.separable
+  - seleccionar.metodo.sustitucion
 hidden-competencies:
   - clasificar.separable
 prerequisitos:

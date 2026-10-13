@@ -302,6 +302,7 @@
       sourceKey: String(record.sourceKey || record.source || record['source-key'] || 'fuente'),
       sourceLocator: String(record.sourceLocator || record.locator || record['source-locator'] || ''),
       references: asArray(record.references),
+      visualizer: Array.isArray(record.visualizer) ? record.visualizer.filter(function (item) { return item && typeof item === 'object'; }) : [],
       chapter: Number(record.chapter || (match && match[1]) || 0),
       chapterTitle: String(record.chapterTitle || ''),
       section: Number(record.section || (match && match[2]) || 0),
@@ -882,7 +883,7 @@
     dom.readerContent.dataset.readerId = record ? record.id : '';
     dom.app.classList.toggle('reader-open', Boolean(record));
     dom.app.classList.toggle('reader-focus', Boolean(record && state.readerFocus));
-    window.dispatchEvent(new CustomEvent('odedex:reader-render', { detail: { reference: referenceForId(state.referenceId) } }));
+    window.dispatchEvent(new CustomEvent('odedex:reader-render', { detail: { record: record || null, reference: referenceForId(state.referenceId) } }));
     if (!record) {
       dom.readerContent.className = 'reader-empty';
       dom.readerContent.innerHTML = 'Selecciona una ficha y pulsa <strong>Enter</strong> para leerla.';

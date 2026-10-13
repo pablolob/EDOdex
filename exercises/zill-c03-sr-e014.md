@@ -17,7 +17,7 @@ source-images:
   - c03sri03-p129.png
 competencies:
   - modelizar.formular-edo
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - interpretar.contexto-modelo
 difficulty:
   conceptual: 2

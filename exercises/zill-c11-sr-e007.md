@@ -10,9 +10,9 @@ solution-status: draft
 topics:
   - sturm-liouville
 competencies:
-  - resolver-series.serie-fourier
-  - resolver-series.serie-cosenos
-  - resolver-series.serie-senos
+  - resolver.series.fourier
+  - resolver.series.fourier.cosenos
+  - resolver.series.fourier.senos
 hidden-competencies:
   - clasificar.paridad
 prerequisitos:

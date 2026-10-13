@@ -9,9 +9,9 @@ topics:
   - primer-orden
 competencies:
   - clasificar.homogenea
-  - resolver-analiticamente.homogeneas-primer-orden
+  - resolver.homogenea-primer-orden
 hidden-competencies:
-  - seleccionar-metodo.sustitucion
+  - seleccionar.metodo.sustitucion
 prerequisitos:
   - derivacion.producto
   - integracion.directa

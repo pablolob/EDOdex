@@ -11,7 +11,7 @@ topics:
   - primer-orden
   - estabilidad
 competencies:
-  - resolver-analiticamente.cambio-variable
+  - resolver.cambio-variable
   - aplicar-condiciones.problema-valor-inicial
   - interpretar.contexto-modelo
 prerequisitos:

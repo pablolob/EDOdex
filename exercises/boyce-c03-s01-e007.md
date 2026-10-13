@@ -10,10 +10,10 @@ solution-status: draft
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.homogenea.coeficientes-constantes
 hidden-competencies:
   - clasificar.coeficientes-constantes
-  - seleccionar-metodo.coeficientes-constantes
+  - seleccionar.metodo.coeficientes-constantes
 prerequisitos:
   - algebra.ecuaciones-caracteristicas
   - polinomios.resolver

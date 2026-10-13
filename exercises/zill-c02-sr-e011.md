@@ -7,8 +7,8 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 11"
 language: es
 competencies:
-  - resolver-analiticamente.lineales-primer-orden
-  - seleccionar-metodo.factor-integrante
+  - resolver.lineal.primer-orden
+  - seleccionar.metodo.factor-integrante
 prerequisitos:
   - derivacion.producto
   - derivacion.regla-cadena

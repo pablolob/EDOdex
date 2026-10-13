@@ -9,8 +9,8 @@ topics:
   - contorno
   - sturm-liouville
 competencies:
-  - resolver-edp.ecuacion-onda
-  - resolver-edp.separacion-variables
+  - resolver.edp.ecuacion-onda
+  - resolver.edp.separacion-variables
   - aplicar-condiciones.problema-valor-frontera
 prerequisitos:
   - calculo-avanzado.derivadas-parciales

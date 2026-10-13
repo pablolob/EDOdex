@@ -7,7 +7,7 @@ source-key: zill
 source-locator: "Repaso del capítulo 2, ejercicio 19"
 language: es
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - verificar.solucion
 hidden-competencies:
   - clasificar.separable

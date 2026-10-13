@@ -9,7 +9,7 @@ language: es
 topics:
   - primer-orden
 competencies:
-  - resolver-analiticamente.variables-separables
+  - resolver.separable
   - interpretar.contexto-modelo
 hidden-competencies:
   - clasificar.separable

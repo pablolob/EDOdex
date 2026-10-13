@@ -8,7 +8,7 @@ source-locator: "Sección 3.4, ejercicio 7"
 topics:
   - orden-superior
 competencies:
-  - resolver-analiticamente.lineales-coeficientes-constantes
+  - resolver.lineal.homogenea.coeficientes-constantes
 prerequisitos:
   - algebra.numeros-complejos
   - algebra.ecuaciones-caracteristicas

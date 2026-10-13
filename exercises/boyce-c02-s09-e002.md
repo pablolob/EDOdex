@@ -11,7 +11,7 @@ topics:
   - primer-orden
 competencies:
   - clasificar.homogenea
-  - resolver-analiticamente.homogeneas-primer-orden
+  - resolver.homogenea-primer-orden
 prerequisitos:
   - ecuaciones-diferenciales.primer-orden
   - integracion.directa

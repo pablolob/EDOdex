@@ -8,7 +8,7 @@ source-locator: "Repaso del capítulo 12, ejercicio 1"
 topics:
   - contorno
 competencies:
-  - resolver-edp.separacion-variables
+  - resolver.edp.separacion-variables
 prerequisitos:
   - calculo-avanzado.derivadas-parciales
   - ecuaciones-diferenciales.primer-orden
