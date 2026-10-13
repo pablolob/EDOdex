@@ -33,7 +33,7 @@
     ready(){loading.hidden=true;terminal.api.open(exploreMode);paint();window.dispatchEvent(new Event('odedex:workspace-ready'));},
   };
   function store(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{status.textContent='No se pudo guardar. Mantén abierta esta pestaña y exporta tus datos desde el archivo.';status.hidden=false;}}
-  function set(next,sync){selected=next;terminal.selected=selected;store(KEY,[...selected]);archive.refreshSelection();if(sync)terminal.api?.select([...selected]);paint();}
+  function set(next,sync){selected=next;terminal.selected=selected;store(KEY,[...selected]);if(sync)terminal.api?.select([...selected]);archive.refreshSelection();paint();}
   function markNav(mode){nav.querySelectorAll('[data-terminal-mode]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.terminalMode===(isExplore(mode)?'explore':mode))));}
   function paint(){
     const count=selected.size,visible=archive.visibleIds().filter(id=>selected.has(id)).length;
